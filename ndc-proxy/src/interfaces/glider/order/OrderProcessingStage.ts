@@ -1,0 +1,6 @@
+export enum OrderProcessingStage {
+    NOT_FOUND= 'NOT_FOUND',
+    IN_PROGRESS= 'IN_PROGRESS',
+    CREATION_FAILED= 'CREATION_FAILED',
+    COMPLETED= 'COMPLETED',
+}

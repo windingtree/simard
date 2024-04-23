@@ -1,0 +1,43 @@
+<SeatAvailabilityRQ Version="17.2" TransactionIdentifier="7cf41e2bbc41438983e3787e33ce3333">
+    <PointOfSale>
+        <Location>
+            <CountryCode>US</CountryCode>
+            <CityCode>DFW</CityCode>
+        </Location>
+    </PointOfSale>
+    <Document id="document">
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <PseudoCity>PCC_CODE</PseudoCity>
+                <AgencyID>00112490</AgencyID>
+            </TravelAgencySender>
+        </Sender>
+        <Participants>
+            <Participant>
+                <CorporateParticipant>
+                    <ID>060221</ID>
+                </CorporateParticipant>
+            </Participant>
+        </Participants>
+    </Party>
+    <Parameters>
+        <Pricing>
+            <OverrideCurrency>USD</OverrideCurrency>
+        </Pricing>
+    </Parameters>
+    <Query>
+        <Offer OfferID="PoP3FCA7E2E-4921-425C-A77D-1" Owner="AAD" ResponseID="P3FCA7E2E-4921-425C-A77D"/>
+    </Query>
+    <DataLists>
+        <PassengerList>
+            <Passenger PassengerID="pax1">
+                <PTC>ADT</PTC>
+            </Passenger>
+            <Passenger PassengerID="pax2">
+                <PTC>ADT</PTC>
+            </Passenger>
+        </PassengerList>
+    </DataLists>
+</SeatAvailabilityRQ>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header><Transaction xmlns="http://farelogix.com/flx/tc"><tc><pid>FLX DMServer TC1 (8800/3070) STG 0a19</pid><tid>0A4F34D7-2173F4D0</tid><dt>2021-07-25T12:25:58</dt></tc></Transaction></soapenv:Header><soapenv:Body><FlxTransactionResponse xmlns="http://farelogix.com/flx/OrderViewRS"><OrderViewRS Version="17.2" TransactionIdentifier="200e527f450f42a5be17f046fce5fde9">
+	<Document></Document>
+	<Errors>
+		<Error Type="PNR" ShortText="190003389" Code="325" Owner="AAD">Error during booking process. Code: 21, message: Rebooked segment unavailable</Error>
+	</Errors>
+</OrderViewRS>
+</FlxTransactionResponse></soapenv:Body></soapenv:Envelope>

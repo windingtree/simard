@@ -1,0 +1,9 @@
+*.js
+*.log
+*.xml
+*.json,
+*.test.ts
+logs/*
+test/*
+dist/*
+commands/*

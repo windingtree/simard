@@ -1,0 +1,412 @@
+{
+  "Header": {
+    "Transaction": {
+      "pid": "FLX DMServer TC1 (8800/3070) STG 0a7c",
+      "tid": "0275F25B-3796F7C0",
+      "dt": "2021-05-08T06:35:38"
+    }
+  },
+  "OfferPriceRS": {
+    "Success": "",
+    "Warnings": [
+      "NOT FARED AT PASSENGER TYPE REQUESTED"
+    ],
+    "Errors": [],
+    "ShoppingResponseID": {
+      "ResponseID": "PDF5736F-F112-4804-A1BA",
+      "owner": ""
+    },
+    "TransactionIdentifier": "8e85e9ab1ed946d4a1a21d14380fc4e5",
+    "PricedOffer": [
+      {
+        "OfferID": "PoPDF5736F-F112-4804-A1BA-1",
+        "Owner": "AAD",
+        "ValidatingCarrier": "AA",
+        "TimeLimits": {
+          "OfferExpiration": "2021-05-08T11:05:36Z",
+          "Payment": "2021-05-09T23:59:00",
+          "TicketByTimeLimit": "2021-05-09T23:59:00"
+        },
+        "TotalPrice": {
+          "Total": "123540",
+          "Code": "USD"
+        },
+        "FlightsOverview": [
+          {
+            "FlightRef": "\n                            FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO\n                        ",
+            "PriceClassRef": "MainCabin"
+          }
+        ],
+        "OfferItems": [
+          {
+            "OfferItemID": "PoIPDF5736F-F112-4804-A1BA-1-1",
+            "TotalPriceDetail": {
+              "Amount": "82360",
+              "Code": "USD"
+            },
+            "Service": {
+              "ServiceID": "PsvFltPDF5736F-F112-4804-A1BA-1-1",
+              "PassengerRefs": "pax1 pax2",
+              "FlightRefs": "FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO\n                                FGTID02TA3C2Z1BZ5J1YE0PCONV4AVOSH5PYH4Z5G10JM3NSNEOEQEXWK\n                            "
+            },
+            "FareDetail": {
+              "PassengerRefs": "pax1 pax2",
+              "Price": {
+                "BaseAmount": {
+                  "Amount": "35628",
+                  "Code": "USD"
+                },
+                "Surcharges": {
+                  "Amount": "",
+                  "Code": ""
+                },
+                "Taxes": {
+                  "Amount": "5552",
+                  "Code": "USD"
+                },
+                "TaxesBreakdown": [
+                  {
+                    "Amount": "2672",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "US",
+                    "Description": "U.S.A Transportation Tax"
+                  },
+                  {
+                    "Amount": "860",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "ZP",
+                    "Description": "United States Flight Segment Tax Domestic"
+                  },
+                  {
+                    "Amount": "1120",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "AY",
+                    "Description": "United States Passenger Civil Aviation Security Service Fee\n                                            "
+                  },
+                  {
+                    "Amount": "900",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "XF",
+                    "Description": "US Passenger Facility Charge"
+                  }
+                ]
+              },
+              "FareBasis": {
+                "FareBasisCode": "M8AIZNN1",
+                "FareBasisCityPair": "JFKDFWAA",
+                "RBD": "M",
+                "CabinTypeCode": "Y",
+                "CabinTypeName": "COACH"
+              },
+              "FareRules": {
+                "Penalty": {
+                  "CancelFeeInd": "false",
+                  "ChangeFeeInd": "false",
+                  "RefundableInd": "false"
+                },
+                "PriceClassRef": "MainCabin",
+                "SegmentRefs": "Isgm01003a6966962"
+              }
+            }
+          },
+          {
+            "OfferItemID": "PoIPDF5736F-F112-4804-A1BA-1-2",
+            "TotalPriceDetail": {
+              "Amount": "41180",
+              "Code": "USD"
+            },
+            "Service": {
+              "ServiceID": "PsvFltPDF5736F-F112-4804-A1BA-1-2",
+              "PassengerRefs": "pax3",
+              "FlightRefs": "FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO\n                                FGTID02TA3C2Z1BZ5J1YE0PCONV4AVOSH5PYH4Z5G10JM3NSNEOEQEXWK\n                            "
+            },
+            "FareDetail": {
+              "PassengerRefs": "pax3",
+              "Price": {
+                "BaseAmount": {
+                  "Amount": "35628",
+                  "Code": "USD"
+                },
+                "Surcharges": {
+                  "Amount": "",
+                  "Code": ""
+                },
+                "Taxes": {
+                  "Amount": "5552",
+                  "Code": "USD"
+                },
+                "TaxesBreakdown": [
+                  {
+                    "Amount": "2672",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "US",
+                    "Description": "U.S.A Transportation Tax"
+                  },
+                  {
+                    "Amount": "860",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "ZP",
+                    "Description": "United States Flight Segment Tax Domestic"
+                  },
+                  {
+                    "Amount": "1120",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "AY",
+                    "Description": "United States Passenger Civil Aviation Security Service Fee\n                                            "
+                  },
+                  {
+                    "Amount": "900",
+                    "Code": "USD",
+                    "Nation": "US",
+                    "TaxCode": "XF",
+                    "Description": "US Passenger Facility Charge"
+                  }
+                ]
+              },
+              "FareBasis": {
+                "FareBasisCode": "M8AIZNN1",
+                "FareBasisCityPair": "JFKDFWAA",
+                "RBD": "M",
+                "CabinTypeCode": "Y",
+                "CabinTypeName": "COACH"
+              },
+              "FareRules": {
+                "Penalty": {
+                  "CancelFeeInd": "false",
+                  "ChangeFeeInd": "false",
+                  "RefundableInd": "false"
+                },
+                "PriceClassRef": "MainCabin",
+                "SegmentRefs": "Isgm01003a6966962"
+              }
+            }
+          }
+        ],
+        "BaggageAllowance": [
+          {
+            "FlightRefs": "FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO",
+            "PassengerRefs": "pax1 pax2 pax3",
+            "BaggageAllowanceRef": "PcoIDBARXAARQVIZJHMM0BAQ50ZGXPNI1J3KTHM4C2HPZRZLIDUPCDBCB\n                        "
+          },
+          {
+            "FlightRefs": "FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO",
+            "PassengerRefs": "pax1 pax2 pax3",
+            "BaggageAllowanceRef": "PbaIDOBTNHHSFET34P0VE0BNDD0JNHBH4HLF2QA0X30IDJHLBF4VUB1QP\n                        "
+          },
+          {
+            "FlightRefs": "FGTID02TA3C2Z1BZ5J1YE0PCONV4AVOSH5PYH4Z5G10JM3NSNEOEQEXWK",
+            "PassengerRefs": "pax1 pax2 pax3",
+            "BaggageAllowanceRef": "PcoIDBARXAARQVIZJHMM0BAQ50ZGXPNI1J3KTHM4C2HPZRZLIDUPCDBCB\n                        "
+          },
+          {
+            "FlightRefs": "FGTID02TA3C2Z1BZ5J1YE0PCONV4AVOSH5PYH4Z5G10JM3NSNEOEQEXWK",
+            "PassengerRefs": "pax1 pax2 pax3",
+            "BaggageAllowanceRef": "PbaIDOBTNHHSFET34P0VE0BNDD0JNHBH4HLF2QA0X30IDJHLBF4VUB1QP\n                        "
+          }
+        ]
+      }
+    ],
+    "PassengerList": [
+      {
+        "PassengerID": "pax1",
+        "type": "ADT"
+      },
+      {
+        "PassengerID": "pax2",
+        "type": "ADT"
+      },
+      {
+        "PassengerID": "pax3",
+        "type": "CNN"
+      }
+    ],
+    "BaggageAllowanceList": [
+      {
+        "BaggageAllowanceID": "PcoIDBARXAARQVIZJHMM0BAQ50ZGXPNI1J3KTHM4C2HPZRZLIDUPCDBCB",
+        "BaggageCategory": "CarryOn",
+        "PieceAllowance": {
+          "TotalQuantity": "2"
+        }
+      },
+      {
+        "BaggageAllowanceID": "PbaIDOBTNHHSFET34P0VE0BNDD0JNHBH4HLF2QA0X30IDJHLBF4VUB1QP",
+        "BaggageCategory": "Checked",
+        "PieceAllowance": {
+          "TotalQuantity": "0"
+        }
+      }
+    ],
+    "FareList": [
+      {
+        "refs": "FRKAADID2XEMCNFCU5KFGNAU0UEMHSMSBEKCWTLGKRPIRQOBHD2OHTTUBXBE",
+        "ListKey": "FGPAADID2XEMCNFCU5KFGNAU0UEMHSMSBEKCWTLGKRPIRQOBHD2OHTTUBXBE",
+        "FareCode": "70J",
+        "FareBasisCode": "M8AIZNN1"
+      },
+      {
+        "refs": "FRKAADIDZ5BV0TAIYI1WMYZLQ130LMV5KMYZO55QZAQGRQDIIM43Y5LRHKYP",
+        "ListKey": "FGPAADIDZ5BV0TAIYI1WMYZLQ130LMV5KMYZO55QZAQGRQDIIM43Y5LRHKYP",
+        "FareCode": "70J",
+        "FareBasisCode": "V3AHZNN1"
+      }
+    ],
+    "FlightSegmentList": [
+      {
+        "SegmentKey": "Isgm01003a6966962",
+        "ConnectInd": "false",
+        "ElectronicTicketInd": "false",
+        "SecureFlight": "true",
+        "operator": {
+          "operatorType": "airline",
+          "iataCode": "",
+          "iataCodeM": "AA",
+          "flightNumber": "2234"
+        },
+        "Departure": {
+          "locationType": "airport",
+          "AirportCode": "JFK",
+          "Date": "2021-06-01",
+          "Time": "08:15",
+          "TerminalName": "8"
+        },
+        "Arrival": {
+          "locationType": "airport",
+          "AirportCode": "DFW",
+          "Date": "2021-06-01",
+          "Time": "11:01",
+          "TerminalName": "0"
+        },
+        "MarketingCarrier": {
+          "AirlineID": "AA",
+          "Name": "American Airlines",
+          "FlightNumber": "2234",
+          "ResBookDesigCode": ""
+        },
+        "OperatingCarrier": {
+          "AirlineID": "",
+          "Name": "",
+          "FlightNumber": "",
+          "ResBookDesigCode": "",
+          "Disclosures": {
+            "Description": {
+              "Text": ""
+            }
+          }
+        },
+        "Equipment": {
+          "AircraftCode": "738"
+        },
+        "ClassOfService": {
+          "Code": "M"
+        },
+        "FlightDetail": {
+          "FlightDuration": {
+            "Value": "PT03H46M"
+          },
+          "Stops": {
+            "StopQuantity": ""
+          }
+        }
+      },
+      {
+        "SegmentKey": "Isgm03003a6966962",
+        "ConnectInd": "false",
+        "ElectronicTicketInd": "false",
+        "SecureFlight": "true",
+        "operator": {
+          "operatorType": "airline",
+          "iataCode": "",
+          "iataCodeM": "AA",
+          "flightNumber": "2292"
+        },
+        "Departure": {
+          "locationType": "airport",
+          "AirportCode": "DFW",
+          "Date": "2021-06-07",
+          "Time": "17:04",
+          "TerminalName": "0"
+        },
+        "Arrival": {
+          "locationType": "airport",
+          "AirportCode": "JFK",
+          "Date": "2021-06-07",
+          "Time": "21:59",
+          "TerminalName": "8"
+        },
+        "MarketingCarrier": {
+          "AirlineID": "AA",
+          "Name": "American Airlines",
+          "FlightNumber": "2292",
+          "ResBookDesigCode": ""
+        },
+        "OperatingCarrier": {
+          "AirlineID": "",
+          "Name": "",
+          "FlightNumber": "",
+          "ResBookDesigCode": "",
+          "Disclosures": {
+            "Description": {
+              "Text": ""
+            }
+          }
+        },
+        "Equipment": {
+          "AircraftCode": "738"
+        },
+        "ClassOfService": {
+          "Code": "V"
+        },
+        "FlightDetail": {
+          "FlightDuration": {
+            "Value": "PT03H55M"
+          },
+          "Stops": {
+            "StopQuantity": ""
+          }
+        }
+      }
+    ],
+    "FlightList": [
+      {
+        "FlightKey": "FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO",
+        "SegmentReferences": "Isgm01003a6966962"
+      },
+      {
+        "FlightKey": "FGTID02TA3C2Z1BZ5J1YE0PCONV4AVOSH5PYH4Z5G10JM3NSNEOEQEXWK",
+        "SegmentReferences": "Isgm03003a6966962"
+      }
+    ],
+    "OriginDestinationList": [
+      {
+        "OriginDestinationKey": "OD1",
+        "refs": "",
+        "FlightReferences": "\n                                FGTIDVGRPVOTYVDBBBECPZ3MMAA21VGUBYL1CK52STXH3DCGCJGGQ5OUO\n                            "
+      },
+      {
+        "OriginDestinationKey": "OD2",
+        "refs": "",
+        "FlightReferences": "\n                                FGTID02TA3C2Z1BZ5J1YE0PCONV4AVOSH5PYH4Z5G10JM3NSNEOEQEXWK\n                            "
+      }
+    ],
+    "PriceClassList": [
+      {
+        "PriceClassID": "MainCabin",
+        "Name": "Main Cabin",
+        "Code": "AADOM-MAIN",
+        "Description": [
+          "No change fees (difference in ticket price may apply)",
+          "Choose your seat at no charge (fee may apply for preferred or Main Cabin Extra\n                                        seats)\n                                    ",
+          "General boarding",
+          "Elite Qualifying  Credits (EQMs, EQSs or EQDs)"
+        ]
+      }
+    ]
+  }
+}

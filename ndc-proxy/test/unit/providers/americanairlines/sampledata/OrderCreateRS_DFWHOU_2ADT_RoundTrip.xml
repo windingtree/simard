@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Header>
+		<Transaction xmlns="http://farelogix.com/flx/tc">
+			<tc>
+				<pid>FLX DMServer TC1 (8800/3070) STG 0a19</pid>
+				<tid>073EBD7A-01CFF260</tid>
+				<dt>2021-05-30T04:48:28</dt>
+			</tc>
+		</Transaction>
+	</soapenv:Header>
+	<soapenv:Body>
+		<FlxTransactionResponse xmlns="http://farelogix.com/flx/OrderViewRS">
+			<OrderViewRS Version="17.2" TransactionIdentifier="fac51b74ae744e9fa1520cf2798ed04d">
+	<Document></Document>
+	<Party>
+		<Sender>
+			<AggregatorSender>
+				<AggregatorID>F1</AggregatorID>
+			</AggregatorSender>
+		</Sender>
+		<Recipient>
+			<TravelAgencyRecipient>
+				<Contacts>
+					<Contact>
+						<AddressContact>
+							<Street>Tartu mnt 67/1</Street>
+							<BuildingRoom>13b</BuildingRoom>
+							<CityName>Tallinn</CityName>
+							<PostalCode>10115</PostalCode>
+							<CountryCode>EE</CountryCode>
+						</AddressContact>
+					</Contact>
+				</Contacts>
+				<PseudoCity Owner="F1">PCC_CODE</PseudoCity>
+				<AgencyID>PCC_CODE</AgencyID>
+				<AgentUser>
+					<Name>00112490</Name>
+					<Contacts>
+						<Contact>
+							<AddressContact>
+								<Street>Tartu mnt 67/1</Street>
+								<BuildingRoom>13b</BuildingRoom>
+								<CityName>Tallinn</CityName>
+								<PostalCode>10115</PostalCode>
+								<CountryCode>EE</CountryCode>
+							</AddressContact>
+						</Contact>
+					</Contacts>
+					<PseudoCity Owner="F1">PCC_CODE</PseudoCity>
+					<IATA_Number>00112490</IATA_Number>
+					<AgentUserID>simardusd</AgentUserID>
+				</AgentUser>
+			</TravelAgencyRecipient>
+		</Recipient>
+	</Party>
+	<Success></Success>
+	<Response>
+		<Order OrderID="AA001EC1E2F02" Owner="AAD">
+			<BookingReferences>
+				<BookingReference>
+					<ID>NGZO3W</ID>
+					<OtherID>F1</OtherID>
+				</BookingReference>
+				<BookingReference>
+					<ID>KXRSUF</ID>
+					<AirlineID Name="American Airline(Direct)">AAD</AirlineID>
+				</BookingReference>
+			</BookingReferences>
+			<TotalOrderPrice>
+				<DetailCurrencyPrice>
+					<Total Code="USD">42560</Total>
+				</DetailCurrencyPrice>
+			</TotalOrderPrice>
+			<Payments>
+				<Payment>
+					<Type>CC</Type>
+					<Status>
+						<StatusCode>395</StatusCode>
+					</Status>
+					<Amount>
+						<SimpleCurrencyPrice Code="USD">0</SimpleCurrencyPrice>
+					</Amount>
+					<Method>
+						<PaymentCardMethod>
+							<CardCode>CA</CardCode>
+							<MaskedCardNumber>XXXXXXXXXXXX3335</MaskedCardNumber>
+							<CardHolderName>John Doe</CardHolderName>
+							<CardholderAddress>
+								<StructuredAddress>
+									<Street>123 STREET Billing</Street>
+									<CityName>MIAMI</CityName>
+									<StateProv>FL</StateProv>
+									<PostalCode>33160</PostalCode>
+									<CountryCode>US</CountryCode>
+								</StructuredAddress>
+							</CardholderAddress>
+							<EffectiveExpireDate>
+								<Expiration>0330</Expiration>
+							</EffectiveExpireDate>
+						</PaymentCardMethod>
+					</Method>
+					<OrderItemID>PoIP5CC53535-1A51-4081-B6C3-1-1</OrderItemID>
+				</Payment>
+			</Payments>
+			<OrderItems>
+				<OrderItem OrderItemID="PoIP5CC53535-1A51-4081-B6C3-1-1" Timestamp="2021-05-30T03:48:00">
+					<PriceDetail>
+						<TotalAmount>
+							<DetailCurrencyPrice>
+								<Total Code="USD">42560</Total>
+							</DetailCurrencyPrice>
+						</TotalAmount>
+						<BaseAmount Code="USD">34232</BaseAmount>
+						<Taxes>
+							<Total Code="USD">8328</Total>
+						</Taxes>
+					</PriceDetail>
+					<Service ServiceID="BAGGAGESRV1-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRV7CBABA5-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV2-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRVB446BE2</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV3-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRVF9B4444C</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV4-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRVD7E59507-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV5-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRVB446BE2</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV6-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRVF9B4444C</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV7-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRV7CBABA5-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV8-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRVD7E59507-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="SRV1-T1-S3" ServiceStatus="HK">
+						<PassengerRef>T1</PassengerRef>
+						<SegmentRef>S3</SegmentRef>
+					</Service>
+					<Service ServiceID="SRV1-T1-S4" ServiceStatus="HK">
+						<PassengerRef>T1</PassengerRef>
+						<SegmentRef>S4</SegmentRef>
+					</Service>
+					<Service ServiceID="SRV1-T2-S3" ServiceStatus="HK">
+						<PassengerRef>T2</PassengerRef>
+						<SegmentRef>S3</SegmentRef>
+					</Service>
+					<Service ServiceID="SRV1-T2-S4" ServiceStatus="HK">
+						<PassengerRef>T2</PassengerRef>
+						<SegmentRef>S4</SegmentRef>
+					</Service>
+					<TimeLimits>
+						<PaymentTimeLimit Timestamp="2021-05-30T03:48:23"></PaymentTimeLimit>
+						<TicketingTimeLimits Timestamp="2021-05-30T03:48:23"></TicketingTimeLimits>
+					</TimeLimits>
+					<FareDetail>
+						<FareIndicatorCode>0</FareIndicatorCode>
+						<PassengerRefs>T1 T2</PassengerRefs>
+						<Price>
+							<TotalAmount>
+								<DetailCurrencyPrice>
+									<Total Code="USD">21280</Total>
+								</DetailCurrencyPrice>
+							</TotalAmount>
+							<BaseAmount Code="USD">17116</BaseAmount>
+							<Taxes>
+								<Total Code="USD">4164</Total>
+								<Breakdown>
+									<Tax>
+										<Amount Code="USD">1284</Amount>
+										<Nation>US</Nation>
+										<TaxCode>US</TaxCode>
+										<Description>U.S.A Transportation Tax</Description>
+									</Tax>
+									<Tax>
+										<Amount Code="USD">860</Amount>
+										<Nation>US</Nation>
+										<TaxCode>ZP</TaxCode>
+										<Description>U.S. Flight Segment Tax</Description>
+									</Tax>
+								</Breakdown>
+							</Taxes>
+						</Price>
+						<FareComponent>
+							<Price>
+								<TotalAmount>
+									<DetailCurrencyPrice>
+										<Total Code="USD">10640</Total>
+									</DetailCurrencyPrice>
+								</TotalAmount>
+								<BaseAmount Code="USD">8558</BaseAmount>
+								<Taxes>
+									<Total Code="USD">2082</Total>
+									<Breakdown>
+										<Tax>
+											<Amount Code="USD">642</Amount>
+											<Nation>US</Nation>
+											<TaxCode>US</TaxCode>
+											<Description>US Transportation Tax</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">450</Amount>
+											<Nation>US</Nation>
+											<TaxCode>XF</TaxCode>
+											<CollectionPoint>
+												<CurrCode NumberOfDecimals="2">USD</CurrCode>
+												<AirportAmount>450</AirportAmount>
+												<AirportCode>DFW</AirportCode>
+											</CollectionPoint>
+											<Description>US Passenger Facility Charge</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">430</Amount>
+											<Nation>US</Nation>
+											<TaxCode>ZP</TaxCode>
+											<CollectionPoint>
+												<CurrCode NumberOfDecimals="2">USD</CurrCode>
+												<AirportAmount>430</AirportAmount>
+												<AirportCode>DFW</AirportCode>
+											</CollectionPoint>
+											<Description>United States Flight Segment Tax Domestic</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">560</Amount>
+											<Nation>US</Nation>
+											<TaxCode>AY</TaxCode>
+											<Description>United States Passenger Civil Aviation Security Service Fee</Description>
+										</Tax>
+									</Breakdown>
+								</Taxes>
+							</Price>
+							<FareBasis>
+								<FareBasisCode refs="FG1">
+									<Code>SUAIZNN1</Code>
+								</FareBasisCode>
+								<RBD>S</RBD>
+								<CabinType>
+									<CabinTypeCode>Y</CabinTypeCode>
+									<CabinTypeName>Economy</CabinTypeName>
+								</CabinType>
+							</FareBasis>
+							<TicketDesig>23XGAN</TicketDesig>
+							<FareRules>
+								<Penalty RefundableInd="false" CancelFeeInd="false" ChangeFeeInd="false">
+									<Details>
+										<Detail refs="RM3F72CC68">
+											<Type>Change</Type>
+										</Detail>
+										<Detail refs="RMA75E5A98">
+											<Type>Cancel</Type>
+										</Detail>
+									</Details>
+								</Penalty>
+								<Ticketing>
+									<Endorsements>
+										<Endorsement>NONREF/FAREDIF/CXL BY FLT TIME OR NOVALUE</Endorsement>
+									</Endorsements>
+								</Ticketing>
+							</FareRules>
+							<PriceClassRef>AADMainCabin-1</PriceClassRef>
+							<SegmentRefs ON_Point="DFW" OFF_Point="IAH">S3</SegmentRefs>
+						</FareComponent>
+						<FareComponent>
+							<Price>
+								<TotalAmount>
+									<DetailCurrencyPrice>
+										<Total Code="USD">10640</Total>
+									</DetailCurrencyPrice>
+								</TotalAmount>
+								<BaseAmount Code="USD">8558</BaseAmount>
+								<Taxes>
+									<Total Code="USD">2082</Total>
+									<Breakdown>
+										<Tax>
+											<Amount Code="USD">642</Amount>
+											<Nation>US</Nation>
+											<TaxCode>US</TaxCode>
+											<Description>US Transportation Tax</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">450</Amount>
+											<Nation>US</Nation>
+											<TaxCode>XF</TaxCode>
+											<CollectionPoint>
+												<CurrCode NumberOfDecimals="2">USD</CurrCode>
+												<AirportAmount>450</AirportAmount>
+												<AirportCode>IAH</AirportCode>
+											</CollectionPoint>
+											<Description>US Passenger Facility Charge</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">430</Amount>
+											<Nation>US</Nation>
+											<TaxCode>ZP</TaxCode>
+											<CollectionPoint>
+												<CurrCode NumberOfDecimals="2">USD</CurrCode>
+												<AirportAmount>430</AirportAmount>
+												<AirportCode>IAH</AirportCode>
+											</CollectionPoint>
+											<Description>United States Flight Segment Tax Domestic</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">560</Amount>
+											<Nation>US</Nation>
+											<TaxCode>AY</TaxCode>
+											<Description>United States Passenger Civil Aviation Security Service Fee</Description>
+										</Tax>
+									</Breakdown>
+								</Taxes>
+							</Price>
+							<FareBasis>
+								<FareBasisCode refs="FG2">
+									<Code>SUAIZNN1</Code>
+								</FareBasisCode>
+								<RBD>S</RBD>
+								<CabinType>
+									<CabinTypeCode>Y</CabinTypeCode>
+									<CabinTypeName>Economy</CabinTypeName>
+								</CabinType>
+							</FareBasis>
+							<TicketDesig>23XGAN</TicketDesig>
+							<FareRules>
+								<Penalty RefundableInd="false" CancelFeeInd="false" ChangeFeeInd="false">
+									<Details>
+										<Detail refs="RM3F72CC68">
+											<Type>Change</Type>
+										</Detail>
+										<Detail refs="RMA75E5A98">
+											<Type>Cancel</Type>
+										</Detail>
+									</Details>
+								</Penalty>
+								<Ticketing>
+									<Endorsements>
+										<Endorsement>NONREF/FAREDIF/CXL BY FLT TIME OR NOVALUE</Endorsement>
+									</Endorsements>
+								</Ticketing>
+							</FareRules>
+							<PriceClassRef>AADMainCabin-1</PriceClassRef>
+							<SegmentRefs ON_Point="IAH" OFF_Point="DFW">S4</SegmentRefs>
+						</FareComponent>
+					</FareDetail>
+				</OrderItem>
+			</OrderItems>
+		</Order>
+		<TicketDocInfos>
+			<TicketDocInfo>
+				<AgentIDs>
+					<AgentID>
+						<Type>705</Type>
+						<ID>00112490</ID>
+					</AgentID>
+				</AgentIDs>
+				<IssuingAirlineInfo>
+					<AirlineName>AAD</AirlineName>
+				</IssuingAirlineInfo>
+				<TicketDocument>
+					<TicketDocNbr>00121571362043</TicketDocNbr>
+					<Type>702</Type>
+					<NumberofBooklets>1</NumberofBooklets>
+					<DateOfIssue>2021-05-30</DateOfIssue>
+					<CouponInfo>
+						<CouponNumber>1</CouponNumber>
+						<CouponReference>S3</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<CouponInfo>
+						<CouponNumber>2</CouponNumber>
+						<CouponReference>S4</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<ReportingType>Airline</ReportingType>
+				</TicketDocument>
+				<PassengerReference>T2</PassengerReference>
+			</TicketDocInfo>
+			<TicketDocInfo>
+				<AgentIDs>
+					<AgentID>
+						<Type>705</Type>
+						<ID>00112490</ID>
+					</AgentID>
+				</AgentIDs>
+				<IssuingAirlineInfo>
+					<AirlineName>AAD</AirlineName>
+				</IssuingAirlineInfo>
+				<TicketDocument>
+					<TicketDocNbr>00121571362054</TicketDocNbr>
+					<Type>702</Type>
+					<NumberofBooklets>1</NumberofBooklets>
+					<DateOfIssue>2021-05-30</DateOfIssue>
+					<CouponInfo>
+						<CouponNumber>1</CouponNumber>
+						<CouponReference>S3</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<CouponInfo>
+						<CouponNumber>2</CouponNumber>
+						<CouponReference>S4</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<ReportingType>Airline</ReportingType>
+				</TicketDocument>
+				<PassengerReference>T1</PassengerReference>
+			</TicketDocInfo>
+		</TicketDocInfos>
+		<DataLists>
+			<PassengerList>
+				<Passenger PassengerID="T1">
+					<PTC>ADT</PTC>
+					<Birthdate>2000-01-01</Birthdate>
+					<Individual>
+						<Birthdate>2000-01-01</Birthdate>
+						<Gender>Male</Gender>
+						<GivenName>FRANK</GivenName>
+						<Surname>DOE</Surname>
+					</Individual>
+					<LoyaltyProgramAccount>
+						<Airline>
+							<AirlineName>AMERICAN AIRLINES</AirlineName>
+							<AirlineDesignator>AA</AirlineDesignator>
+						</Airline>
+						<AccountNumber>43KXJ60</AccountNumber>
+						<TierCode>Platinum</TierCode>
+						<TierName>Platinum</TierName>
+					</LoyaltyProgramAccount>
+					<LoyaltyProgramAccount>
+						<Airline>
+							<AirlineDesignator>AA</AirlineDesignator>
+						</Airline>
+						<ProgramName>CLID</ProgramName>
+						<AccountNumber>060221</AccountNumber>
+						<SignInID>American Airlines</SignInID>
+						<TierPriority>HK</TierPriority>
+					</LoyaltyProgramAccount>
+					<ContactInfoRef>CI1</ContactInfoRef>
+				</Passenger>
+				<Passenger PassengerID="T2">
+					<PTC>ADT</PTC>
+					<Birthdate>1999-01-01</Birthdate>
+					<Individual>
+						<Birthdate>1999-01-01</Birthdate>
+						<Gender>Male</Gender>
+						<GivenName>JOHN</GivenName>
+						<Surname>DOE</Surname>
+					</Individual>
+					<LoyaltyProgramAccount>
+						<Airline>
+							<AirlineDesignator>AA</AirlineDesignator>
+						</Airline>
+						<ProgramName>CLID</ProgramName>
+						<AccountNumber>060221</AccountNumber>
+						<SignInID>American Airlines</SignInID>
+						<TierPriority>HK</TierPriority>
+					</LoyaltyProgramAccount>
+					<ContactInfoRef>CI1</ContactInfoRef>
+				</Passenger>
+			</PassengerList>
+			<ContactList>
+				<ContactInformation ContactID="CI1">
+					<ContactProvided>
+						<Phone>
+							<Label>Home</Label>
+							<PhoneNumber>0012312312</PhoneNumber>
+						</Phone>
+					</ContactProvided>
+					<ContactProvided>
+						<Phone>
+							<Label>Other</Label>
+							<PhoneNumber>3726273157</PhoneNumber>
+						</Phone>
+					</ContactProvided>
+					<ContactProvided>
+						<EmailAddress>
+							<EmailAddressValue>TOM@SIMARD.IO</EmailAddressValue>
+						</EmailAddress>
+					</ContactProvided>
+				</ContactInformation>
+			</ContactList>
+			<BaggageAllowanceList>
+				<BaggageAllowance BaggageAllowanceID="BA16470238-CO">
+					<BaggageCategory>CarryOn</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CARRY ON ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<DimensionAllowance>
+						<DimensionUOM>Inch</DimensionUOM>
+						<Dimensions>
+							<Category>Length</Category>
+							<MaxValue>45</MaxValue>
+						</Dimensions>
+					</DimensionAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 45 LI 115 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>45</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 40 LI 101 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>45</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+				<BaggageAllowance BaggageAllowanceID="BA6A75D02E-CO">
+					<BaggageCategory>CarryOn</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CARRY ON ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<DimensionAllowance>
+						<DimensionUOM>Inch</DimensionUOM>
+						<Dimensions>
+							<Category>Length</Category>
+							<MaxValue>45</MaxValue>
+						</Dimensions>
+					</DimensionAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 45 LI 115 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>45</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 40 LI 101 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>45</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+				<BaggageAllowance BaggageAllowanceID="BAF7F3265D">
+					<BaggageCategory>Checked</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CHECKED ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<PieceMeasurements Quantity="0"></PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<ApplicableBag>UPTO50LB 23KG AND62LI 158LCM</ApplicableBag>
+						<PieceMeasurements Quantity="0">
+							<PieceWeightAllowance>
+								<MaximumWeight>
+									<Value>23</Value>
+									<UOM>KG</UOM>
+								</MaximumWeight>
+							</PieceWeightAllowance>
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>62</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+				<BaggageAllowance BaggageAllowanceID="BACFDF8EF8">
+					<BaggageCategory>Checked</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CHECKED ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<PieceMeasurements Quantity="0"></PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<ApplicableBag>UPTO50LB 23KG AND62LI 158LCM</ApplicableBag>
+						<PieceMeasurements Quantity="0">
+							<PieceWeightAllowance>
+								<MaximumWeight>
+									<Value>23</Value>
+									<UOM>KG</UOM>
+								</MaximumWeight>
+							</PieceWeightAllowance>
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>62</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+			</BaggageAllowanceList>
+			<FareList>
+				<FareGroup ListKey="FG1" refs="FRK75981CAC">
+					<Fare>
+						<FareCode>749</FareCode>
+					</Fare>
+					<FareBasisCode>
+						<Code>SUAIZNN1</Code>
+					</FareBasisCode>
+				</FareGroup>
+				<FareGroup ListKey="FG2" refs="FRKCF6E2F5B">
+					<Fare>
+						<FareCode>749</FareCode>
+					</Fare>
+					<FareBasisCode>
+						<Code>SUAIZNN1</Code>
+					</FareBasisCode>
+				</FareGroup>
+			</FareList>
+			<FlightSegmentList>
+				<FlightSegment SegmentKey="S3" ElectronicTicketInd="true" SecureFlight="true">
+					<Departure>
+						<AirportCode>DFW</AirportCode>
+						<Date>2021-06-15</Date>
+						<Time>16:43</Time>
+						<AirportName>Dallas Dallas-Fort Worth Intl Apt, US</AirportName>
+					</Departure>
+					<Arrival>
+						<AirportCode>IAH</AirportCode>
+						<Date>2021-06-15</Date>
+						<Time>17:45</Time>
+						<AirportName>Houston George Bush Intercont., US</AirportName>
+					</Arrival>
+					<MarketingCarrier>
+						<AirlineID>AA</AirlineID>
+						<Name>AMERICAN AIRLINES</Name>
+						<FlightNumber>2438</FlightNumber>
+					</MarketingCarrier>
+					<Equipment>
+						<AircraftCode>738</AircraftCode>
+						<Name>Boeing 737-800 Passenger</Name>
+					</Equipment>
+					<ClassOfService>
+						<Code>S</Code>
+					</ClassOfService>
+					<FlightDetail>
+						<FlightDuration>
+							<Value>PT1H2M</Value>
+						</FlightDuration>
+						<Stops>
+							<StopQuantity>0</StopQuantity>
+						</Stops>
+						<ResDateTime>
+							<Date time="03:48">2021-05-30</Date>
+						</ResDateTime>
+					</FlightDetail>
+				</FlightSegment>
+				<FlightSegment SegmentKey="S4" ElectronicTicketInd="true" SecureFlight="true">
+					<Departure>
+						<AirportCode>IAH</AirportCode>
+						<Date>2021-06-19</Date>
+						<Time>05:00</Time>
+						<AirportName>Houston George Bush Intercont., US</AirportName>
+					</Departure>
+					<Arrival>
+						<AirportCode>DFW</AirportCode>
+						<Date>2021-06-19</Date>
+						<Time>06:07</Time>
+						<AirportName>Dallas Dallas-Fort Worth Intl Apt, US</AirportName>
+					</Arrival>
+					<MarketingCarrier>
+						<AirlineID>AA</AirlineID>
+						<Name>AMERICAN AIRLINES</Name>
+						<FlightNumber>2442</FlightNumber>
+					</MarketingCarrier>
+					<Equipment>
+						<AircraftCode>738</AircraftCode>
+						<Name>Boeing 737-800 Passenger</Name>
+					</Equipment>
+					<ClassOfService>
+						<Code>S</Code>
+					</ClassOfService>
+					<FlightDetail>
+						<FlightDuration>
+							<Value>PT1H7M</Value>
+						</FlightDuration>
+						<Stops>
+							<StopQuantity>0</StopQuantity>
+						</Stops>
+						<ResDateTime>
+							<Date time="03:48">2021-05-30</Date>
+						</ResDateTime>
+					</FlightDetail>
+				</FlightSegment>
+			</FlightSegmentList>
+			<FlightList>
+				<Flight FlightKey="F1">
+					<SegmentReferences OnPoint="DFW" OffPoint="IAH">S3</SegmentReferences>
+				</Flight>
+				<Flight FlightKey="F2">
+					<SegmentReferences OnPoint="IAH" OffPoint="DFW">S4</SegmentReferences>
+				</Flight>
+			</FlightList>
+			<OriginDestinationList>
+				<OriginDestination OriginDestinationKey="O1">
+					<DepartureCode>DFW</DepartureCode>
+					<ArrivalCode>IAH</ArrivalCode>
+					<FlightReferences OnPoint="DFW" OffPoint="IAH">F1</FlightReferences>
+				</OriginDestination>
+				<OriginDestination OriginDestinationKey="O2">
+					<DepartureCode>IAH</DepartureCode>
+					<ArrivalCode>DFW</ArrivalCode>
+					<FlightReferences OnPoint="IAH" OffPoint="DFW">F2</FlightReferences>
+				</OriginDestination>
+			</OriginDestinationList>
+			<PriceClassList>
+				<PriceClass PriceClassID="AADMainCabin-1">
+					<Name>Main Cabin</Name>
+					<Code>AADOM-MAIN</Code>
+					<Descriptions>
+						<Description>
+							<Text>No change fees (difference in ticket price may apply)</Text>
+						</Description>
+						<Description>
+							<Text>Choose your seat at no charge (fee may apply for preferred or Main Cabin Extra seats)</Text>
+						</Description>
+						<Description>
+							<Text>General boarding</Text>
+						</Description>
+						<Description>
+							<Text>Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+						</Description>
+						<Description>
+							<Text>No change fees (difference in ticket price may apply)</Text>
+						</Description>
+						<Description>
+							<Text>Choose your seat at no charge (fee may apply for preferred or Main Cabin Extra seats)</Text>
+						</Description>
+						<Description>
+							<Text>General boarding</Text>
+						</Description>
+						<Description>
+							<Text>Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+						</Description>
+						<Description>
+							<Text>No change fees (difference in ticket price may apply)</Text>
+						</Description>
+						<Description>
+							<Text>Choose your seat at no charge (fee may apply for preferred or Main Cabin Extra seats)</Text>
+						</Description>
+						<Description>
+							<Text>General boarding</Text>
+						</Description>
+						<Description>
+							<Text>Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+						</Description>
+					</Descriptions>
+				</PriceClass>
+			</PriceClassList>
+			<ServiceDefinitionList>
+				<ServiceDefinition ServiceDefinitionID="BASRVD7E59507-CO">
+					<Name>Carry On Bag Allowance</Name>
+					<BaggageAllowanceRef>BA16470238-CO</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Carry On Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+				<ServiceDefinition ServiceDefinitionID="BASRV7CBABA5-CO">
+					<Name>Carry On Bag Allowance</Name>
+					<BaggageAllowanceRef>BA6A75D02E-CO</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Carry On Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+				<ServiceDefinition ServiceDefinitionID="BASRVB446BE2">
+					<Name>Checked Bag Allowance</Name>
+					<BaggageAllowanceRef>BAF7F3265D</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Checked Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+				<ServiceDefinition ServiceDefinitionID="BASRVF9B4444C">
+					<Name>Checked Bag Allowance</Name>
+					<BaggageAllowanceRef>BACFDF8EF8</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Checked Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+			</ServiceDefinitionList>
+		</DataLists>
+		<Metadata>
+			<PassengerMetadata MetadataKey="M5">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>OTHS</SSRCode>
+							<Text>/AA PCC_CODE</Text>
+							<ActionCode>??</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M4">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T2</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>DOCS</SSRCode>
+							<Text>////01JAN1999/M/DOE/JOHN</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M3">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>DOCS</SSRCode>
+							<Text>////01JAN2000/M/DOE/FRANK</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M2">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>CTCE</SSRCode>
+							<Text>AA HK1/TOM//SIMARD.IO</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M1">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>CTCM</SSRCode>
+							<Text>AA HK1/003726273157</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M0">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>CTCM</SSRCode>
+							<Text>AA HK1/10012312312</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<Other>
+				<OtherMetadata>
+					<CurrencyMetadatas>
+						<CurrencyMetadata MetadataKey="USD">
+							<Decimals>2</Decimals>
+						</CurrencyMetadata>
+					</CurrencyMetadatas>
+				</OtherMetadata>
+				<OtherMetadata>
+					<PriceMetadatas>
+						<PriceMetadata MetadataKey="FRK75981CAC">
+							<AugmentationPoint>
+								<AugPoint>
+									<FareRefKey xmlns="http://ndc.farelogix.com/aug">A6EHjf/JRYyajV9AKgvwSU2x/SZ8eMdDSLv3wo9JFtEVYfbUipr7PsWRcsx+PDbLvVAC5gUL4A3nzVWw5SSSTfhtvn6g37S7HKT/f2CTj3CUXLH7Dv+ssy1cLPLu/jc9D676QG1O+WOqBuo#####PTCADT/TNO191/RNO6056/RONO505/TYPEPrice/DEP**DFW/ARR**HOU/ACCOUNTERN03R1:SIP,RT:191,RN:6056,:CT1(DFW):CT2(HOU):ITA</FareRefKey>
+								</AugPoint>
+							</AugmentationPoint>
+						</PriceMetadata>
+						<PriceMetadata MetadataKey="FRKCF6E2F5B">
+							<AugmentationPoint>
+								<AugPoint>
+									<FareRefKey xmlns="http://ndc.farelogix.com/aug">A6EHjf/JRYyajV9AKgvwSU2x/SZ8eMdDSLv3wo9JFtEVYfbUipr7PsWRcsx+PDbLvVAC5gUL4A3nzVWw5SSSTfhtvn6g37S7HKT/f2CTj3CUXLH7Dv+ssy1cLPLu/jc9D676QG1O+WOqBuo#####PTCADT/TNO191/RNO6056/RONO505/TYPEPrice/DEP**HOU/ARR**DFW/ACCOUNTERN03R1:SIP,RT:191,RN:6056,:CT1(DFW):CT2(HOU):ITA</FareRefKey>
+								</AugPoint>
+							</AugmentationPoint>
+						</PriceMetadata>
+					</PriceMetadatas>
+				</OtherMetadata>
+				<OtherMetadata>
+					<RuleMetadatas>
+						<RuleMetadata MetadataKey="RM3F72CC68">
+							<RuleID>Change</RuleID>
+							<Values>
+								<Value>
+									<Instruction>Allowed</Instruction>
+								</Value>
+							</Values>
+						</RuleMetadata>
+						<RuleMetadata MetadataKey="RMA75E5A98">
+							<RuleID>Cancel</RuleID>
+							<Values>
+								<Value>
+									<Instruction>Not Allowed</Instruction>
+								</Value>
+							</Values>
+						</RuleMetadata>
+					</RuleMetadatas>
+				</OtherMetadata>
+			</Other>
+		</Metadata>
+	</Response>
+</OrderViewRS>
+</FlxTransactionResponse></soapenv:Body></soapenv:Envelope>

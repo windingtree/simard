@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <Transaction xmlns="http://farelogix.com/flx/tc">
+            <tc>
+                <pid>FLX DMServer TC1 (8800/3070) STG 0a7c</pid>
+                <tid>0D22B507-55CCF660</tid>
+                <dt>2021-05-10T08:20:41</dt>
+            </tc>
+        </Transaction>
+    </soapenv:Header>
+    <soapenv:Body>
+        <FlxTransactionResponse xmlns="http://farelogix.com/flx/OfferPriceRS">
+            <OfferPriceRS TransactionIdentifier="8410a7133d104b00beb24b79fc9448a2" Version="17.2">
+                <Errors>
+                    <Error Type="DME" ShortText="230000002" Code="325">Invalid or Expired Offer X9EBA9B90-5D95-4080-8817-1</Error>
+                </Errors>
+            </OfferPriceRS>
+        </FlxTransactionResponse>
+    </soapenv:Body>
+</soapenv:Envelope>

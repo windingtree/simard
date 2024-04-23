@@ -1,0 +1,62 @@
+<AirShoppingRQ Version="17.2" TransactionIdentifier="abc">
+                <PointOfSale>
+                    <Location>
+                        <CountryCode>US</CountryCode>
+                        <CityCode>DFW</CityCode>
+                    </Location>
+                </PointOfSale>
+                <Document id="document" >
+                </Document>
+                <Party>
+                    <Sender>
+                        <TravelAgencySender>
+                            <PseudoCity>PCC_CODE</PseudoCity>
+                            <AgencyID>00112490</AgencyID>
+                        </TravelAgencySender>
+                    </Sender>
+                </Party>
+
+                <Parameters>
+                    <Pricing>
+                        <OverrideCurrency>USD</OverrideCurrency>
+                    </Pricing>
+                </Parameters>
+                <CoreQuery>
+                    <OriginDestinations>
+                        <OriginDestination OriginDestinationKey="OD1">
+                            <Departure>
+                                <AirportCode>JFK</AirportCode>
+                                <Date>2021-06-01</Date>
+                            </Departure>
+                            <Arrival>
+                                <AirportCode>DFW</AirportCode>
+                            </Arrival>
+                        </OriginDestination>
+                    </OriginDestinations>
+                </CoreQuery>
+            <DataLists>
+               <PassengerList>
+    <Passenger PassengerID="pax1">
+            <PTC>ADT</PTC>
+            <Individual><Birthdate>2000-01-01</Birthdate>
+<GivenName>John</GivenName>
+<Surname>Doe</Surname></Individual>
+            
+            
+            <ContactInfoRef>pax1CI</ContactInfoRef>
+        </Passenger>
+    </PassengerList>
+    <ContactList><ContactInformation ContactID="pax1CI"><ContactProvided>
+            <Phone>
+                <Label>Home</Label>
+                <CountryDialingCode>1</CountryDialingCode>
+                <PhoneNumber>+1 123123123123</PhoneNumber>
+            </Phone>
+        </ContactProvided>
+<ContactProvided>
+            <EmailAddress>
+                <EmailAddressValue>test@test.com</EmailAddressValue>
+            </EmailAddress>
+        </ContactProvided></ContactInformation></ContactList>
+            </DataLists>
+            </AirShoppingRQ>

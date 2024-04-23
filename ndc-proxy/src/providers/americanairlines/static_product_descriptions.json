@@ -1,0 +1,135 @@
+{
+  "UA": {
+    "cabins": {
+      "Basic Economy": [
+        "One personal item is allowed",
+        "Carry-on bags are not permitted on select routes",
+        "Chose your seat for a fee",
+        "Refunds and changes are not allowed",
+        "Group and family seating is not available"
+      ],
+      "Economy": [
+        "Choose your seat",
+        "Upgrades available",
+        "No change fees",
+        "Checked bag fees",
+        "1 carry-on bag included"
+      ],
+      "Economy Flexible": [
+        "Fully refundable *",
+        "Choose your seat",
+        "Upgrades available",
+        "No change fees",
+        "Checked bag fees",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+      ],
+      "Economy Unrestricted": [
+        "Fully refundable *",
+        "Choose your seat",
+        "Upgrades available",
+        "No change fees",
+        "Checked bag fees",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+      ],
+      "Premium Economy": [
+        "Extra legroom and space",
+        "Upgrades available",
+        "No change fees",
+        "Checked bag fees",
+        "1 carry-on bag included"
+      ],
+      "Premium Economy Flexible": [
+        "Fully refundable *",
+        "Extra legroom and space",
+        "Upgrades available",
+        "No change fees",
+        "Checked bag fees",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+
+      ],
+      "Premium Economy Unrestricted": [
+        "Fully refundable *",
+        "Extra legroom and space",
+        "Upgrades available",
+        "No change fees",
+        "Checked bag fees",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+
+      ],
+      "Business": [
+        "Extra-spacious seat",
+        "Upgrades available",
+        "No change fees",
+        "2 checked bags included",
+        "1 carry-on bag included"
+      ],
+      "Business Flexible": [
+        "Fully refundable *",
+        "Extra-spacious seat",
+        "No change fees",
+        "2 checked bags included",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+      ],
+      "Business Unrestricted": [
+        "Fully refundable *",
+        "Extra-spacious seat",
+        "No change fees",
+        "2 checked bags included",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+
+      ],
+      "First": [
+        "Extra-spacious seat",
+        "No change fees",
+        "2 checked bags included",
+        "1 carry-on bag included"
+      ],
+      "First Flexible": [
+        "Fully refundable *",
+        "Extra-spacious seat",
+        "No change fees",
+        "2 checked bags included",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+
+      ],
+      "First Unrestricted": [
+        "Fully refundable *",
+        "Extra-spacious seat",
+        "No change fees",
+        "2 checked bags included",
+        "1 carry-on bag included",
+        "*) Flights originating internationally may have change/cxl fees"
+      ]
+    },
+    "services": {
+      "Corporate Preferred Elite": [
+        "Boarding Group 2",
+        "Preferred Seating",
+        "Preferred Upgrade priority",
+        "Preferred Re-accommodation"
+      ]
+    }
+  },
+  "AA": {
+    "seats": {
+      "Standard Seats": [
+        "Standard seat"
+      ],
+      "Main Cabin Extra": [
+        "Extra legroom (up to 6 inches)",
+        "Preferred boarding with earlier overhead bin access"
+      ],
+      "Preferred Seats": [
+        "Standard legroom",
+        "Favorable location"
+      ]
+    }
+  }
+}

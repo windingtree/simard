@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header><Transaction xmlns="http://farelogix.com/flx/tc"><tc><pid>FLX DMServer TC1 (8800/3070) STG 0a19</pid><tid>37485A71-8164F190</tid><dt>2021-07-12T04:13:40</dt></tc></Transaction></soapenv:Header><soapenv:Body><FlxTransactionResponse xmlns="http://farelogix.com/flx/OrderViewRS"><OrderViewRS Version="17.2" TransactionIdentifier="e90289ddd77048c98972fd400525547d">
+	<Document></Document>
+	<Party>
+		<Sender>
+			<AggregatorSender>
+				<AggregatorID>F1</AggregatorID>
+			</AggregatorSender>
+		</Sender>
+		<Recipient>
+			<TravelAgencyRecipient>
+				<PseudoCity Owner="F1">PCC_CODE</PseudoCity>
+				<AgencyID>PCC_CODE</AgencyID>
+				<AgentUser>
+					<Name>00112490</Name>
+					<PseudoCity Owner="F1">PCC_CODE</PseudoCity>
+					<IATA_Number>00112490</IATA_Number>
+					<AgentUserID>simardusd</AgentUserID>
+				</AgentUser>
+			</TravelAgencyRecipient>
+		</Recipient>
+	</Party>
+	<Success></Success>
+	<Warnings>
+		<Warning ShortText="9999" Code="325" Owner="AAD">Tickets were issued successfully, but one or more seat purchase(s) failed. Please go aa.com to view booking and purchase seat(s) or contact AA for assistance</Warning>
+	</Warnings>
+	<Response>
+		<Order OrderID="AA001646AA895" Owner="AAD">
+			<BookingReferences>
+				<BookingReference>
+					<ID>12897W</ID>
+					<OtherID>F1</OtherID>
+				</BookingReference>
+				<BookingReference>
+					<ID>RGBZRZ</ID>
+					<AirlineID Name="American Airline(Direct)">AAD</AirlineID>
+				</BookingReference>
+			</BookingReferences>
+			<TotalOrderPrice>
+				<DetailCurrencyPrice>
+					<Total Code="USD">169370</Total>
+				</DetailCurrencyPrice>
+			</TotalOrderPrice>
+			<Payments>
+				<Payment>
+					<Type>CC</Type>
+					<Status>
+						<StatusCode>395</StatusCode>
+					</Status>
+					<Amount>
+						<SimpleCurrencyPrice Code="USD">0</SimpleCurrencyPrice>
+					</Amount>
+					<Method>
+						<PaymentCardMethod>
+							<CardCode>AX</CardCode>
+							<MaskedCardNumber>XXXXXXXXXXX0002</MaskedCardNumber>
+							<CardHolderName>John Doe</CardHolderName>
+							<CardholderAddress>
+								<StructuredAddress>
+									<Street>123 STREET Billing</Street>
+									<CityName>MIAMI</CityName>
+									<StateProv>FL</StateProv>
+									<PostalCode>33160</PostalCode>
+									<CountryCode>US</CountryCode>
+								</StructuredAddress>
+							</CardholderAddress>
+							<EffectiveExpireDate>
+								<Expiration>0330</Expiration>
+							</EffectiveExpireDate>
+						</PaymentCardMethod>
+					</Method>
+					<OrderItemID>PoIPEACDFBCA-505B-46A1-9A65-1-1</OrderItemID>
+				</Payment>
+			</Payments>
+			<OrderItems>
+				<OrderItem OrderItemID="PoIPEACDFBCA-505B-46A1-9A65-1-1" Timestamp="2021-07-12T03:13:00">
+					<PriceDetail>
+						<TotalAmount>
+							<DetailCurrencyPrice>
+								<Total Code="USD">169370</Total>
+							</DetailCurrencyPrice>
+						</TotalAmount>
+						<BaseAmount Code="USD">40200</BaseAmount>
+						<Taxes>
+							<Total Code="USD">129170</Total>
+						</Taxes>
+					</PriceDetail>
+					<Service ServiceID="BAGGAGESRV1-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRV412C81D2-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV2-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRV8F1C232E</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV3-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRVCFB27F7F</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV4-T1">
+						<PassengerRef>T1</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRV247B9FD4-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV5-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRV8F1C232E</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV6-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRVCFB27F7F</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV7-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S4">BASRV412C81D2-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="BAGGAGESRV8-T2">
+						<PassengerRef>T2</PassengerRef>
+						<ServiceDefinitionRef SegmentRef="S3">BASRV247B9FD4-CO</ServiceDefinitionRef>
+					</Service>
+					<Service ServiceID="SRV1-T1-S3" ServiceStatus="HK">
+						<PassengerRef>T1</PassengerRef>
+						<SegmentRef>S3</SegmentRef>
+					</Service>
+					<Service ServiceID="SRV1-T1-S4" ServiceStatus="HK">
+						<PassengerRef>T1</PassengerRef>
+						<SegmentRef>S4</SegmentRef>
+					</Service>
+					<Service ServiceID="SRV1-T2-S3" ServiceStatus="HK">
+						<PassengerRef>T2</PassengerRef>
+						<SegmentRef>S3</SegmentRef>
+					</Service>
+					<Service ServiceID="SRV1-T2-S4" ServiceStatus="HK">
+						<PassengerRef>T2</PassengerRef>
+						<SegmentRef>S4</SegmentRef>
+					</Service>
+					<TimeLimits>
+						<PaymentTimeLimit Timestamp="2021-07-12T03:13:30"></PaymentTimeLimit>
+						<TicketingTimeLimits Timestamp="2021-07-12T03:13:30"></TicketingTimeLimits>
+					</TimeLimits>
+					<FareDetail>
+						<FareIndicatorCode>0</FareIndicatorCode>
+						<PassengerRefs>T1 T2</PassengerRefs>
+						<Price>
+							<TotalAmount>
+								<DetailCurrencyPrice>
+									<Total Code="USD">84685</Total>
+								</DetailCurrencyPrice>
+							</TotalAmount>
+							<BaseAmount Code="USD">20100</BaseAmount>
+							<Taxes>
+								<Total Code="USD">64585</Total>
+								<Breakdown>
+									<Tax>
+										<Amount Code="USD">560</Amount>
+										<Nation>US</Nation>
+										<TaxCode>AY</TaxCode>
+										<Description>Passenger Civil Aviation Security Service Fee</Description>
+									</Tax>
+									<Tax>
+										<Amount Code="USD">40000</Amount>
+										<TaxCode>YR</TaxCode>
+										<Description>Airline own use only</Description>
+									</Tax>
+								</Breakdown>
+							</Taxes>
+						</Price>
+						<FareComponent>
+							<Price>
+								<TotalAmount>
+									<DetailCurrencyPrice>
+										<Total Code="USD">32970</Total>
+									</DetailCurrencyPrice>
+								</TotalAmount>
+								<BaseAmount Code="NUC">10050</BaseAmount>
+								<Taxes>
+									<Total Code="USD">22920</Total>
+									<Breakdown>
+										<Tax>
+											<Amount Code="USD">560</Amount>
+											<Nation>US</Nation>
+											<TaxCode>AY</TaxCode>
+											<Description>United States Passenger Civil Aviation Security Service Fee</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">20000</Amount>
+											<TaxCode>YR</TaxCode>
+											<Description>AA YR surcharge</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">1910</Amount>
+											<Nation>US</Nation>
+											<TaxCode>US</TaxCode>
+											<Description>US International Departure Tax</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">450</Amount>
+											<Nation>US</Nation>
+											<TaxCode>XF</TaxCode>
+											<CollectionPoint>
+												<CurrCode NumberOfDecimals="2">USD</CurrCode>
+												<AirportAmount>450</AirportAmount>
+												<AirportCode>JFK</AirportCode>
+											</CollectionPoint>
+											<Description>US Passenger Facility Charge</Description>
+										</Tax>
+									</Breakdown>
+								</Taxes>
+							</Price>
+							<FareBasis>
+								<FareBasisCode refs="FG1">
+									<Code>QHW4Z1B5</Code>
+								</FareBasisCode>
+								<RBD>B</RBD>
+								<CabinType>
+									<CabinTypeCode>Y</CabinTypeCode>
+									<CabinTypeName>Economy</CabinTypeName>
+								</CabinType>
+							</FareBasis>
+							<FareRules>
+								<Penalty RefundableInd="false" CancelFeeInd="false" ChangeFeeInd="false">
+									<Details>
+										<Detail refs="RM130CB240">
+											<Type>Change</Type>
+										</Detail>
+										<Detail refs="RM7ECECC22">
+											<Type>Cancel</Type>
+										</Detail>
+									</Details>
+								</Penalty>
+								<Ticketing>
+									<Endorsements>
+										<Endorsement>NONREF/NOCHG/BASIC</Endorsement>
+									</Endorsements>
+								</Ticketing>
+							</FareRules>
+							<PriceClassRef>AADBasicEconomy-1</PriceClassRef>
+							<SegmentRefs ON_Point="JFK" OFF_Point="LHR">S3</SegmentRefs>
+						</FareComponent>
+						<FareComponent>
+							<Price>
+								<TotalAmount>
+									<DetailCurrencyPrice>
+										<Total Code="USD">51715</Total>
+									</DetailCurrencyPrice>
+								</TotalAmount>
+								<BaseAmount Code="NUC">10050</BaseAmount>
+								<Taxes>
+									<Total Code="USD">41665</Total>
+									<Breakdown>
+										<Tax>
+											<Amount Code="USD">396</Amount>
+											<Nation>US</Nation>
+											<TaxCode>XA</TaxCode>
+											<Description>United States APHIS Passenger Fee Passengers</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">5530</Amount>
+											<Nation>GB</Nation>
+											<TaxCode>UB</TaxCode>
+											<LocalAmount Code="GBP">4012</LocalAmount>
+											<Description>United Kingdom Passenger Service Charge Departures</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">599</Amount>
+											<Nation>US</Nation>
+											<TaxCode>YC</TaxCode>
+											<Description>United States Customs User Fee</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">11300</Amount>
+											<Nation>GB</Nation>
+											<TaxCode>GB</TaxCode>
+											<LocalAmount Code="GBP">8200</LocalAmount>
+											<Description>United Kingdom Air Passenger Duty APD</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">1230</Amount>
+											<Nation>GB</Nation>
+											<TaxCode>R1</TaxCode>
+											<LocalAmount Code="GBP">890</LocalAmount>
+											<Description>United Kingdom Exceptional Regulatory Charge</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">700</Amount>
+											<Nation>US</Nation>
+											<TaxCode>XY</TaxCode>
+											<Description>United States Immigration User Fee</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">20000</Amount>
+											<TaxCode>YR</TaxCode>
+											<Description>AA YR surcharge</Description>
+										</Tax>
+										<Tax>
+											<Amount Code="USD">1910</Amount>
+											<Nation>US</Nation>
+											<TaxCode>US</TaxCode>
+											<Description>US International Departure Tax</Description>
+										</Tax>
+									</Breakdown>
+								</Taxes>
+							</Price>
+							<FareBasis>
+								<FareBasisCode refs="FG2">
+									<Code>QHW4Z1B5</Code>
+								</FareBasisCode>
+								<RBD>B</RBD>
+								<CabinType>
+									<CabinTypeCode>Y</CabinTypeCode>
+									<CabinTypeName>Economy</CabinTypeName>
+								</CabinType>
+							</FareBasis>
+							<FareRules>
+								<Penalty RefundableInd="false" CancelFeeInd="false" ChangeFeeInd="false">
+									<Details>
+										<Detail refs="RM130CB240">
+											<Type>Change</Type>
+										</Detail>
+										<Detail refs="RM7ECECC22">
+											<Type>Cancel</Type>
+										</Detail>
+									</Details>
+								</Penalty>
+								<Ticketing>
+									<Endorsements>
+										<Endorsement>NONREF/NOCHG/BASIC</Endorsement>
+									</Endorsements>
+								</Ticketing>
+							</FareRules>
+							<PriceClassRef>AADBasicEconomy-1</PriceClassRef>
+							<SegmentRefs ON_Point="LHR" OFF_Point="JFK">S4</SegmentRefs>
+						</FareComponent>
+					</FareDetail>
+				</OrderItem>
+			</OrderItems>
+		</Order>
+		<TicketDocInfos>
+			<TicketDocInfo>
+				<AgentIDs>
+					<AgentID>
+						<Type>705</Type>
+						<ID>00112490</ID>
+					</AgentID>
+				</AgentIDs>
+				<IssuingAirlineInfo>
+					<AirlineName>AAD</AirlineName>
+				</IssuingAirlineInfo>
+				<TicketDocument>
+					<TicketDocNbr>00121586708751</TicketDocNbr>
+					<Type>702</Type>
+					<NumberofBooklets>1</NumberofBooklets>
+					<DateOfIssue>2021-07-12</DateOfIssue>
+					<CouponInfo>
+						<CouponNumber>1</CouponNumber>
+						<CouponReference>S3</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<CouponInfo>
+						<CouponNumber>2</CouponNumber>
+						<CouponReference>S4</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<ReportingType>Airline</ReportingType>
+				</TicketDocument>
+				<PassengerReference>T2</PassengerReference>
+			</TicketDocInfo>
+			<TicketDocInfo>
+				<AgentIDs>
+					<AgentID>
+						<Type>705</Type>
+						<ID>00112490</ID>
+					</AgentID>
+				</AgentIDs>
+				<IssuingAirlineInfo>
+					<AirlineName>AAD</AirlineName>
+				</IssuingAirlineInfo>
+				<TicketDocument>
+					<TicketDocNbr>00121586708762</TicketDocNbr>
+					<Type>702</Type>
+					<NumberofBooklets>1</NumberofBooklets>
+					<DateOfIssue>2021-07-12</DateOfIssue>
+					<CouponInfo>
+						<CouponNumber>1</CouponNumber>
+						<CouponReference>S3</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<CouponInfo>
+						<CouponNumber>2</CouponNumber>
+						<CouponReference>S4</CouponReference>
+						<Status>T</Status>
+						<InConnectionWithInfo AssociateInd="false"></InConnectionWithInfo>
+					</CouponInfo>
+					<ReportingType>Airline</ReportingType>
+				</TicketDocument>
+				<PassengerReference>T1</PassengerReference>
+			</TicketDocInfo>
+		</TicketDocInfos>
+		<DataLists>
+			<PassengerList>
+				<Passenger PassengerID="T1">
+					<PTC>ADT</PTC>
+					<Birthdate>2001-07-12</Birthdate>
+					<Individual>
+						<Birthdate>2001-07-12</Birthdate>
+						<GivenName>ALEXANDER</GivenName>
+						<Surname>KONOPELSKI</Surname>
+					</Individual>
+					<LoyaltyProgramAccount>
+						<Airline>
+							<AirlineDesignator>AA</AirlineDesignator>
+						</Airline>
+						<ProgramName>CLID</ProgramName>
+						<AccountNumber>060221</AccountNumber>
+						<SignInID>American Airlines</SignInID>
+						<TierPriority>HK</TierPriority>
+					</LoyaltyProgramAccount>
+					<ContactInfoRef>CI1</ContactInfoRef>
+				</Passenger>
+				<Passenger PassengerID="T2">
+					<PTC>ADT</PTC>
+					<Birthdate>2001-07-12</Birthdate>
+					<Individual>
+						<Birthdate>2001-07-12</Birthdate>
+						<GivenName>JUSTINE</GivenName>
+						<Surname>STEUBER</Surname>
+					</Individual>
+					<LoyaltyProgramAccount>
+						<Airline>
+							<AirlineDesignator>AA</AirlineDesignator>
+						</Airline>
+						<ProgramName>CLID</ProgramName>
+						<AccountNumber>060221</AccountNumber>
+						<SignInID>American Airlines</SignInID>
+						<TierPriority>HK</TierPriority>
+					</LoyaltyProgramAccount>
+					<ContactInfoRef>CI1</ContactInfoRef>
+				</Passenger>
+			</PassengerList>
+			<ContactList>
+				<ContactInformation ContactID="CI1">
+					<ContactProvided>
+						<Phone>
+							<Label>Home</Label>
+							<PhoneNumber>0012312312</PhoneNumber>
+						</Phone>
+					</ContactProvided>
+					<ContactProvided>
+						<EmailAddress>
+							<EmailAddressValue>TOMASZ@WINDINGTREE.COM</EmailAddressValue>
+						</EmailAddress>
+					</ContactProvided>
+				</ContactInformation>
+			</ContactList>
+			<BaggageAllowanceList>
+				<BaggageAllowance BaggageAllowanceID="BAA67AE0A1-CO">
+					<BaggageCategory>CarryOn</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CARRY ON ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<DimensionAllowance>
+						<DimensionUOM>Centimeter</DimensionUOM>
+						<Dimensions>
+							<Category>Length</Category>
+							<MaxValue>115</MaxValue>
+						</Dimensions>
+					</DimensionAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 45 LI 115 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Centimeter</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>115</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 40 LI 101 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Centimeter</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>115</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+				<BaggageAllowance BaggageAllowanceID="BA8FB746B2-CO">
+					<BaggageCategory>CarryOn</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CARRY ON ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<DimensionAllowance>
+						<DimensionUOM>Centimeter</DimensionUOM>
+						<Dimensions>
+							<Category>Length</Category>
+							<MaxValue>115</MaxValue>
+						</Dimensions>
+					</DimensionAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 45 LI 115 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Centimeter</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>115</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>1</TotalQuantity>
+						<ApplicableBag>CARRY ON UP TO 40 LI 101 LCM</ApplicableBag>
+						<PieceMeasurements Quantity="1">
+							<PieceDimensionAllowance>
+								<DimensionUOM>Centimeter</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>115</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+				<BaggageAllowance BaggageAllowanceID="BA9AE346E3">
+					<BaggageCategory>Checked</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CHECKED ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<PieceMeasurements Quantity="0"></PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<ApplicableBag>UPTO50LB 23KG AND62LI 158LCM</ApplicableBag>
+						<PieceMeasurements Quantity="0">
+							<PieceWeightAllowance>
+								<MaximumWeight>
+									<Value>23</Value>
+									<UOM>KG</UOM>
+								</MaximumWeight>
+							</PieceWeightAllowance>
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>62</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+				<BaggageAllowance BaggageAllowanceID="BAEBB97DB3">
+					<BaggageCategory>Checked</BaggageCategory>
+					<AllowanceDescription>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<Descriptions>
+							<Description>
+								<Text>CHECKED ALLOWANCE</Text>
+							</Description>
+						</Descriptions>
+					</AllowanceDescription>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<PieceMeasurements Quantity="0"></PieceMeasurements>
+					</PieceAllowance>
+					<PieceAllowance>
+						<ApplicableParty>Traveler</ApplicableParty>
+						<TotalQuantity>0</TotalQuantity>
+						<ApplicableBag>UPTO50LB 23KG AND62LI 158LCM</ApplicableBag>
+						<PieceMeasurements Quantity="0">
+							<PieceWeightAllowance>
+								<MaximumWeight>
+									<Value>23</Value>
+									<UOM>KG</UOM>
+								</MaximumWeight>
+							</PieceWeightAllowance>
+							<PieceDimensionAllowance>
+								<DimensionUOM>Inch</DimensionUOM>
+								<Dimensions>
+									<Category>Length</Category>
+									<MaxValue>62</MaxValue>
+								</Dimensions>
+							</PieceDimensionAllowance>
+						</PieceMeasurements>
+					</PieceAllowance>
+					<BaggageDeterminingCarrier>
+						<AirlineID>AA</AirlineID>
+					</BaggageDeterminingCarrier>
+				</BaggageAllowance>
+			</BaggageAllowanceList>
+			<FareList>
+				<FareGroup ListKey="FG1" refs="FRKC931E932">
+					<Fare>
+						<FareCode>70J</FareCode>
+					</Fare>
+					<FareBasisCode>
+						<Code>QHW4Z1B5</Code>
+					</FareBasisCode>
+				</FareGroup>
+				<FareGroup ListKey="FG2" refs="FRK4010C56F">
+					<Fare>
+						<FareCode>70J</FareCode>
+					</Fare>
+					<FareBasisCode>
+						<Code>QHW4Z1B5</Code>
+					</FareBasisCode>
+				</FareGroup>
+			</FareList>
+			<FlightSegmentList>
+				<FlightSegment SegmentKey="S3" ElectronicTicketInd="true" SecureFlight="true">
+					<Departure>
+						<AirportCode>JFK</AirportCode>
+						<Date>2021-07-29</Date>
+						<Time>18:25</Time>
+						<AirportName>New York J F Kennedy International Apt, US</AirportName>
+					</Departure>
+					<Arrival>
+						<AirportCode>LHR</AirportCode>
+						<Date>2021-07-30</Date>
+						<Time>06:20</Time>
+						<AirportName>London Heathrow Apt, GB</AirportName>
+					</Arrival>
+					<MarketingCarrier>
+						<AirlineID>AA</AirlineID>
+						<Name>AMERICAN AIRLINES</Name>
+						<FlightNumber>0100</FlightNumber>
+					</MarketingCarrier>
+					<Equipment>
+						<AircraftCode>77W</AircraftCode>
+						<Name>Boeing 777-300ER Passenger</Name>
+					</Equipment>
+					<ClassOfService>
+						<Code>B</Code>
+					</ClassOfService>
+					<FlightDetail>
+						<FlightDuration>
+							<Value>PT6H55M</Value>
+						</FlightDuration>
+						<ResDateTime>
+							<Date time="03:13">2021-07-12</Date>
+						</ResDateTime>
+					</FlightDetail>
+				</FlightSegment>
+				<FlightSegment SegmentKey="S4" ElectronicTicketInd="true" SecureFlight="true">
+					<Departure>
+						<AirportCode>LHR</AirportCode>
+						<Date>2021-08-02</Date>
+						<Time>17:15</Time>
+						<AirportName>London Heathrow Apt, GB</AirportName>
+					</Departure>
+					<Arrival>
+						<AirportCode>JFK</AirportCode>
+						<Date>2021-08-02</Date>
+						<Time>20:00</Time>
+						<AirportName>New York J F Kennedy International Apt, US</AirportName>
+					</Arrival>
+					<MarketingCarrier>
+						<AirlineID>AA</AirlineID>
+						<Name>AMERICAN AIRLINES</Name>
+						<FlightNumber>0141</FlightNumber>
+					</MarketingCarrier>
+					<Equipment>
+						<AircraftCode>772</AircraftCode>
+						<Name>Boeing 777-200-200ER Passenger</Name>
+					</Equipment>
+					<ClassOfService>
+						<Code>B</Code>
+					</ClassOfService>
+					<FlightDetail>
+						<FlightDuration>
+							<Value>PT7H45M</Value>
+						</FlightDuration>
+						<ResDateTime>
+							<Date time="03:13">2021-07-12</Date>
+						</ResDateTime>
+					</FlightDetail>
+				</FlightSegment>
+			</FlightSegmentList>
+			<FlightList>
+				<Flight FlightKey="F1">
+					<SegmentReferences OnPoint="JFK" OffPoint="LHR">S3</SegmentReferences>
+				</Flight>
+				<Flight FlightKey="F2">
+					<SegmentReferences OnPoint="LHR" OffPoint="JFK">S4</SegmentReferences>
+				</Flight>
+			</FlightList>
+			<OriginDestinationList>
+				<OriginDestination OriginDestinationKey="O1">
+					<DepartureCode>JFK</DepartureCode>
+					<ArrivalCode>LHR</ArrivalCode>
+					<FlightReferences OnPoint="JFK" OffPoint="LHR">F1</FlightReferences>
+				</OriginDestination>
+				<OriginDestination OriginDestinationKey="O2">
+					<DepartureCode>LHR</DepartureCode>
+					<ArrivalCode>JFK</ArrivalCode>
+					<FlightReferences OnPoint="LHR" OffPoint="JFK">F2</FlightReferences>
+				</OriginDestination>
+			</OriginDestinationList>
+			<PriceClassList>
+				<PriceClass PriceClassID="AADBasicEconomy-1">
+					<Name>Basic Economy</Name>
+					<Code>AAAT-BASIC</Code>
+					<Descriptions>
+						<Description>
+							<Text>No changes allowed1</Text>
+						</Description>
+						<Description>
+							<Text>Pay to choose any seat on American flights (or we'll assign seats at no charge during check-in)2</Text>
+						</Description>
+						<Description>
+							<Text>Board in last group3</Text>
+						</Description>
+						<Description>
+							<Text>No Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+						</Description>
+						<Description>
+							<Text>1 For flights booked on or after April 1, 2021.</Text>
+						</Description>
+						<Description>
+							<Text>2 Complimentary for AAdvantage® elite members based on status.</Text>
+						</Description>
+						<Description>
+							<Text>3 Doesn't apply to AAdvantage® elite status members or eligible AAdvantage® credit cardmembers.</Text>
+						</Description>
+						<Description>
+							<Text>No changes allowed1</Text>
+						</Description>
+						<Description>
+							<Text>Pay to choose any seat on American flights (or we'll assign seats at no charge during check-in)2</Text>
+						</Description>
+						<Description>
+							<Text>Board in last group3</Text>
+						</Description>
+						<Description>
+							<Text>No Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+						</Description>
+						<Description>
+							<Text>1 For flights booked on or after April 1, 2021.</Text>
+						</Description>
+						<Description>
+							<Text>2 Complimentary for AAdvantage® elite members based on status.</Text>
+						</Description>
+						<Description>
+							<Text>3 Doesn't apply to AAdvantage® elite status members or eligible AAdvantage® credit cardmembers.</Text>
+						</Description>
+						<Description>
+							<Text>No changes allowed1</Text>
+						</Description>
+						<Description>
+							<Text>Pay to choose any seat on American flights (or we'll assign seats at no charge during check-in)2</Text>
+						</Description>
+						<Description>
+							<Text>Board in last group3</Text>
+						</Description>
+						<Description>
+							<Text>No Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+						</Description>
+						<Description>
+							<Text>1 For flights booked on or after April 1, 2021.</Text>
+						</Description>
+						<Description>
+							<Text>2 Complimentary for AAdvantage® elite members based on status.</Text>
+						</Description>
+						<Description>
+							<Text>3 Doesn't apply to AAdvantage® elite status members or eligible AAdvantage® credit cardmembers.</Text>
+						</Description>
+					</Descriptions>
+				</PriceClass>
+			</PriceClassList>
+			<ServiceDefinitionList>
+				<ServiceDefinition ServiceDefinitionID="BASRV247B9FD4-CO">
+					<Name>Carry On Bag Allowance</Name>
+					<BaggageAllowanceRef>BAA67AE0A1-CO</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Carry On Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+				<ServiceDefinition ServiceDefinitionID="BASRV412C81D2-CO">
+					<Name>Carry On Bag Allowance</Name>
+					<BaggageAllowanceRef>BA8FB746B2-CO</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Carry On Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+				<ServiceDefinition ServiceDefinitionID="BASRV8F1C232E">
+					<Name>Checked Bag Allowance</Name>
+					<BaggageAllowanceRef>BA9AE346E3</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Checked Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+				<ServiceDefinition ServiceDefinitionID="BASRVCFB27F7F">
+					<Name>Checked Bag Allowance</Name>
+					<BaggageAllowanceRef>BAEBB97DB3</BaggageAllowanceRef>
+					<Descriptions>
+						<Description>
+							<Text>Checked Bag Allowance</Text>
+						</Description>
+					</Descriptions>
+				</ServiceDefinition>
+			</ServiceDefinitionList>
+		</DataLists>
+		<Metadata>
+			<PassengerMetadata MetadataKey="M8">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>OTHS</SSRCode>
+							<Text>/AA PCC_CODE EY GLOBAL SERVICES</Text>
+							<ActionCode>??</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M7">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T2</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>DOCS</SSRCode>
+							<Text>////12JUL2001/X/STEUBER/JUSTINE</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M6">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>DOCS</SSRCode>
+							<Text>////12JUL2001/X/KONOPELSKI/ALEXANDER</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M5">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>CTCE</SSRCode>
+							<Text>AA HK1/TOMASZ//WINDINGTREE.COM</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M4">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>CTCM</SSRCode>
+							<Text>AA HK1/10012312312</Text>
+							<ActionCode>HK</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M3">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<SegmentIDRef>S4</SegmentIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>BESH</SSRCode>
+							<Text>AA 141B2AUG/NN1</Text>
+							<ActionCode>PN</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M2">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T2</TravelerIDRef>
+							<SegmentIDRef>S4</SegmentIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>BESH</SSRCode>
+							<Text>AA 141B2AUG/NN1</Text>
+							<ActionCode>PN</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M1">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T2</TravelerIDRef>
+							<SegmentIDRef>S3</SegmentIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>BESH</SSRCode>
+							<Text>AA 100B29JUL/NN1</Text>
+							<ActionCode>PN</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<PassengerMetadata MetadataKey="M0">
+				<AugmentationPoint>
+					<AugPoint>
+						<SpecialServiceRequest xmlns="http://ndc.farelogix.com/aug">
+							<TravelerIDRef>T1</TravelerIDRef>
+							<SegmentIDRef>S3</SegmentIDRef>
+							<AirlineCode>AA</AirlineCode>
+							<SSRCode>BESH</SSRCode>
+							<Text>AA 100B29JUL/NN1</Text>
+							<ActionCode>PN</ActionCode>
+						</SpecialServiceRequest>
+					</AugPoint>
+				</AugmentationPoint>
+			</PassengerMetadata>
+			<Other>
+				<OtherMetadata>
+					<CurrencyMetadatas>
+						<CurrencyMetadata MetadataKey="USD">
+							<Decimals>2</Decimals>
+						</CurrencyMetadata>
+						<CurrencyMetadata MetadataKey="NUC">
+							<Decimals>2</Decimals>
+						</CurrencyMetadata>
+						<CurrencyMetadata MetadataKey="GBP">
+							<Decimals>2</Decimals>
+						</CurrencyMetadata>
+					</CurrencyMetadatas>
+				</OtherMetadata>
+				<OtherMetadata>
+					<PriceMetadatas>
+						<PriceMetadata MetadataKey="FRKC931E932">
+							<AugmentationPoint>
+								<AugPoint>
+									<FareRefKey xmlns="http://ndc.farelogix.com/aug">AQbPI0A53tDHKVbLbtPFwoQsDdUsBsO5XtUdg44EiK9Y#####PTCADT/TNO001/RNOJ505/GIAT/RONO3220/TYPEPrice/DEP**NYC/ARR**LON/R1:ERU,RT:001,RN:J505,:CT1(NYC):CT2(LON):ITA</FareRefKey>
+								</AugPoint>
+							</AugmentationPoint>
+						</PriceMetadata>
+						<PriceMetadata MetadataKey="FRK4010C56F">
+							<AugmentationPoint>
+								<AugPoint>
+									<FareRefKey xmlns="http://ndc.farelogix.com/aug">AQbPI0A53tDHKVbLbtPFwoQsDdUsBsO5XtUdg44EiK9Y#####PTCADT/TNO001/RNOJ505/GIAT/RONO3220/TYPEPrice/DEP**LON/ARR**NYC/R1:ERU,RT:001,RN:J505,:CT1(NYC):CT2(LON):ITA</FareRefKey>
+								</AugPoint>
+							</AugmentationPoint>
+						</PriceMetadata>
+					</PriceMetadatas>
+				</OtherMetadata>
+				<OtherMetadata>
+					<RuleMetadatas>
+						<RuleMetadata MetadataKey="RM130CB240">
+							<RuleID>Change</RuleID>
+							<Values>
+								<Value>
+									<Instruction>Not Allowed</Instruction>
+								</Value>
+							</Values>
+						</RuleMetadata>
+						<RuleMetadata MetadataKey="RM7ECECC22">
+							<RuleID>Cancel</RuleID>
+							<Values>
+								<Value>
+									<Instruction>Not Allowed</Instruction>
+								</Value>
+							</Values>
+						</RuleMetadata>
+					</RuleMetadatas>
+				</OtherMetadata>
+			</Other>
+		</Metadata>
+	</Response>
+</OrderViewRS>
+</FlxTransactionResponse></soapenv:Body></soapenv:Envelope>

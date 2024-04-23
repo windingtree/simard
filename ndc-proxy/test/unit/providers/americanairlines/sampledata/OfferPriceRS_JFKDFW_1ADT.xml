@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header><Transaction xmlns="http://farelogix.com/flx/tc"><tc><pid>FLX DMServer TC1 (8800/3070) STG 0a19</pid><tid>4330157F-82B9F6A0</tid><dt>2021-05-03T10:04:26</dt></tc></Transaction></soapenv:Header><soapenv:Body><FlxTransactionResponse xmlns="http://farelogix.com/flx/OfferPriceRS"><OfferPriceRS Version="17.2" TransactionIdentifier="8e85e9ab1ed946d4a1a21d14380fc4e5">
+	<Document id="document" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Document>
+	<Success></Success>
+	<ShoppingResponseID>
+		<ResponseID>P147780AB-5853-499C-BEB1</ResponseID>
+	</ShoppingResponseID>
+	<PricedOffer OfferID="PoP147780AB-5853-499C-BEB1-1" Owner="AAD">
+		<Parameters>
+			<TotalItemQuantity>1</TotalItemQuantity>
+			<PTC_Priced refs="PoIP147780AB-5853-499C-BEB1-1-1">
+				<Requested Quantity="1">ADT</Requested>
+				<Priced Quantity="1">ADT</Priced>
+			</PTC_Priced>
+		</Parameters>
+		<ValidatingCarrier>AA</ValidatingCarrier>
+		<TimeLimits>
+			<OfferExpiration DateTime="2021-05-03T14:34:24Z"></OfferExpiration>
+			<Payment DateTime="2021-05-04T23:59:00"></Payment>
+			<OtherLimits>
+				<OtherLimit>
+					<PriceGuaranteeTimeLimit></PriceGuaranteeTimeLimit>
+					<TicketByTimeLimit>
+						<TicketBy>2021-05-04T23:59:00</TicketBy>
+					</TicketByTimeLimit>
+				</OtherLimit>
+			</OtherLimits>
+		</TimeLimits>
+		<TotalPrice>
+			<DetailCurrencyPrice>
+				<Total Code="USD">27540</Total>
+			</DetailCurrencyPrice>
+		</TotalPrice>
+		<FlightsOverview>
+			<FlightRef ODRef="OD1" PriceClassRef="MainCabin">FGTID0JQC5T4U5YM0KMCO5I0NA3K1NCLILRNWA5EYX3P4541L4XU3ZUID</FlightRef>
+		</FlightsOverview>
+		<OfferItem OfferItemID="PoIP147780AB-5853-499C-BEB1-1-1" MandatoryInd="true">
+			<TotalPriceDetail>
+				<TotalAmount>
+					<DetailCurrencyPrice>
+						<Total Code="USD">27540</Total>
+					</DetailCurrencyPrice>
+				</TotalAmount>
+			</TotalPriceDetail>
+			<Service ServiceID="PsvFltP147780AB-5853-499C-BEB1-1-1">
+				<PassengerRefs>pax1</PassengerRefs>
+				<FlightRefs>FGTID0JQC5T4U5YM0KMCO5I0NA3K1NCLILRNWA5EYX3P4541L4XU3ZUID</FlightRefs>
+			</Service>
+			<FareDetail>
+				<FareIndicatorCode>0</FareIndicatorCode>
+				<PassengerRefs>pax1</PassengerRefs>
+				<Price>
+					<BaseAmount Code="USD">24279</BaseAmount>
+					<Taxes>
+						<Total Code="USD">3261</Total>
+						<Breakdown>
+							<Tax>
+								<Amount Code="USD">1821</Amount>
+								<Nation>US</Nation>
+								<TaxCode>US</TaxCode>
+								<Description>U.S.A Transportation Tax</Description>
+							</Tax>
+							<Tax>
+								<Amount Code="USD">430</Amount>
+								<Nation>US</Nation>
+								<TaxCode>ZP</TaxCode>
+								<CollectionPoint>
+									<CurrCode NumberOfDecimals="2">USD</CurrCode>
+									<AirportAmount>430</AirportAmount>
+									<AirportCode>JFK</AirportCode>
+								</CollectionPoint>
+								<Description>United States Flight Segment Tax Domestic</Description>
+							</Tax>
+							<Tax>
+								<Amount Code="USD">560</Amount>
+								<Nation>US</Nation>
+								<TaxCode>AY</TaxCode>
+								<Description>United States Passenger Civil Aviation Security Service Fee</Description>
+							</Tax>
+							<Tax>
+								<Amount Code="USD">450</Amount>
+								<Nation>US</Nation>
+								<TaxCode>XF</TaxCode>
+								<CollectionPoint>
+									<CurrCode NumberOfDecimals="2">USD</CurrCode>
+									<AirportAmount>450</AirportAmount>
+									<AirportCode>JFK</AirportCode>
+								</CollectionPoint>
+								<Description>US Passenger Facility Charge</Description>
+							</Tax>
+						</Breakdown>
+					</Taxes>
+				</Price>
+				<FareComponent>
+					<Price>
+						<BaseAmount Code="USD">24279</BaseAmount>
+						<Taxes>
+							<Total Code="USD">3261</Total>
+							<Breakdown>
+								<Tax>
+									<Amount Code="USD">1821</Amount>
+									<Nation>US</Nation>
+									<TaxCode>US</TaxCode>
+									<Description>US Transportation Tax</Description>
+								</Tax>
+								<Tax>
+									<Amount Code="USD">450</Amount>
+									<Nation>US</Nation>
+									<TaxCode>XF</TaxCode>
+									<CollectionPoint>
+										<CurrCode NumberOfDecimals="2">USD</CurrCode>
+										<AirportAmount>450</AirportAmount>
+										<AirportCode>JFK</AirportCode>
+									</CollectionPoint>
+									<Description>US Passenger Facility Charge</Description>
+								</Tax>
+								<Tax>
+									<Amount Code="USD">430</Amount>
+									<Nation>US</Nation>
+									<TaxCode>ZP</TaxCode>
+									<CollectionPoint>
+										<CurrCode NumberOfDecimals="2">USD</CurrCode>
+										<AirportAmount>430</AirportAmount>
+										<AirportCode>JFK</AirportCode>
+									</CollectionPoint>
+									<Description>United States Flight Segment Tax Domestic</Description>
+								</Tax>
+								<Tax>
+									<Amount Code="USD">560</Amount>
+									<Nation>US</Nation>
+									<TaxCode>AY</TaxCode>
+									<Description>United States Passenger Civil Aviation Security Service Fee</Description>
+								</Tax>
+							</Breakdown>
+						</Taxes>
+					</Price>
+					<FareBasis>
+						<FareBasisCode refs="FGPAADIDUF5GU1VMG4PVLEXOL3WKDGWW2PGKXDAQZAYZ5UF2JDMCYC0RPLW">
+							<Code>M8AIZNN1</Code>
+						</FareBasisCode>
+						<FareBasisCityPair>JFKDFWAA</FareBasisCityPair>
+						<RBD>M</RBD>
+						<CabinType>
+							<CabinTypeCode>Y</CabinTypeCode>
+							<CabinTypeName>COACH</CabinTypeName>
+						</CabinType>
+					</FareBasis>
+					<FareRules>
+						<Penalty CancelFeeInd="false" ChangeFeeInd="false" RefundableInd="false">
+							<Details>
+								<Detail refs="CNCIDJRERIG1X4BCXLQBCGK5N0XUIEFELUDBUOZ3OV5FSKSSL2B3XOFEO">
+									<Type>Cancel</Type>
+								</Detail>
+								<Detail refs="CHGIDJRERIG1X4BCXLQBCGK5N0XUIEFELUDBUOZ3OV5FSKSSL2B3XOFEO">
+									<Type>Change</Type>
+								</Detail>
+							</Details>
+						</Penalty>
+						<Ticketing>
+							<Endorsements>
+								<Endorsement>NONREF/FAREDIF/</Endorsement>
+								<Endorsement>CXL BY FLT TIME OR NOVALUE</Endorsement>
+							</Endorsements>
+						</Ticketing>
+					</FareRules>
+					<PriceClassRef>MainCabin</PriceClassRef>
+					<SegmentRefs ON_Point="JFK" OFF_Point="DFW">Isgm0100cc39002e7</SegmentRefs>
+				</FareComponent>
+				<Remarks>
+					<Remark>This ticket is non-refundable.</Remark>
+				</Remarks>
+			</FareDetail>
+		</OfferItem>
+		<BaggageAllowance>
+			<FlightRefs>FGTID0JQC5T4U5YM0KMCO5I0NA3K1NCLILRNWA5EYX3P4541L4XU3ZUID </FlightRefs>
+			<PassengerRefs>pax1</PassengerRefs>
+			<BaggageAllowanceRef>PcoID5ZE15CFLU0N4JSGZ4WBMCFS1BCXVWRGBGW1WO0GAPIXRP4JUG4KJ</BaggageAllowanceRef>
+		</BaggageAllowance>
+		<BaggageAllowance>
+			<FlightRefs>FGTID0JQC5T4U5YM0KMCO5I0NA3K1NCLILRNWA5EYX3P4541L4XU3ZUID </FlightRefs>
+			<PassengerRefs>pax1</PassengerRefs>
+			<BaggageAllowanceRef>PbaID4PJBIBKNTPNVN4N5XR5TY2RCFOGK4KFB4VFENNLHZVJWXJUUX2GN</BaggageAllowanceRef>
+		</BaggageAllowance>
+	</PricedOffer>
+	<DataLists>
+		<PassengerList>
+			<Passenger PassengerID="pax1">
+				<PTC>ADT</PTC>
+				<Individual xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<GivenName>John</GivenName>
+					<Surname>Doe</Surname>
+				</Individual>
+			</Passenger>
+		</PassengerList>
+		<BaggageAllowanceList>
+			<BaggageAllowance BaggageAllowanceID="PcoID5ZE15CFLU0N4JSGZ4WBMCFS1BCXVWRGBGW1WO0GAPIXRP4JUG4KJ">
+				<BaggageCategory>CarryOn</BaggageCategory>
+				<AllowanceDescription>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<Descriptions>
+						<Description>
+							<Text>CARRY ON ALLOWANCE</Text>
+						</Description>
+					</Descriptions>
+				</AllowanceDescription>
+				<PieceAllowance>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<TotalQuantity>2</TotalQuantity>
+					<PieceMeasurements Quantity="2">
+						<PieceDimensionAllowance>
+							<DimensionUOM>Inch</DimensionUOM>
+							<Dimensions>
+								<Category>Length</Category>
+								<MaxValue>45</MaxValue>
+							</Dimensions>
+						</PieceDimensionAllowance>
+						<PieceDimensionAllowance>
+							<DimensionUOM>Centimeter</DimensionUOM>
+							<Dimensions>
+								<Category>Length</Category>
+								<MaxValue>115</MaxValue>
+							</Dimensions>
+						</PieceDimensionAllowance>
+					</PieceMeasurements>
+				</PieceAllowance>
+				<PieceAllowance>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<TotalQuantity>1</TotalQuantity>
+					<ApplicableBag>CARRY ON UP TO 45 LI 115 LCM</ApplicableBag>
+					<PieceMeasurements Quantity="1"></PieceMeasurements>
+				</PieceAllowance>
+				<PieceAllowance>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<TotalQuantity>1</TotalQuantity>
+					<ApplicableBag>CARRY ON UP TO 40 LI 101 LCM</ApplicableBag>
+					<PieceMeasurements Quantity="1"></PieceMeasurements>
+				</PieceAllowance>
+				<BaggageDeterminingCarrier>
+					<AirlineID>AA</AirlineID>
+				</BaggageDeterminingCarrier>
+			</BaggageAllowance>
+			<BaggageAllowance BaggageAllowanceID="PbaID4PJBIBKNTPNVN4N5XR5TY2RCFOGK4KFB4VFENNLHZVJWXJUUX2GN">
+				<BaggageCategory>Checked</BaggageCategory>
+				<AllowanceDescription>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<Descriptions>
+						<Description>
+							<Text>CHECKED ALLOWANCE</Text>
+						</Description>
+					</Descriptions>
+				</AllowanceDescription>
+				<PieceAllowance>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<TotalQuantity>0</TotalQuantity>
+					<PieceMeasurements Quantity="0">
+						<PieceWeightAllowance>
+							<MaximumWeight>
+								<Value>23</Value>
+								<UOM>KG</UOM>
+							</MaximumWeight>
+							<MaximumWeight>
+								<Value>50</Value>
+								<UOM>LBS</UOM>
+							</MaximumWeight>
+						</PieceWeightAllowance>
+						<PieceDimensionAllowance>
+							<DimensionUOM>Inch</DimensionUOM>
+							<Dimensions>
+								<Category>Length</Category>
+								<MaxValue>62</MaxValue>
+							</Dimensions>
+						</PieceDimensionAllowance>
+						<PieceDimensionAllowance>
+							<DimensionUOM>Centimeter</DimensionUOM>
+							<Dimensions>
+								<Category>Length</Category>
+								<MaxValue>158</MaxValue>
+							</Dimensions>
+						</PieceDimensionAllowance>
+					</PieceMeasurements>
+				</PieceAllowance>
+				<PieceAllowance>
+					<ApplicableParty>Traveler</ApplicableParty>
+					<TotalQuantity>0</TotalQuantity>
+					<ApplicableBag>UPTO50LB 23KG AND62LI 158LCM</ApplicableBag>
+					<PieceMeasurements Quantity="0"></PieceMeasurements>
+				</PieceAllowance>
+				<BaggageDeterminingCarrier>
+					<AirlineID>AA</AirlineID>
+				</BaggageDeterminingCarrier>
+			</BaggageAllowance>
+		</BaggageAllowanceList>
+		<FareList>
+			<FareGroup refs="FRKAADIDUF5GU1VMG4PVLEXOL3WKDGWW2PGKXDAQZAYZ5UF2JDMCYC0RPLW" ListKey="FGPAADIDUF5GU1VMG4PVLEXOL3WKDGWW2PGKXDAQZAYZ5UF2JDMCYC0RPLW">
+				<Fare>
+					<FareCode>70J</FareCode>
+				</Fare>
+				<FareBasisCode>
+					<Code>M8AIZNN1</Code>
+				</FareBasisCode>
+			</FareGroup>
+		</FareList>
+		<FlightSegmentList>
+			<FlightSegment SegmentKey="Isgm0100cc39002e7" ConnectInd="false" ElectronicTicketInd="false" SecureFlight="true">
+				<Departure>
+					<AirportCode>JFK</AirportCode>
+					<Date>2021-06-01</Date>
+					<Time>08:15</Time>
+					<AirportName>New York J F Kennedy International Apt, US</AirportName>
+					<Terminal>
+						<Name>8</Name>
+					</Terminal>
+				</Departure>
+				<Arrival>
+					<AirportCode>DFW</AirportCode>
+					<Date>2021-06-01</Date>
+					<Time>11:01</Time>
+					<ChangeOfDay>0</ChangeOfDay>
+					<AirportName>Dallas Dallas-Fort Worth Intl Apt, US</AirportName>
+					<Terminal>
+						<Name>0</Name>
+					</Terminal>
+				</Arrival>
+				<MarketingCarrier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<AirlineID>AA</AirlineID>
+					<Name>American Airlines</Name>
+					<FlightNumber>2234</FlightNumber>
+				</MarketingCarrier>
+				<Equipment>
+					<AircraftCode>738</AircraftCode>
+					<Name>Boeing 737-800 Passenger</Name>
+				</Equipment>
+				<ClassOfService>
+					<Code>M</Code>
+				</ClassOfService>
+				<FlightDetail>
+					<FlightDistance>
+						<Value>1388</Value>
+						<UOM>Miles</UOM>
+					</FlightDistance>
+					<FlightDuration>
+						<Value>PT03H46M</Value>
+					</FlightDuration>
+				</FlightDetail>
+			</FlightSegment>
+		</FlightSegmentList>
+		<FlightList>
+			<Flight FlightKey="FGTID0JQC5T4U5YM0KMCO5I0NA3K1NCLILRNWA5EYX3P4541L4XU3ZUID">
+				<SegmentReferences OnPoint="JFK" OffPoint="DFW">Isgm0100cc39002e7</SegmentReferences>
+			</Flight>
+		</FlightList>
+		<OriginDestinationList>
+			<OriginDestination OriginDestinationKey="OD1">
+				<DepartureCode>JFK</DepartureCode>
+				<ArrivalCode>DFW</ArrivalCode>
+				<FlightReferences OnPoint="JFK" OffPoint="DFW">FGTID0JQC5T4U5YM0KMCO5I0NA3K1NCLILRNWA5EYX3P4541L4XU3ZUID</FlightReferences>
+			</OriginDestination>
+		</OriginDestinationList>
+		<PriceClassList>
+			<PriceClass PriceClassID="MainCabin">
+				<Name>Main Cabin</Name>
+				<Code>AADOM-MAIN</Code>
+				<Descriptions>
+					<Description>
+						<Text>No change fees (difference in ticket price may apply)</Text>
+					</Description>
+					<Description>
+						<Text>Choose your seat at no charge (fee may apply for preferred or Main Cabin Extra seats)</Text>
+					</Description>
+					<Description>
+						<Text>General boarding</Text>
+					</Description>
+					<Description>
+						<Text>Elite Qualifying  Credits (EQMs, EQSs or EQDs)</Text>
+					</Description>
+				</Descriptions>
+				<DisplayOrder>3</DisplayOrder>
+			</PriceClass>
+		</PriceClassList>
+	</DataLists>
+	<Metadata>
+		<Shopping>
+			<ShopMetadataGroup>
+				<Offer>
+					<OfferMetadatas>
+						<OfferMetadata MetadataKey="idgx213w00ajk3oybfnptfgye0qckfcpljzgpapvczhrk5iffyonge">
+							<AugmentationPoint>
+								<AugPoint>
+									<Diagnostics xmlns="http://ndc.farelogix.com/aug">
+										<Diagnostic>
+											<ID>00E43A816958970970A88BB006FB</ID>
+											<Name>ITA</Name>
+										</Diagnostic>
+									</Diagnostics>
+								</AugPoint>
+							</AugmentationPoint>
+						</OfferMetadata>
+					</OfferMetadatas>
+				</Offer>
+			</ShopMetadataGroup>
+		</Shopping>
+		<Other>
+			<OtherMetadata>
+				<CurrencyMetadatas>
+					<CurrencyMetadata MetadataKey="USD">
+						<Decimals>2</Decimals>
+					</CurrencyMetadata>
+				</CurrencyMetadatas>
+			</OtherMetadata>
+			<OtherMetadata>
+				<PriceMetadatas>
+					<PriceMetadata MetadataKey="FRKAADIDUF5GU1VMG4PVLEXOL3WKDGWW2PGKXDAQZAYZ5UF2JDMCYC0RPLW">
+						<AugmentationPoint>
+							<AugPoint>
+								<FareRefKey xmlns="http://ndc.farelogix.com/aug">AleXtgrD8DLJAs7LkYRcLr7Mw3Xl1bSDtJ5UQ5BXhN72#####PTCADT/TNO011/RNOM11I/RONO305/TYPEPrice/DEP**JFK/ARR**DFW/R1:SIP,RT:011,RN:M11I,:CT1(DFW):CT2(JFK):ITA</FareRefKey>
+							</AugPoint>
+						</AugmentationPoint>
+					</PriceMetadata>
+				</PriceMetadatas>
+			</OtherMetadata>
+			<OtherMetadata>
+				<RuleMetadatas>
+					<RuleMetadata MetadataKey="CNCIDJRERIG1X4BCXLQBCGK5N0XUIEFELUDBUOZ3OV5FSKSSL2B3XOFEO">
+						<RuleID>Cancel</RuleID>
+						<Values>
+							<Value>
+								<Instruction>Not Allowed</Instruction>
+							</Value>
+						</Values>
+					</RuleMetadata>
+					<RuleMetadata MetadataKey="CHGIDJRERIG1X4BCXLQBCGK5N0XUIEFELUDBUOZ3OV5FSKSSL2B3XOFEO">
+						<RuleID>Change</RuleID>
+						<Values>
+							<Value>
+								<Instruction>Allowed</Instruction>
+							</Value>
+						</Values>
+					</RuleMetadata>
+				</RuleMetadatas>
+			</OtherMetadata>
+		</Other>
+	</Metadata>
+</OfferPriceRS>
+</FlxTransactionResponse></soapenv:Body></soapenv:Envelope>
