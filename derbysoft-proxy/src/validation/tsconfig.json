@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Projects */
+    "composite": true /* Enable constraints that allow a TypeScript project to be used with project references. */,
+
+    /* Language and Environment */
+    "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+
+    /* Modules */
+    "module": "commonjs" /* Specify what module code is generated. */,
+    "rootDir": "./" /* Specify the root folder within your source files. */,
+
+    /* Emit */
+    "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
+    "declarationMap": true,                           /* Create sourcemaps for d.ts files. */
+    "sourceMap": true,
+
+    "outDir": "../../dist/validation" /* Specify an output folder for all emitted files. */,
+    // "removeComments": true,                           /* Disable emitting comments. */
+
+    /* Interop Constraints */
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+
+    /* Type Checking */
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": false /* Enable error reporting for expressions and declarations with an implied 'any' type. */,
+    "strictNullChecks": true /* When type checking, take into account 'null' and 'undefined'. */,
+    "noImplicitThis": true /* Enable error reporting when 'this' is given the type 'any'. */,
+    "alwaysStrict": true /* Ensure 'use strict' is always emitted. */,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["test", "dist", "node_modules"]
+}

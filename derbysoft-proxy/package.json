@@ -1,0 +1,125 @@
+{
+  "name": "@simardwt/derbysoft-proxy",
+  "version": "1.1.11",
+  "description": "OTA Types (object mappings between OTA/DerbySoft objects and TypeScript)",
+  "main": "dist/app.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "old-dev": "DEBUG=log* nodemon ./src/app.ts --watch src --watch .env",
+    "dev": "DEBUG=log* nodemon --exec 'tsc --build tsconfig.build.json && node ./dist/app.js'",
+    "dev:trace": "node  --trace-warnings -r ts-node/register -r tsconfig-paths/register ./src/app.ts",
+    "prebuild": "npm run clean",
+    "build": "tsc --build tsconfig.build.json",
+    "postbuild": "cd src && cp --parents ./docs/** ../dist/",
+    "start": "node ./dist/app.js",
+    "clean": "rm -rf dist",
+    "lint": "eslint --ext .ts ./src",
+    "lint:fix": "eslint --ext .ts --fix ./src",
+    "docker:build": "env-cmd --verbose docker build --tag simardwt/derbysoft-proxy-poc --build-arg NPM_TOKEN .",
+    "aws:zip-config": "rm -rf aws-ebs.zip && zip -r aws-ebs package.json .npmrc dist .ebextensions rds-combined-ca-bundle.pem suppliers.json .platform",
+    "test": "jest --forceExit",
+    "encode-env-base64": "cat .env | base64 -w 0 > .env.base64",
+    "uat-tests": "node --trace-warnings -r ts-node/register -r tsconfig-paths/register ./src/uat/index.ts",
+    "file-run": "node --trace-warnings -r ts-node/register -r tsconfig-paths/register"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5imard/ota-types.git"
+  },
+  "keywords": [
+    "ota",
+    "types",
+    "simard",
+    "derbysoft"
+  ],
+  "author": "Simard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5imard/ota-types/issues"
+  },
+  "homepage": "https://github.com/5imard/ota-types#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
+    "@types/axios": "^0.14.0",
+    "@types/big.js": "^6.1.5",
+    "@types/cors": "^2.8.12",
+    "@types/cron": "^2.0.0",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
+    "@types/http-errors": "^1.8.2",
+    "@types/jest": "^29.2.0",
+    "@types/luxon": "^3.0.2",
+    "@types/node": "^16.18.28",
+    "@types/showdown": "^2.0.4",
+    "@types/swagger-ui-express": "^4.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "debug": "^4.3.3",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.2.2",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.1",
+    "typescript": "^4.9.5"
+  },
+  "overrides": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2"
+  },
+  "dependencies": {
+    "@simardwt/derbysoft-types": "^1.0.8",
+    "@simardwt/ota-types": "^1.0.9",
+    "@simardwt/winding-tree-types": "^0.2.7",
+    "@simardwt/winding-tree-utils": "^0.4.32",
+    "@types/morgan": "^1.9.3",
+    "@windingtree/glider-types": "^5.0.0",
+    "axios": "^1.3.6",
+    "big.js": "^6.2.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "cors": "^2.8.5",
+    "cron": "^2.0.0",
+    "cron-time-generator": "^2.0.1",
+    "currency-codes": "^2.1.0",
+    "dotenv": "^10.0.0",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "https-proxy-agent": "^5.0.1",
+    "js-yaml": "^4.1.0",
+    "luxon": "^3.0.4",
+    "microframework-w3tec": "^0.6.3",
+    "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
+    "showdown": "^2.1.0",
+    "soap": "^0.43.0",
+    "swagger-ui-express": "^4.5.0",
+    "typedi": "^0.10.0",
+    "typeorm": "^0.2.44",
+    "typeorm-typedi-extensions": "^0.4.1",
+    "zod": "^3.22.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

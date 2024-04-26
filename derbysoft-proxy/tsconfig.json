@@ -1,0 +1,58 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "outDir": "dist",
+        "pretty": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "importHelpers": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": [
+            "es5",
+            "es6",
+            "dom",
+            "es2015.core",
+            "es2015.collection",
+            "es2015.generator",
+            "es2015.iterable",
+            "es2015.promise",
+            "es2015.proxy",
+            "es2015.reflect",
+            "es2015.symbol",
+            "es2015.symbol.wellknown",
+            "es2021",
+            "esnext.asynciterable"
+        ],
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "test",
+        "dist",
+        "node_modules",
+        "src/validation"
+    ],
+    "include": [
+        "./src/**/*.ts"
+    ],
+    "references": [
+        { "path": "./src/validation/tsconfig.json" }
+    ]
+}

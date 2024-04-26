@@ -1,0 +1,11 @@
+{
+  "ignore": [
+    "src/uat/**",
+    "dist"
+  ],
+  "watch": [
+    "src",
+    ".env"
+  ],
+  "ext": "js,ts,json"
+}

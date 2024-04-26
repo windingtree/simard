@@ -1,7 +1,7 @@
 {
-  "name": "NDCProxy",
+  "name": "simard-ndc-proxy",
   "version": "2.0.1",
-  "description": "Simard NDCProxy",
+  "description": "Simard NDC Proxy",
   "main": "src/app.ts",
   "scripts": {
     "start": "nps",

@@ -1,0 +1,1 @@
+OTA types are placed here temporarily but will be moved to `ota-types` package
