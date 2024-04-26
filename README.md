@@ -8,3 +8,8 @@ Simard is a set of tools developed by Winding Tree (via Simard subsidiary) in an
 - Derbysoft Proxy - middleware for the integration with Derbysoft
 - Simard Pay - a novel B2B payment processing tool
 
+## Contributors
+
+- [Tomasz Kurek](https://github.com/tomashq)
+- [Mathieu Tahon](https://github.com/mtahon)
+- [David Okanlawon](https://github.com/dave-ok)
