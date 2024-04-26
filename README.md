@@ -1,6 +1,6 @@
 # Simard
 
-Simard is a set of tools developed by Winding Tree (via Simard subsidiary) in an attempt to gradually introduce blockchain-enabled optimizations (starting with identity and payments) to the corporate travel sector. We partnered with a few airlines, hotels, and one of the "big four" consulting companies acting as a byer.
+Simard is a set of tools developed by Winding Tree (via Simard subsidiary) in an attempt to gradually introduce blockchain-enabled optimizations (starting with identity and payments) to the corporate travel sector. We partnered with a few airlines, hotels, and one of the "big four" consulting companies acting as a buyer.
 
 ## Simard Components
 
