@@ -11,9 +11,9 @@ info:
     url: https://www.gnu.org/licenses/gpl-3.0.html
   version: 1.0.0
 servers:
-  - url: https://staging.hotels.simard.io/v1
+  - url: https://staging.simard-pay-url/v1
     description: Derbysoft Proxy Test API server
-  - url: https://production.hotels.simard.io/v1
+  - url: https://production.simard-pay-url/v1
     description: Derbysoft Proxy Production API server
 tags:
   - name: offers

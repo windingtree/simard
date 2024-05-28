@@ -1,0 +1,1516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- Date FORMAT YYYYMMDD -->
+	<xs:simpleType name="dateType">
+		<xs:restriction base="xs:string">
+			<xs:length value="8" />
+		<!-- This allows year between 2000 - 9999 , month 01 to 09, days 01 - 09  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]0[1-9]0[1-9])" />
+
+		<!-- This allows year between 2000 - 9999 , month 01 to 09, days 10 - 19  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]0[1-9]1[0-9])" />
+
+		<!-- This allows year between 2000 - 9999 , month 01 , days 20 - 29  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]012[0-9])" />
+
+		<!-- This allows year between 2000 - 9999 , month 02 , days 20 - 28  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]022[0-8])" />
+
+		<!-- This allows year between 2000 - 9999 , month 03 to 09 , days 20 - 29  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]0[3-9]2[0-9])" />
+
+		<!-- This allows year between 2000 - 9999 , month 10-12 , days 01 - 09  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]1[0-2]0[1-9])" />
+
+		<!-- This allows year between 2000 - 9999 , month 10-12 , days 10 - 19  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]1[0-2]1[0-9])" />
+
+		<!-- This allows year between 2000 - 9999 , month 10-12 , days 20 - 29  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9]1[0-2]2[0-9])" />
+
+		<!-- This allows year between 2000 - 9999 , day 31 for the corresponding months  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9](01|03|05|07|08|10|12)3[0-1])" />
+
+		<!-- This allows year between 2000 - 9999 , day 30 for the corresponding months  -->
+			   <xs:pattern value="([2-9][0-9][0-9][0-9](04|06|09|11)30)" />
+
+		<!-- This allows day 29 for feb for the corresponding years  -->
+			   <xs:pattern value="([2-9][0-9](00|04|08|12|16|20|24|28|32|36|40)0229)" />
+			   <xs:pattern value="([2-9][0-9](44|48|52|56|60|64|68|72|76|80)0229)" />
+			   <xs:pattern value="([2-9][0-9](84|88|92|96)0229)" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Time FORMAT HHMMSS -->
+	<xs:simpleType name="timeType">
+		<xs:restriction base="xs:string">
+			<xs:length value="6" />
+			<xs:pattern value="([0-1][0-9][0-5][0-9][0-5][0-9])" />
+			<xs:pattern value="(2[0-3][0-5][0-9][0-5][0-9])" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Y/N indicator -->
+	<xs:simpleType name="strYNindType">
+		<xs:restriction base="xs:string">
+	    		<xs:enumeration value="Y"/>
+  		        <xs:enumeration value="N"/>
+	    		<xs:enumeration value="y"/>
+  		        <xs:enumeration value="n"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- String FORMAT, up to 255 bytes  -->
+	<xs:simpleType name="strMax255Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- String FORMAT, up to 50 bytes  -->
+	<xs:simpleType name="strMax50Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="50" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- String FORMAT, up to 30 bytes  -->
+	<xs:simpleType name="strMax30Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="30" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- String FORMAT, up to 20 bytes  -->
+	<xs:simpleType name="strMax20Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+<!-- String FORMAT, 3 bytes  -->
+	<xs:simpleType name="strFull3Type">
+		<xs:restriction base="xs:string">
+			<xs:length value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- String FORMAT, 5 bytes  -->
+	<xs:simpleType name="strFull5Type">
+		<xs:restriction base="xs:string">
+			<xs:length value="5" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- String FORMAT, max 3 bytes  -->
+	<xs:simpleType name="strMax3Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 2 bytes -->
+	<xs:simpleType name="numFull2Type">
+    		<xs:restriction base="xs:string">
+	 		<xs:length value="2" />
+			<xs:pattern value="([0-9]{2})" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 2 bytes -->
+	<xs:simpleType name="numMax2Type">
+      		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="2" />
+    			<xs:pattern value="([0-9]*)" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 2 bytes, values 1 to 50 -->
+	<xs:simpleType name="numMax2Type2">
+      		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="2" />
+			<xs:pattern value="([0-9])" />
+			<xs:pattern value="([0-4][0-9])" />
+			<xs:pattern value="(50)" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 3 bytes -->
+	<xs:simpleType name="numMax3Type">
+      		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="3" />
+    			<xs:pattern value="([0-9]*)" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 4 bytes -->
+	<xs:simpleType name="numFull4Type">
+    		<xs:restriction base="xs:string">
+	 		<xs:length value="4" />
+			<xs:pattern value="([0-9]{4})" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 5 bytes -->
+	<xs:simpleType name="numMax5Type">
+      		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="5" />
+    			<xs:pattern value="([0-9]*)" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 8 bytes -->
+	<xs:simpleType name="numMax8Type">
+      		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="8" />
+    			<xs:pattern value="([0-9]*)" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 9 bytes -->
+	<xs:simpleType name="numFull9Type">
+    		<xs:restriction base="xs:string">
+	 		<xs:length value="9" />
+			<xs:pattern value="([0-9]{9})" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 9 bytes, non-zero -->
+	<xs:simpleType name="numFull9NonZeroType">
+		<xs:restriction base="xs:string">
+	 		<xs:length value="9" />
+			<xs:pattern value="(([0]{8}[1-9]))" />
+			<xs:pattern value="([1-9][0-9]{8})" />
+			<xs:pattern value="([0-9][1-9][0-9]{7})" />
+			<xs:pattern value="([0-9]{2}[1-9][0-9]{6})" />
+			<xs:pattern value="([0-9]{3}[1-9][0-9]{5})" />
+			<xs:pattern value="([0-9]{4}[1-9][0-9]{4})" />
+			<xs:pattern value="([0-9]{5}[1-9][0-9]{3})" />
+			<xs:pattern value="([0-9]{6}[1-9][0-9]{2})" />
+			<xs:pattern value="([0-9]{7}[1-9][0-9]{1})" />
+			<xs:pattern value="([1-9]{8}[0-9])" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 8 bytes, non-zero -->
+	<xs:simpleType name="numFull8NonZeroType">
+		<xs:restriction base="xs:string">
+	 		<xs:length value="8" />
+			<xs:pattern value="(([0]{7}[1-9]))" />
+			<xs:pattern value="([1-9][0-9]{7})" />
+			<xs:pattern value="([0-9][1-9][0-9]{6})" />
+			<xs:pattern value="([0-9]{2}[1-9][0-9]{5})" />
+			<xs:pattern value="([0-9]{3}[1-9][0-9]{4})" />
+			<xs:pattern value="([0-9]{4}[1-9][0-9]{3})" />
+			<xs:pattern value="([0-9]{5}[1-9][0-9]{2})" />
+			<xs:pattern value="([0-9]{6}[1-9][0-9]{1})" />
+			<xs:pattern value="([1-9]{7}[0-9])" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 12 bytes -->
+	<xs:simpleType name="numMax12Type">
+      		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="12" />
+    			<xs:pattern value="([0-9]*)" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 13 bytes -->
+	<xs:simpleType name="numFull13Type">
+		<xs:restriction base="xs:string">
+    			<xs:length value="13" />
+   			<xs:pattern value="([0-9]{13})" />
+  		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, max 15 bytes -->
+	<xs:simpleType name="numMax15Type">
+    		<xs:restriction base="xs:string">
+    			<xs:minLength value="1" />
+    			<xs:maxLength value="15" />
+    			<xs:pattern value="([0-9]*)" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Number FORMAT, 15 bytes -->
+	<xs:simpleType name="numFull15Type">
+    		<xs:restriction base="xs:string">
+	 		<xs:length value="15" />
+			<xs:pattern value="([0-9]{15})" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- Debit/Credit FORMAT  -->
+	<xs:simpleType name="dbCrType">
+ 		<xs:restriction base="xs:string">
+	  		<xs:enumeration value="C" />
+	     		<xs:enumeration value="D" />
+	   	</xs:restriction>
+</xs:simpleType>
+
+<!-- Message -->
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VersNbr"   />
+				<xs:element ref="SubmrId"   />
+				<xs:element ref="MsgSeqNbr" />
+				<xs:element ref="CreateDt" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="CreateTm" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="ExprDt" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="TravelBatch" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SettleBatch" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MessageTrailer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Version No -->
+	<xs:element name="VersNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="201000001"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+<!-- submitter ID -->
+	<xs:element name="SubmrId">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="11" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Message Seq No -->
+        <xs:element name="MsgSeqNbr" type="numFull9NonZeroType" />
+
+<!-- Create date -->
+        <xs:element name="CreateDt"  type="dateType"  />
+
+<!-- Create Time -->
+        <xs:element name="CreateTm"  type="timeType"  />
+
+<!-- Expiry date -->
+        <xs:element name="ExprDt"    type="dateType" />
+
+<!-- Travel Batch -->
+	<xs:element name="TravelBatch">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BtchSeqNbr" />
+				<xs:element ref="ProviderNm" />
+				<xs:element ref="TrvlBtchCurrCd"/>
+				<xs:element ref="TravelTran" minOccurs="1"  maxOccurs="unbounded"/>
+				<xs:element ref="BatchTrailer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Batch seq number -->
+        <xs:element name="BtchSeqNbr" type="numFull8NonZeroType" />
+
+<!-- Provider name -->
+	<xs:element name="ProviderNm" type="xs:string" />
+
+<!-- Currency code -->
+	<xs:element name="TrvlBtchCurrCd"  type="strFull3Type" />
+
+<!-- Travel Transaction -->
+	<xs:element name="TravelTran">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TransSeqNbr"/>
+				<xs:element ref="TransDt" />
+				<xs:element ref="TransTm"    minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="CancRsnTx"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="BkgSrceCd"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="MediaCd"    minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="TMCDossierNbr" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="ProdDesc"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="OrderNbr"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="GDSCd"     minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="CommodityCd" />
+				<xs:element ref="Account"  />
+				<xs:element ref="Amount"/>
+				<xs:element ref="Trip"/>
+
+	<!-- Supplier - This supplier is declared locally as the two tags SplrMtchCd and SplrMtchDa can present only for travel transactions -->
+				<xs:element name="Supplier">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="SuplrNm"/>
+							<xs:element ref="VATNbr"      minOccurs="0" maxOccurs="1" />
+							<xs:element ref="SplrMtchCd"  minOccurs="0" maxOccurs="1" />
+							<xs:element ref="SplrMtchDa"  minOccurs="0" maxOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element ref="Provider" />
+				<xs:element ref="BookingSystem" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="CustRefGrp" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="AddAmountGrp" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="ElementGrp" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="Commodity" minOccurs="0"  maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+<!-- Transaction Seq No -->
+        <xs:element name="TransSeqNbr" type="numFull9NonZeroType" />
+
+<!-- Transaction date -->
+        <xs:element name="TransDt"   type="dateType"  />
+
+<!-- Transacton Time -->
+        <xs:element name="TransTm"   type="timeType"  />
+
+<!-- Cancellation reason -->
+        <xs:element name="CancRsnTx" type="strMax255Type"  />
+
+<!-- Background Source Code -->
+	<xs:element name="BkgSrceCd" >
+		<xs:simpleType>
+		    <xs:restriction base="xs:string">
+			    <xs:enumeration value="01"/>
+			    <xs:enumeration value="02"/>
+			    <xs:enumeration value="03"/>
+			    <xs:enumeration value="04"/>
+		    </xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Media Code -->
+	<xs:element name="MediaCd" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			    <xs:enumeration value="01"/>
+			    <xs:enumeration value="02"/>
+			    <xs:enumeration value="03"/>
+			    <xs:enumeration value="04"/>
+			    <xs:enumeration value="05"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Travel company dossier or folio number -->
+	<xs:element name="TMCDossierNbr" type="strMax30Type" />
+
+<!-- Product Description -->
+        <xs:element name="ProdDesc" type="strMax255Type" />
+
+<!-- Order Number -->
+        <xs:element name="OrderNbr" type="strMax30Type" />
+
+<!-- GDSCd Number -->
+	<xs:element name="GDSCd" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="4" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Commodity code -->
+	<xs:element name="CommodityCd"  type="strFull3Type" />
+
+<!-- Account -->
+	<xs:element name="Account">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AcctNbr"/>
+				<xs:element ref="CrdExpDt" minOccurs="0"  maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Account Number -->
+	<xs:element name="AcctNbr" type="numFull15Type" />
+
+<!-- Card Expiry Date -->
+	<xs:element name="CrdExpDt" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+  				<xs:pattern value="(0[1-9][0-9][0-9])" />
+ 				<xs:pattern value="(1[0-2][0-9][0-9])" />
+			</xs:restriction>
+	    	</xs:simpleType>
+	</xs:element>
+
+<!-- Amount -->
+	<xs:element name="Amount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TransAmt" />
+				<xs:element ref="DbCrInd"    />
+				<xs:element ref="OrigAmt"  minOccurs="0" maxOccurs="1"  />
+				<xs:element ref="OrigCurrCd" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Transaction Amount -->
+	<xs:element name="TransAmt" type="numMax12Type" />
+
+<!-- Debit Credit Indicator -->
+	<xs:element name="DbCrInd"  type="dbCrType" />
+
+<!-- Original Amount -->
+        <xs:element name="OrigAmt"  type="numMax12Type" />
+
+<!-- Original Currency code -->
+        <xs:element name="OrigCurrCd"  type="strFull3Type" />
+
+<!-- Trip -->
+	<xs:element name="Trip">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ConsultantNm" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="DestNm"/>
+				<xs:element ref="DprtDt"/>
+				<xs:element ref="TvlrFirstNm"/>
+				<xs:element ref="TvlrLastNm"/>
+				<xs:element ref="TvlrPartyCnt" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Consultant name -->
+	<xs:element name="ConsultantNm"  type="strMax255Type"  />
+
+<!-- Destination name -->
+	<xs:element name="DestNm" type="strMax255Type"  />
+
+<!-- Destination date -->
+	<xs:element name="DprtDt" type="dateType"  />
+
+<!-- Traveller First name -->
+	<xs:element name="TvlrFirstNm"  type="strMax255Type" />
+
+<!-- Traveller Last name -->
+	<xs:element name="TvlrLastNm"   type="strMax255Type" />
+
+<!-- Traveller party count -->
+	<xs:element name="TvlrPartyCnt" type="numMax3Type" />
+
+<!-- Supplier - This supplier declaration is used only for settle transactions -->
+	<xs:element name="Supplier">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SuplrNm"/>
+				<xs:element ref="VATNbr"  minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Supplier Name -->
+	<xs:element name="SuplrNm"  type="strMax255Type"  />
+
+<!-- VAT nbr -->
+	<xs:element name="VATNbr"   type="strMax30Type" />
+
+<!-- Supplier Matching Code -->
+        <xs:element name="SplrMtchCd" type="strMax20Type"  />
+
+<!-- Supplier Matching Data -->
+        <xs:element name="SplrMtchDa" type="strMax255Type"  />
+
+<!-- Provider -->
+	<xs:element name="Provider">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="IATANbr" minOccurs="0"  maxOccurs="1"  />
+				<xs:element ref="AmexAgcyNbr" />
+				<xs:element ref="AmexOfcNbr" />
+				<xs:element ref="ServCtrCd" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="TrmnlId" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="InvInd" />
+				<xs:element ref="InvNbr"/>
+				<xs:element ref="InvDt"/>
+				<xs:element ref="CrNoteNbr" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="CrNoteDt" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="ProviderTransRefDa" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="ProviderClntRefDa" minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="EInvLocTxt"  minOccurs="0"  maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- IATA no -->
+	<xs:element name="IATANbr"  type="numMax8Type" />
+
+<!-- AMEX Agency no -->
+	<xs:element name="AmexAgcyNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="4" />
+			</xs:restriction>
+	    	 </xs:simpleType>
+	</xs:element>
+
+<!-- AMEX Office no -->
+	<xs:element name="AmexOfcNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="9" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Service centr -->
+	<xs:element name="ServCtrCd"  type="strMax30Type"  />
+
+<!-- Terminal no -->
+	<xs:element name="TrmnlId"    type="strMax30Type"  />
+
+<!-- Invoice indicator -->
+	<xs:element name="InvInd"     type="strYNindType" />
+
+<!-- Invoice number -->
+	<xs:element name="InvNbr"     type="strMax30Type" />
+
+<!-- Invoice Date -->
+	<xs:element name="InvDt"      type="dateType" />
+
+<!-- Credit note number -->
+	<xs:element name="CrNoteNbr"  type="strMax30Type"  />
+
+<!-- Credit note date -->
+	<xs:element name="CrNoteDt"   type="dateType" />
+
+<!-- Provider transansaction referrence -->
+	<xs:element name="ProviderTransRefDa"  type="strMax30Type" />
+
+<!-- Provider referrence for their client -->
+	<xs:element name="ProviderClntRefDa"   type="strMax30Type" />
+
+<!-- E-Invoice location text -->
+	<xs:element name="EInvLocTxt"  type="strMax255Type" />
+
+<!-- Bookingsystem -->
+
+	<xs:element name="BookingSystem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="InvNbr" minOccurs="0" maxOccurs="1"    />
+				<xs:element ref="InvDt"  minOccurs="0" maxOccurs="1"    />
+				<xs:element ref="CrNoteNbr" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="CrNoteDt" minOccurs="0" maxOccurs="1"  />
+				<xs:element ref="BkgRefDa" minOccurs="0" maxOccurs="1"  />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Bookingsystem booking referrence -->
+	<xs:element name="BkgRefDa"   type="strMax30Type" />
+
+<!-- Customer Reference Group -->
+	<xs:element name="CustRefGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustRef" minOccurs="0" maxOccurs="7"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Customer Reference -->
+	<xs:element name="CustRef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustRefNbr" />
+				<xs:element ref="CustRefTypeCd" />
+				<xs:element ref="CustRefTx" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Customer reference number  -->
+        <xs:element name="CustRefNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+		    		<xs:enumeration value="01"/>
+ 				<xs:enumeration value="02"/>
+				<xs:enumeration value="03"/>
+				<xs:enumeration value="04"/>
+				<xs:enumeration value="05"/>
+				<xs:enumeration value="06"/>
+				<xs:enumeration value="07"/>
+ 			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+<!-- Customer reference type cd  -->
+	<xs:element name="CustRefTypeCd"  type="numFull4Type" />
+
+<!-- Customer reference data  -->
+	<xs:element name="CustRefTx"  type="strMax255Type" />
+
+
+<!-- Add Amount group  -->
+	<xs:element name="AddAmountGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AddAmount" minOccurs="0" maxOccurs="30" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Add Amount -->
+	<xs:element name="AddAmount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AmtTypeCd" />
+				<xs:element ref="AddAmt" />
+				<xs:element ref="DbCrInd" />
+				<xs:element ref="AddAmtRt" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Amount type code -->
+	<xs:element name="AmtTypeCd" type="strFull3Type" />
+
+<!-- Add Amount -->
+	<xs:element name="AddAmt"  type="numMax12Type" />
+
+<!-- Add Amount Rate -->
+	<xs:element name="AddAmtRt">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="7" />
+				<xs:pattern value="([0-9])*" />
+				<xs:pattern value="([0-9])*[.]([0-9])*" />
+				<xs:pattern value="([0-9])*[,]([0-9])*" />
+				<xs:pattern value="[.]([0-9])*" />
+				<xs:pattern value="[,]([0-9])*" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+<!-- Element group  -->
+	<xs:element name="ElementGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Element" minOccurs="0" maxOccurs="99"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Element -->
+	<xs:element name="Element">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ElemNbr"/>
+				<xs:element ref="ElemDesc"/>
+				<xs:element ref="ElemRefCd"/>
+				<xs:element ref="TourCd"  minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="StmtInd" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="TvlrFirstNm" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="TvlrLastNm" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="ElemAmount" />
+ 				<xs:element ref="ElemAddAmountGrp" minOccurs="0" maxOccurs="1" />
+ 				<xs:element ref="ElemCustRefGrp" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Element Number -->
+	<xs:element name="ElemNbr"  type="numMax2Type" />
+
+<!-- Element Desc -->
+	<xs:element name="ElemDesc"  type="strMax255Type" />
+
+<!-- Element Ref cd -->
+	<xs:element name="ElemRefCd" type="strMax30Type" />
+
+<!-- Tour cd -->
+	<xs:element name="TourCd"    type="strMax30Type" />
+
+<!-- Statement Ind -->
+	<xs:element name="StmtInd"  type="strYNindType" />
+
+<!-- Element Amount  -->
+	<xs:element name="ElemAmount">
+	        <xs:complexType>
+	        <xs:sequence>
+			<xs:element ref="ElemAmt" />
+			<xs:element ref="DbCrInd" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Element Amount -->
+	<xs:element name="ElemAmt"  type="numMax12Type" />
+
+<!-- Element Additional Amount Grp -->
+	<xs:element name="ElemAddAmountGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ElemAddAmount" minOccurs = "0" maxOccurs="30"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Element Add Amount -->
+	<xs:element name="ElemAddAmount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AmtTypeCd"/>
+				<xs:element ref="AddAmt"/>
+				<xs:element ref="DbCrInd"/>
+				<xs:element ref="AddAmtRt" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!--Element Cust Ref Grp -->
+	<xs:element name="ElemCustRefGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ElemCustRef" minOccurs = "0" maxOccurs="7"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Customer Reference -->
+	<xs:element name="ElemCustRef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustRefNbr"/>
+				<xs:element ref="CustRefTypeCd"/>
+				<xs:element ref="CustRefTx"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+<!-- Commodity starts -->
+	<xs:element name="Commodity">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="Air"/>
+				<xs:element ref="CarHire"/>
+				<xs:element ref="Hotel"/>
+				<xs:element ref="Rail"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Air -->
+	<xs:element name="Air">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TktNbr"/>
+				<xs:element ref="PNRLocCd" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="AirTransTypeCd"/>
+				<xs:element ref="ExchTktNbr" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="TktIssCityNm" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="TktIssDt"/>
+				<xs:element ref="ETktInd"/>
+				<xs:element ref="FreqFlyerNbr" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="AirSectorGrp" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Ticket number -->
+	<xs:element name="TktNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="14" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- PNR location code -->
+	<xs:element name="PNRLocCd">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="11" />
+			</xs:restriction>
+		</xs:simpleType>
+ 	</xs:element>
+
+<!-- AIR Transaction type code -->
+	<xs:element name="AirTransTypeCd">
+        	<xs:simpleType>
+			<xs:restriction base="xs:string">
+		    		<xs:enumeration value="TKT"/>
+ 				<xs:enumeration value="REF"/>
+				<xs:enumeration value="EXC"/>
+				<xs:enumeration value="MSC"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Exchange Ticket number -->
+	<xs:element name="ExchTktNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="14" />
+			</xs:restriction>
+		</xs:simpleType>
+ 	</xs:element>
+
+<!-- Ticket issue city name -->
+	<xs:element name="TktIssCityNm"  type="strMax30Type" />
+
+<!-- Ticket issue date -->
+	<xs:element name="TktIssDt"  type="dateType" />
+
+<!-- E-Ticket indicator -->
+	<xs:element name="ETktInd"  type="strYNindType" />
+
+<!-- Freq flier number -->
+	<xs:element name="FreqFlyerNbr"  type="strMax30Type" />
+
+<!-- Air sector group -->
+	<xs:element name="AirSectorGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AirSector" maxOccurs="50"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Air sector -->
+	<xs:element name="AirSector">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SctrNbr"/>
+				<xs:element ref="SctrTypeCd"/>
+				<xs:element ref="DprtAirCd"/>
+				<xs:element ref="ArrAirCd"/>
+				<xs:element ref="DprtDt"/>
+				<xs:element ref="DprtTm" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="ArrDt"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="ArrTm"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="FlightNbr"/>
+				<xs:element ref="SctrClassCd"/>
+				<xs:element ref="SctrFareAmt" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="SctrFareBasisCd" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="StopOvrInd" minOccurs="0" maxOccurs="1" />
+
+				<xs:element name="CarrierCd" >
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="2" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+
+				<xs:element ref="DomesticInd"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Sector number -->
+	<xs:element name="SctrNbr"  type="numMax2Type2" />
+
+
+<!-- Sector type cd -->
+	<xs:element name="SctrTypeCd">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+		    		<xs:enumeration value="A"/>
+			 	<xs:enumeration value="R"/>
+				<xs:enumeration value="S"/>
+				<xs:enumeration value="V"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Departure air cd -->
+	<xs:element name="DprtAirCd"  type="strFull3Type" />
+
+<!-- Arrival air cd -->
+	<xs:element name="ArrAirCd"  type="strFull3Type" />
+
+<!-- Depart time -->
+	<xs:element name="DprtTm"  type="timeType" />
+
+<!-- Arrival Date -->
+	<xs:element name="ArrDt"  type="dateType"  />
+
+<!-- Arrival time -->
+        <xs:element name="ArrTm"  type="timeType" />
+
+<!-- flight number -->
+	<xs:element name="FlightNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="4" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Sector class code  -->
+	<xs:element name="SctrClassCd">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="2" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Sector fare amount -->
+	<xs:element name="SctrFareAmt"  type="numMax12Type" />
+
+<!-- Sector fare basis code  -->
+	<xs:element name="SctrFareBasisCd">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="0" />
+				<xs:maxLength value="15" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Stop over indicator -->
+	<xs:element name="StopOvrInd">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="X"/>
+			 	<xs:enumeration value="O"/>
+				<xs:enumeration value="x"/>
+			 	<xs:enumeration value="o"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+<!-- Domestic Ind -->
+	<xs:element name="DomesticInd"  type="strYNindType" />
+
+<!-- Rail  -->
+	<xs:element name="Rail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TktNbr" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="TktIssNm"/>
+				<xs:element ref="TktIssCityNm" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="TktIssDt"/>
+				<xs:element ref="RailSectorGrp" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Ticket issuer name  -->
+	<xs:element name="TktIssNm" type="strMax255Type" />
+
+<!-- Rail Sector group -->
+	<xs:element name="RailSectorGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="RailSector" maxOccurs="50"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Rail Sector -->
+	<xs:element name="RailSector">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SctrNbr"/>
+				<xs:element ref="DprtPtCd" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="DprtPtNm" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="ArrPtCd" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="ArrPtNm" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="DprtDt"/>
+				<xs:element ref="ArrDt" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="TrvlClassCd" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="CarrierCd" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="CarrierNm" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Departure point cd -->
+	<xs:element name="DprtPtCd"  type="strMax3Type" />
+
+<!-- Departure Point name -->
+	<xs:element name="DprtPtNm" type="strMax50Type" />
+
+<!-- Arrival point code -->
+	<xs:element name="ArrPtCd" type="strMax3Type" />
+
+<!-- Arrival Point name -->
+	<xs:element name="ArrPtNm"  type="strMax50Type" />
+
+<!-- Travel class code -->
+	<xs:element name="TrvlClassCd"  type="strMax30Type" />
+
+<!-- Rail Carrier code, length 3 -->
+	<xs:element name="CarrierCd" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="3" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Rail carrier name -->
+	<xs:element name="CarrierNm"   type="strMax255Type" />
+
+<!-- Hotel   -->
+	<xs:element name="Hotel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ChkInDt"/>
+				<xs:element ref="ChkInTm"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="ChkOutDt"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="ChkOutTm"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="FolioNbr"/>
+				<xs:element ref="HotelChrgTypeCd"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="HotelChrgTypeCat"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="RoomRateGrp"  minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Check in date -->
+	<xs:element name="ChkInDt" type="dateType" />
+
+<!-- check in time  -->
+	<xs:element name="ChkInTm"  type="timeType"  />
+
+<!-- check out date  -->
+     <xs:element name="ChkOutDt" type="dateType"  />
+
+<!-- check out time  -->
+	<xs:element name="ChkOutTm" type="timeType"  />
+
+<!-- Folio number  -->
+	<xs:element name="FolioNbr">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="12" />
+			</xs:restriction>
+		</xs:simpleType>
+ 	</xs:element>
+
+<!-- Hotel charge type code  -->
+	<xs:element name="HotelChrgTypeCd" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="0"/>
+			 	<xs:enumeration value="1"/>
+			 	<xs:enumeration value="2"/>
+			 	<xs:enumeration value="3"/>
+			 	<xs:enumeration value="4"/>
+			 	<xs:enumeration value="5"/>
+			 	<xs:enumeration value="6"/>
+			 	<xs:enumeration value="7"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Hotel Charge type cat -->
+	<xs:element name="HotelChrgTypeCat">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			 	<xs:enumeration value="1"/>
+			 	<xs:enumeration value="2"/>
+			 	<xs:enumeration value="3"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- Room Rate Group -->
+	<xs:element name="RoomRateGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="RoomRate" minOccurs="1" maxOccurs="50" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Room Rate -->
+	<xs:element name="RoomRate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="RateNbr"/>
+				<xs:element ref="DayRate"/>
+				<xs:element ref="NightCnt"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+<!-- Rate Number -->
+	<xs:element name="RateNbr"  type="numMax2Type2" />
+
+<!-- Day Rate -->
+	<xs:element name="DayRate"  type="numMax12Type" />
+
+<!-- Night Count -->
+	<xs:element name="NightCnt"  type="numMax2Type" />
+
+<!-- Car Hire -->
+
+	<xs:element name="CarHire">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PickUpDt"/>
+				<xs:element ref="PickUpLocNm"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="PickUpCityNm"/>
+				<xs:element ref="PickUpRgnCd"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="PickUpCtryCd"  minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="DropOffDt"/>
+				<xs:element ref="DropOffLocNm"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="DropOffCityNm"/>
+				<xs:element ref="DropOffRgnCd"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="DropOffCtryCd"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="CarRentAgrNbr" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="RentDistNbr"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="RenDistUnitCd" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Pick up Date -->
+	<xs:element name="PickUpDt" type="dateType"  />
+
+<!-- Pick up location name -->
+	<xs:element name="PickUpLocNm" type="strMax50Type" />
+
+<!-- Pick up city name  -->
+	<xs:element name="PickUpCityNm" type="strMax50Type" />
+
+<!-- Pick up Region cd  -->
+	<xs:element name="PickUpRgnCd" type="strFull3Type" />
+
+<!-- Pick up country cd  -->
+	<xs:element name="PickUpCtryCd" type="strFull3Type" />
+
+
+<!-- Drop off Date  -->
+	<xs:element name="DropOffDt" type="dateType" />
+
+<!-- Drop off location name  -->
+	<xs:element name="DropOffLocNm"  type="strMax50Type" />
+
+<!-- Drop off city name -->
+	<xs:element name="DropOffCityNm" type="strMax50Type" />
+
+<!-- Drop off Region cd  -->
+	<xs:element name="DropOffRgnCd" type="strFull3Type" />
+
+<!-- Drop off country cd  -->
+	<xs:element name="DropOffCtryCd" type="strFull3Type" />
+
+<!-- Car rent Agreement no -->
+	<xs:element name="CarRentAgrNbr" type="strMax30Type" />
+
+<!-- Rent Dist number -->
+	<xs:element name="RentDistNbr"  type="numMax5Type" />
+
+<!-- Rent Dist Unit Cd -->
+	<xs:element name="RenDistUnitCd" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+		    		<xs:enumeration value="K"/>
+			 	<xs:enumeration value="M"/>
+			</xs:restriction>
+		</xs:simpleType>
+ 	</xs:element>
+
+
+<!-- Batch Trailer  -->
+
+	<xs:element name="BatchTrailer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BtchDbCnt"/>
+				<xs:element ref="BtchDbTot"/>
+				<xs:element ref="BtchCrCnt"/>
+				<xs:element ref="BtchCrTot"/>
+				<xs:element ref="BtchCnt"/>
+				<xs:element ref="BtchTot"/>
+				<xs:element ref="BtchDbCrInd"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+<!-- Batch Debit count -->
+	<xs:element name="BtchDbCnt"    type="numFull9Type"  />
+
+<!-- Batch Debit total -->
+	<xs:element name="BtchDbTot"    type="numFull13Type"    />
+
+<!-- Batch credit count -->
+	<xs:element name="BtchCrCnt"    type="numFull9Type"  />
+
+<!-- Batch credit total -->
+	<xs:element name="BtchCrTot"    type="numFull13Type"    />
+
+<!-- Batch count -->
+	<xs:element name="BtchCnt"      type="numFull9Type"  />
+
+<!-- Batch total -->
+	<xs:element name="BtchTot"      type="numFull13Type"    />
+
+<!-- Batch Debit credit indicator -->
+	<xs:element name="BtchDbCrInd"  type="dbCrType"   />
+
+<!-- Settle Batch -->
+	<xs:element name="SettleBatch">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BtchSeqNbr" />
+				<xs:element ref="ProviderNm" />
+				<xs:element ref="SENbr" />
+				<xs:element ref="SOCRefNbr" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="SECurrCd" />
+				<xs:element ref="SettleTran" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="BatchTrailer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- SE number  -->
+	<xs:element name="SENbr"  type="numMax15Type" />
+
+<!-- SOC Ref No -->
+	<xs:element name="SOCRefNbr"  type="numMax15Type" />
+
+<!-- Must be a valid ISO Currency Code.  -->
+	<xs:element name="SECurrCd"   type="strFull3Type" />
+
+<!-- Settle Transaction -->
+	<xs:element name="SettleTran">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TransSeqNbr"/>
+				<xs:element ref="TransDt" />
+				<xs:element ref="TransTm"    minOccurs="0" maxOccurs="1" />
+				<xs:element ref="CancRsnTx"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="BkgSrceCd"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="MediaCd"    minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="TMCDossierNbr"  minOccurs="0" maxOccurs="1" />
+				<xs:element ref="ProdDesc"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="OrderNbr"  minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="GDSCd"     minOccurs="0"  maxOccurs="1" />
+				<xs:element ref="CommodityCd" />
+				<xs:element ref="Account" />
+				<xs:element ref="Auth" minOccurs="0"  maxOccurs="1"  />
+				<xs:element ref="Amount" />
+				<xs:element ref="Trip" />
+				<xs:element ref="Supplier" />
+				<xs:element ref="Provider" />
+				<xs:element ref="BookingSystem" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="CustRefGrp" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="AddAmountGrp" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="ElementGrp" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="TxnLinkGrp" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="Commodity" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+<!-- Auth -->
+	<xs:element name="Auth">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AuthCd" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="POSCd" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="SELocnId" minOccurs="0"  maxOccurs="1"/>
+				<xs:element ref="SEContactDa" minOccurs="0"  maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Auth Code -->
+	<xs:element name="AuthCd">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="(([a-zA-Z0-9][a-zA-Z0-9])|[a-zA-Z0-9]{6})" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- POS Cd -->
+	<xs:element name="POSCd" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="12" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- SE Location ID -->
+	<xs:element name="SELocnId" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="15" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+<!-- SE Contact DA -->
+	<xs:element name="SEContactDa" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1" />
+				<xs:maxLength value="40" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+<!-- Transaction Link Ref Grp -->
+	<xs:element name="TxnLinkGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TxnLink" minOccurs = "0" maxOccurs="99"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Transaction Link -->
+	<xs:element name="TxnLink">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TxnLinkSeqNbr"/>
+				<xs:element ref="TxnLinkRefCd"/>
+				<xs:element ref="TxnLinkRefDa"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Transaction Link Seq No -->
+        <xs:element name="TxnLinkSeqNbr" type="numFull9NonZeroType" />
+
+<!-- Transaction Link Ref code -->
+	<xs:element name="TxnLinkRefCd"  type="strFull5Type" />
+
+<!-- Transaction Link Ref Data -->
+	<xs:element name="TxnLinkRefDa" type="strMax30Type" />
+
+
+<!-- Message Trailer -->
+	<xs:element name="MessageTrailer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SettleBtchCnt"/>
+				<xs:element ref="TrvlBtchCnt"/>
+				<xs:element ref="CurrencyTotGrp"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Settle batch count -->
+	<xs:element name="SettleBtchCnt" type="numFull9Type" />
+
+<!-- Travel batch count -->
+	<xs:element name="TrvlBtchCnt"   type="numFull9Type" />
+
+<!-- Currency Total group -->
+	<xs:element name="CurrencyTotGrp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CurrencyTot" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+<!-- Currency total -->
+	<xs:element name="CurrencyTot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CurrencyCd"/>
+				<xs:element ref="TravelTranDbCnt"/>
+				<xs:element ref="TravelTranDbTot"/>
+				<xs:element ref="TravelTranCrCnt"/>
+				<xs:element ref="TravelTranCrTot"/>
+				<xs:element ref="TravelTranCnt"/>
+				<xs:element ref="TravelTranTot"/>
+				<xs:element ref="TravelDbCrInd"/>
+				<xs:element ref="SettleTranDbCnt"/>
+				<xs:element ref="SettleTranDbTot"/>
+				<xs:element ref="SettleTranCrCnt"/>
+				<xs:element ref="SettleTranCrTot"/>
+				<xs:element ref="SettleTranCnt"/>
+				<xs:element ref="SettleTranTot"/>
+				<xs:element ref="SettleDbCrInd"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+<!-- Currency Code -->
+	<xs:element name="CurrencyCd"  type="strFull3Type" />
+
+<!-- Travel Tran Debit count -->
+	<xs:element name="TravelTranDbCnt" type="numFull9Type" />
+
+<!-- Travel Tran Credit count -->
+	<xs:element name="TravelTranDbTot" type="numFull13Type"  />
+
+<!-- Travel tran credit total -->
+	<xs:element name="TravelTranCrCnt" type="numFull9Type"  />
+
+<!-- Travel tran total -->
+        <xs:element name="TravelTranCrTot" type="numFull13Type"    />
+
+<!-- Travel tran count -->
+	<xs:element name="TravelTranCnt"   type="numFull9Type"  />
+
+<!-- Travel tran total  -->
+	<xs:element name="TravelTranTot"   type="numFull13Type"    />
+
+<!-- Travel debit credit indicator -->
+	<xs:element name="TravelDbCrInd"   type="dbCrType"   />
+
+<!-- Settle Tran debit count -->
+	<xs:element name="SettleTranDbCnt" type="numFull9Type"  />
+
+<!-- settle tran debit total -->
+	<xs:element name="SettleTranDbTot" type="numFull13Type"    />
+
+<!-- settle tran credit count -->
+	<xs:element name="SettleTranCrCnt" type="numFull9Type"  />
+
+<!-- settle tran credit total -->
+	<xs:element name="SettleTranCrTot" type="numFull13Type"    />
+
+<!-- settle tran count -->
+	<xs:element name="SettleTranCnt"   type="numFull9Type"  />
+
+<!-- settle tran total -->
+	<xs:element name="SettleTranTot"   type="numFull13Type"    />
+
+<!-- settle debit credit ind -->
+	<xs:element name="SettleDbCrInd"   type="dbCrType"   />
+
+</xs:schema>

@@ -1,0 +1,29 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('simardpay');
+
+
+// Run a find command to view items sold on April 4th, 2014.
+db.profiles.insertOne({
+    "orgid": "0x0000000000000000000000000000000000000000000000000000000000007121",
+    "cardData": {
+        "aliasCC": "7LHXscqwAAEAAAGCztBvy_8GbX_fAPyM",
+        "brand": "visa",
+        "type": "credit",
+        "maskedCard": "444433xxxxxx1111",
+        "expiryMonth": "02",
+        "expiryYear": "2023",
+        "cardholderName": "Simard OU"
+    },
+    "billingAddress": {
+        "countryCode": "EE",
+        "stateProv": "Harju maakond",
+        "postalCode": "10115",
+        "cityName": "Tallinn",
+        "street": "Tartu mnt 67/1-13b"
+    }
+})

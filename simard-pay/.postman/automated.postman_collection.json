@@ -1,0 +1,1225 @@
+{
+	"info": {
+		"_postman_id": "8f21d135-07fb-4411-abea-00000000000",
+		"name": "automated.postman_collection.json",
+		"description": "API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test Deposit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4dab3e9e-d5a5-4f94-86d6-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check body fields\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"settlementId\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currency\": \"EUR\",\r\n  \"amount\": \"10000.00\"\r\n}"
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/simulateDeposit",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"simulateDeposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Balances",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b35b7535-f48c-411a-a601-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check body fields\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"EUR\");",
+							"//    pm.expect(pm.response.text()).to.include(\"SEK\");",
+							"    pm.expect(pm.response.text()).to.include(\"available\");",
+							"    pm.expect(pm.response.text()).to.include(\"reserved\");",
+							"    pm.expect(pm.response.text()).to.include(\"total\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances"
+					]
+				},
+				"description": "API Testing"
+			},
+			"response": []
+		},
+		{
+			"name": "balances/depositinstructions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf199f7d-79f4-498d-b588-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check body fields\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"iban\");",
+							"    pm.expect(pm.response.text()).to.include(\"bic\");",
+							"    pm.expect(pm.response.text()).to.include(\"bankName\");",
+							"    pm.expect(pm.response.text()).to.include(\"accountHolderName\");",
+							"    pm.expect(pm.response.text()).to.include(\"beneficiaryAddress\");",
+							"    pm.expect(pm.response.text()).to.include(\"addressFirstLine\");",
+							"    pm.expect(pm.response.text()).to.include(\"postCode\");",
+							"    pm.expect(pm.response.text()).to.include(\"city\");",
+							"    pm.expect(pm.response.text()).to.include(\"country\");",
+							"    pm.expect(pm.response.text()).to.include(\"bankAddress\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/depositInstructions",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"depositInstructions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postGuarantees",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c8e88ef7-8df5-4db4-92d0-00000000000",
+						"exec": [
+							"var today = new Date();\r",
+							"\r",
+							"    var year = today.getFullYear();\r",
+							"    \r",
+							"    var month = today.getMonth() + 1;\r",
+							"        if (month.toString().length < 2)\r",
+							"            month = '0' + month;\r",
+							"            \r",
+							"    var day = today.getDate();\r",
+							"        if (day.toString().length < 2)\r",
+							"            day = '0' + day;\r",
+							"\r",
+							"var date = year + '-' + month + '-' + day + 'T';\r",
+							"\r",
+							"    var hour = today.getHours();\r",
+							"        if (hour.toString().length < 2)\r",
+							"            hour = '0' + hour;\r",
+							"            \r",
+							"    var min = today.getMinutes().toString();\r",
+							"        if (min.toString().length < 2)\r",
+							"            min ='0' + min;\r",
+							"            \r",
+							"    var sec = today.getSeconds() + 3;\r",
+							"        if (sec.toString().length < 2)\r",
+							"            sec = '0' + sec;\r",
+							"\r",
+							"var time = hour + ':' + min + ':' + sec + '.000Z';\r",
+							"\r",
+							"var dateTime = '\"' + date+time + '\"';\r",
+							"\r",
+							"console.log(dateTime);\r",
+							"\r",
+							"pm.globals.set(\"DATETIME\", dateTime);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "950ee612-2108-4a3c-b32d-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test('Body Contains Guarantee ID', function(){",
+							"    pm.expect(pm.response.text()).to.include(\"guaranteeId\");",
+							"})",
+							"//Saving GuaranteeId to work with it at next steps",
+							"var jsonData = pm.response.json();",
+							"",
+							"var guaranteeId = jsonData.guaranteeId;",
+							"",
+							"pm.globals.set(\"GUARANTEE_ID\", guaranteeId);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n\t  \"currency\": \"EUR\",\r\n\t  \"amount\": \"1.00\",\r\n\t  \"creditorOrgId\": \"0x0000000000000000000000000000000000000000000000000000000000005121\",\r\n\t  \"expiration\": {{DATETIME}}\r\n\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Guaranties",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "801eeb29-74ee-46ee-9bd0-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test('Body Contains Guarantee ID', function(){",
+							"    pm.expect(pm.response.text()).to.include(\"amount\");",
+							"    pm.expect(pm.response.text()).to.include(\"creditorOrgId\");",
+							"    pm.expect(pm.response.text()).to.include(\"currency\");",
+							"    pm.expect(pm.response.text()).to.include(\"debtorOrgId\");",
+							"    pm.expect(pm.response.text()).to.include(\"expiration\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees/{{GUARANTEE_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees",
+						"{{GUARANTEE_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6477159-f9c9-47e2-959e-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test('Body Contains Account ID', function(){",
+							"    pm.expect(pm.response.text()).to.include(\"accountId\");",
+							"})",
+							"//Saving accountId to work with it at next steps",
+							"var jsonData = pm.response.json();",
+							"",
+							"var accountId = jsonData.accountId;",
+							"",
+							"pm.globals.set(\"ACCOUNT_ID\", accountId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currency\": \"EUR\",\r\n  \"iban\": \"CH9300762011623852957\"\r\n}"
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Accounts Duplicate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6477159-f9c9-47e2-959e-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test('Responce body is correct', function(){",
+							"    pm.expect(pm.response.text()).to.include(\"An account already exists with the same currency\");",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currency\": \"EUR\",\r\n  \"iban\": \"CH9300762011623852957\"\r\n}"
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf92cd91-aeb7-442d-81d8-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check body fields\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"currency\");",
+							"    pm.expect(pm.response.text()).to.include(\"iban\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a4695ee-f1d2-4930-99fe-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currency\": \"EUR\",\r\n  \"iban\": \"CH9300762011623852957\" \r\n}"
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				},
+				"description": "Updates account info"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Account Resp400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a4695ee-f1d2-4930-99fe-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Missing mandatory key in parameters:\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				},
+				"description": "Updates account info"
+			},
+			"response": []
+		},
+		{
+			"name": "Get accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4de5668b-bcd0-4770-b453-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Balance Withdraw",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "78e2713e-28eb-451b-ab66-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/EUR/withdraw",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"EUR",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "389e4e37-40df-4153-8868-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postGuarantees resp 400",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aa67132f-7111-4c70-85e3-00000000000",
+						"exec": [
+							"var today = new Date();\r",
+							"\r",
+							"    var year = today.getFullYear();\r",
+							"    \r",
+							"    var month = today.getMonth() + 1;\r",
+							"        if (month.toString().length < 2)\r",
+							"            month = '0' + month;\r",
+							"            \r",
+							"    var day = today.getDate();\r",
+							"        if (day.toString().length < 2)\r",
+							"            day = '0' + day;\r",
+							"\r",
+							"var date = year + '-' + month + '-' + day + 'T';\r",
+							"\r",
+							"    var hour = today.getHours();\r",
+							"        if (hour.toString().length < 2)\r",
+							"            hour = '0' + hour;\r",
+							"            \r",
+							"    var min = today.getMinutes().toString();\r",
+							"        if (min.toString().length < 2)\r",
+							"            min ='0' + min;\r",
+							"            \r",
+							"    var sec = today.getSeconds() + 3;\r",
+							"        if (sec.toString().length < 2)\r",
+							"            sec = '0' + sec;\r",
+							"\r",
+							"var time = hour + ':' + min + ':' + sec + '.000Z';\r",
+							"\r",
+							"var dateTime = '\"' + date+time + '\"';\r",
+							"\r",
+							"console.log(dateTime);\r",
+							"\r",
+							"pm.globals.set(\"DATETIME\", dateTime);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "65b4970d-8b19-4112-9531-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check body is correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Insufficient balance to create guarantee\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n\t  \"currency\": \"EUR\",\r\n\t  \"amount\": \"100000.00\",\r\n\t  \"creditorOrgId\": \"0x0000000000000000000000000000000000000000000000000000000000005121\",\r\n\t  \"expiration\": {{DATETIME}}\r\n\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postGuarantees No Currency",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c8e88ef7-8df5-4db4-92d0-00000000000",
+						"exec": [
+							"var today = new Date();\r",
+							"\r",
+							"    var year = today.getFullYear();\r",
+							"    \r",
+							"    var month = today.getMonth() + 1;\r",
+							"        if (month.toString().length < 2)\r",
+							"            month = '0' + month;\r",
+							"            \r",
+							"    var day = today.getDate();\r",
+							"        if (day.toString().length < 2)\r",
+							"            day = '0' + day;\r",
+							"\r",
+							"var date = year + '-' + month + '-' + day + 'T';\r",
+							"\r",
+							"    var hour = today.getHours();\r",
+							"        if (hour.toString().length < 2)\r",
+							"            hour = '0' + hour;\r",
+							"            \r",
+							"    var min = today.getMinutes().toString();\r",
+							"        if (min.toString().length < 2)\r",
+							"            min ='0' + min;\r",
+							"            \r",
+							"    var sec = today.getSeconds() + 3;\r",
+							"        if (sec.toString().length < 2)\r",
+							"            sec = '0' + sec;\r",
+							"\r",
+							"var time = hour + ':' + min + ':' + sec + '.000Z';\r",
+							"\r",
+							"var dateTime = '\"' + date+time + '\"';\r",
+							"\r",
+							"console.log(dateTime);\r",
+							"\r",
+							"pm.globals.set(\"DATETIME\", dateTime);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "950ee612-2108-4a3c-b32d-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n\t  \"currency\": \"ETH\",\r\n\t  \"amount\": \"1.00\",\r\n\t  \"creditorOrgId\": \"0x0000000000000000000000000000000000000000000000000000000000005121\",\r\n\t  \"expiration\": {{DATETIME}}\r\n\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postGuarantees Wrong Creditor",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c8e88ef7-8df5-4db4-92d0-00000000000",
+						"exec": [
+							"var today = new Date();\r",
+							"\r",
+							"    var year = today.getFullYear();\r",
+							"    \r",
+							"    var month = today.getMonth() + 1;\r",
+							"        if (month.toString().length < 2)\r",
+							"            month = '0' + month;\r",
+							"            \r",
+							"    var day = today.getDate();\r",
+							"        if (day.toString().length < 2)\r",
+							"            day = '0' + day;\r",
+							"\r",
+							"var date = year + '-' + month + '-' + day + 'T';\r",
+							"\r",
+							"    var hour = today.getHours();\r",
+							"        if (hour.toString().length < 2)\r",
+							"            hour = '0' + hour;\r",
+							"            \r",
+							"    var min = today.getMinutes().toString();\r",
+							"        if (min.toString().length < 2)\r",
+							"            min ='0' + min;\r",
+							"            \r",
+							"    var sec = today.getSeconds() + 3;\r",
+							"        if (sec.toString().length < 2)\r",
+							"            sec = '0' + sec;\r",
+							"\r",
+							"var time = hour + ':' + min + ':' + sec + '.000Z';\r",
+							"\r",
+							"var dateTime = '\"' + date+time + '\"';\r",
+							"\r",
+							"console.log(dateTime);\r",
+							"\r",
+							"pm.globals.set(\"DATETIME\", dateTime);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "950ee612-2108-4a3c-b32d-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check responce body\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"ORG.ID format is invalid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n\t  \"currency\": \"EUR\",\r\n\t  \"amount\": \"0.00\",\r\n\t  \"creditorOrgId\": \"0x0000000000000000000000000000000000000000000000000000000000005121\",\r\n\t  \"expiration\": {{DATETIME}}\r\n\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postGuarantees Expiration in past",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c8e88ef7-8df5-4db4-92d0-00000000000",
+						"exec": [
+							"var today = new Date();\r",
+							"\r",
+							"    var year = today.getFullYear();\r",
+							"    \r",
+							"    var month = today.getMonth();\r",
+							"        if (month.toString().length < 2)\r",
+							"            month = '0' + month;\r",
+							"            \r",
+							"    var day = today.getDate();\r",
+							"        if (day.toString().length < 2)\r",
+							"            day = '0' + day;\r",
+							"\r",
+							"var date = year + '-' + month + '-' + day + 'T';\r",
+							"\r",
+							"    var hour = today.getHours();\r",
+							"        if (hour.toString().length < 2)\r",
+							"            hour = '0' + hour;\r",
+							"            \r",
+							"    var min = today.getMinutes().toString();\r",
+							"        if (min.toString().length < 2)\r",
+							"            min ='0' + min;\r",
+							"            \r",
+							"    var sec = today.getSeconds();\r",
+							"        if (sec.toString().length < 2)\r",
+							"            sec = '0' + sec;\r",
+							"\r",
+							"var time = hour + ':' + min + ':' + sec + '.000Z';\r",
+							"\r",
+							"var dateTime = '\"' + date+time + '\"';\r",
+							"\r",
+							"console.log(dateTime);\r",
+							"\r",
+							"pm.globals.set(\"DATETIME\", dateTime);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "950ee612-2108-4a3c-b32d-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check body is correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Expiration datetime is in the past\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n\t  \"currency\": \"EUR\",\r\n\t  \"amount\": \"1.00\",\r\n\t  \"creditorOrgId\": \"0x0000000000000000000000000000000000000000000000000000000000005121\",\r\n\t  \"expiration\": {{DATETIME}}\r\n\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Guaranties No such Guaratee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "801eeb29-74ee-46ee-9bd0-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Guarantee not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/guarantees/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"guarantees",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Balance Withdraw resp 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "78e2713e-28eb-451b-ab66-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/balances/EUR/withdraw",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"balances",
+						"EUR",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts No Accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf92cd91-aeb7-442d-81d8-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get accounts Resp 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4de5668b-bcd0-4770-b453-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Account Resp 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a4695ee-f1d2-4930-99fe-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currency\": \"EUR\",\r\n  \"iban\": \"CH9300762011623852957\"\r\n}"
+				},
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				},
+				"description": "Updates account info"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "389e4e37-40df-4153-8868-00000000000",
+						"exec": [
+							"pm.test(\"Response is Ok\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Account reference not found for the organization\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{SIMARD_API_ENDPOINT}}/accounts/{{ACCOUNT_ID}}",
+					"host": [
+						"{{SIMARD_API_ENDPOINT}}"
+					],
+					"path": [
+						"accounts",
+						"{{ACCOUNT_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{SIMARD_JWT}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4dc44510-8abc-407f-8cc5-00000000000",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ce50e8dd-aba4-43e6-989e-00000000000",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d9db9947-9c53-4aa5-bbee-00000000000",
+			"key": "SIMARD_JWT",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6b3JnaWQ6MHg1ZjRlM2VjOTFjYjg0MzA1ZWFhNjYwNjk3NzUxZjRmZTgzY2E0YTkxYWQzYTI4ZDNjMzViYTk1YTU1NjllYWUyI3dlYnNlcnZlciIsImF1ZCI6ImRpZDpvcmdpZDoweDVlNjk5NGY3Njc2NGNlYjQyYzQ3NmEyNTA1MDY1YTYxNzAxNzhhMjRjMDNkODFjOWYzNzI1NjM4MzAwMDExNzEiLCJpYXQiOjE1ODQ2MTgxMDUsImV4cCI6MTYxNjE1NDEwNX0.Rq13ftjWolDUHYSPKRH896K30N5o17y6_rjJXb2U8X4ApmLMe4HBHHfg8ssQdnrsjYcvXaiorjFtV_CsDzZHiw",
+			"type": "string"
+		},
+		{
+			"id": "298bbcaa-25c5-4466-8d6a-00000000000",
+			"key": "SIMARD_API_ENDPOINT",
+			"value": "https://staging.api.simard-pay-url/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "7403d0a1-04ab-40e3-b9e1-00000000000",
+			"key": "GUARANTEE_ID",
+			"value": "none",
+			"type": "string",
+			"disabled": true
+		}
+	],
+	"protocolProfileBehavior": {}
+}

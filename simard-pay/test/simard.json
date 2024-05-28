@@ -1,0 +1,65 @@
+{
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://windingtree.com/ns/orgid/v1"
+    ],
+    "id": "did:orgid:0x0000000000000000000000000000000000000000000000000000000000003121",
+    "created": "2020-06-30T14:37:05.137Z",
+    "updated": "2020-06-30T14:37:05.137Z",
+    "publicKey": [
+        {
+            "id": "did:orgid:0x0000000000000000000000000000000000000000000000000000000000001121#firstkey",
+            "type": "X25519",
+            "controller": "did:orgid:0x0000000000000000000000000000000000000000000000000000000000001121",
+            "publicKeyPem": "MCowBQYDK2VuAyEAbiR4HzIZUp1EVvPNo9SkqqeW1gFegxeTr00AFnT35Sg=",
+            "note": "Key 1"
+        },
+        {
+            "id": "did:orgid:0x0000000000000000000000000000000000000000000000000000000000001121#secondkey",
+            "type": "secp256k1",
+            "controller": "did:orgid:0x0000000000000000000000000000000000000000000000000000000000001121",
+            "publicKeyPem": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEBJML80bkZOMpYXnWmDWfIfvMH5LldhPPWtPhg9EWgDCpBNyyaD1J04oWC7ajum4FrnzApdFHpQALcqPWFtPTuQ==",
+            "note": "Key 2"
+        }
+    ],
+    "service": [
+      {
+        "id": "did:orgid:0x0000000000000000000000000000000000000000000000000000000000003121#apiv1",
+        "serviceEndpoint": "https://staging.api.simard-pay-url/api/v1",
+        "type": "simard",
+        "version": "1",
+        "description": "Simard Pay API Ropsten",
+        "docs": "https://staging.api.simard-pay-url/api/docs/"
+      }
+    ],
+    "trust": {
+      "assertions": [
+        {
+          "type": "domain",
+          "claim": "simard-pay-url",
+          "proof": "https://simard-pay-url/orgid-ropsten.txt"
+        }
+      ]
+    },
+    "organizationalUnit": {
+      "name": "Simard Pay Ropsten",
+      "type": [
+        "payment processor"
+      ],
+      "description": "Simard Pay on Ropsten Testnet",
+      "address": {
+        "country": "",
+        "subdivision": "",
+        "locality": "",
+        "postalCode": "",
+        "streetAddress": "",
+        "premise": "",
+        "gps": "",
+        "geocodes": []
+      },
+      "contacts": [],
+      "media": {
+        "logo": "https://simard-pay-url/images/logo.png"
+      }
+    }
+}

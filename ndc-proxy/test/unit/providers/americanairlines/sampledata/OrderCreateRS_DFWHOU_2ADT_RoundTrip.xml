@@ -490,7 +490,7 @@
 					</ContactProvided>
 					<ContactProvided>
 						<EmailAddress>
-							<EmailAddressValue>TOM@SIMARD.IO</EmailAddressValue>
+							<EmailAddressValue>host@username</EmailAddressValue>
 						</EmailAddress>
 					</ContactProvided>
 				</ContactInformation>
@@ -916,7 +916,7 @@
 							<TravelerIDRef>T1</TravelerIDRef>
 							<AirlineCode>AA</AirlineCode>
 							<SSRCode>CTCE</SSRCode>
-							<Text>AA HK1/TOM//SIMARD.IO</Text>
+							<Text>AA HK1/USERNAME//HOST</Text>
 							<ActionCode>HK</ActionCode>
 						</SpecialServiceRequest>
 					</AugPoint>

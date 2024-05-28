@@ -88,7 +88,7 @@ export const pax2_ADT: NDCPassenger = {
     Surname: 'Doe',
     Birthdate: '2000-01-01',
     ContactInformation: {
-        EmailAddress: 'tom@simard.io',
+        EmailAddress: 'username@host',
         PhoneNumber: '00123123123123',
     },
 };
@@ -100,7 +100,7 @@ export const pax3_CNN: NDCPassenger = {
     Surname: 'Doe',
     Birthdate: '2016-01-01',
     ContactInformation: {
-        EmailAddress: 'tom@simard.io',
+        EmailAddress: 'username@host',
         PhoneNumber: '00123123123123',
     },
 };

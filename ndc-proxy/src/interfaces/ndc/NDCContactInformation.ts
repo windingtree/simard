@@ -49,7 +49,7 @@ export class NDCContactInformation {
 </Phone>
 
 <EmailAddress>
-    <EmailAddressValue>TOM@SIMARD.IO</EmailAddressValue>
+    <EmailAddressValue>username@host</EmailAddressValue>
 </EmailAddress>
 
  */

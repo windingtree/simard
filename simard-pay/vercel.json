@@ -1,0 +1,54 @@
+{
+    "version": 2,
+    "rewrites": [
+        { "source": "/", "destination": "index.html" },
+        { "source": "/abi/(.*)", "destination": "/abi/$1" },
+        { "source": "/oauth/authorize", "destination": "/authorize.html" },
+        { "source": "/api/docs/simard.yaml", "destination": "/simard.yaml" },
+        { "source": "/api/v1/balances/depositInstructions", "destination": "/depositInstructions.json" },
+        { "source": "/api/docs/(.*)", "destination": "/api/index.py" },
+        { "source": "/api/v1/(.*)", "destination": "/api/index.py" }
+    ],
+    "redirects": [
+        { "source": "/", "destination": "/api/docs/" }
+    ],
+    "functions": {
+        "api/index.py": {
+            "memory": 1024,
+            "maxDuration": 10
+        }
+    },
+    "env": {
+        "MONGO_URI": "@staging.simard.database_uri",
+        "SIMARD_ORGID": "@staging.simard.orgid",
+        "GLIDER_OTA_ORGID": "@staging.glider.orgid",
+        "GLIDER_B2B_ORGID": "@staging.glider-b2b.orgid",
+        "ORGID_CONTRACT": "@staging.orgid.contract",
+        "PAYMENT_MANAGER_CONTRACT": "0x0000000000000000000000000000000000099338",
+        "USDC_CONTRACT": "0x0000000000000000000000000000000000099337",
+        "USDC_DECIMALS": "6",
+
+        "INFURA_WSS_ENDPOINT": "@staging.infura_wss_endpoint",
+        "INFURA_PROJECT_ID": "@staging.infura_project_id",
+        "INFURA_PROJECT_SECRET": "@staging.infura_project_secret",
+
+        "TRANSFERWISE_API_ENDPOINT": "@staging.transferwise_api_endpoint",
+        "TRANSFERWISE_API_TOKEN": "@staging.transferwise_api_token",
+        "TRANSFERWISE_PROFILE_ID": "@staging.transferwise_profile_id",
+
+        "STRIPE_API_KEY": "@staging.stripe_api_key",
+        "STRIPE_WEBHOOK_SECRET": "@staging.stripe_webhook_secret",
+
+        "ELASTIC_SEARCH_URL": "@staging.elastic_search_url",
+        "REDIS_URL": "@staging.redis_url",
+        "VIRTUAL_CARD_DETAILS": "@staging.virtual_card",
+
+        "CIRCLE_API_ENDPOINT": "https://api-sandbox.circle.com/v1",
+        "CIRCLE_API_KEY": "@staging.circle_api_key",
+        "CIRCLE_WALLET_ADDRESS": "0x0000000000000000000000000000000000099336",
+
+        "PCIPROXY_API_USERNAME": "1100031002",
+        "PCIPROXY_API_PASSWORD": "@staging.pciproxy_api_password",
+        "PCIPROXY_API_SERVICESURL": "https://api.sandbox.datatrans.com/upp/services/v1"
+      }
+  }

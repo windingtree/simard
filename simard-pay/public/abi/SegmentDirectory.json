@@ -1,0 +1,391 @@
+{
+  "contractName": "SegmentDirectory",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "organization",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "OrganizationAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "organization",
+          "type": "address"
+        }
+      ],
+      "name": "OrganizationRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "organization",
+          "type": "address"
+        }
+      ],
+      "name": "OrganizationUpdated",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "__owner",
+          "type": "address"
+        },
+        {
+          "name": "__segment",
+          "type": "string"
+        },
+        {
+          "name": "__lifToken",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_ENS",
+          "type": "address"
+        }
+      ],
+      "name": "resolveLifTokenFromENS",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "__segment",
+          "type": "string"
+        }
+      ],
+      "name": "setSegment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "organization",
+          "type": "address"
+        }
+      ],
+      "name": "add",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "organization",
+          "type": "address"
+        }
+      ],
+      "name": "remove",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "reportUpdate",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getOrganizationsLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getOrganizations",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "organization",
+          "type": "address"
+        }
+      ],
+      "name": "organizationsIndex",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "organizations",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getLifToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSegment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "setInterfaces",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2020-02-11T15:05:25.429Z",
+  "devdoc": {
+    "details": "A SegmentDirectory that can handle a list of organizations sharing a  common segment such as hotels, airlines etc.",
+    "methods": {
+      "add(address)": {
+        "details": "`add` proxies and externalizes addOrganization",
+        "params": {
+          "organization": "Organization\"s address"
+        },
+        "return": "{\" \": \"Address of the organization.\"}"
+      },
+      "getLifToken()": {
+        "details": "`getLifToken` Returns address of set Lif token",
+        "return": "{\" \": \"LifToken address.\"}"
+      },
+      "getOrganizations()": {
+        "details": "`getOrganizations` get `organizations` array",
+        "return": "{\" \": \"Array of organization addresses. Might contain zero addresses.\"}"
+      },
+      "getOrganizationsLength()": {
+        "details": "`getOrganizationsLength` get the length of the `organizations` array",
+        "return": "{\" \": \"Length of the organizations array. Might contain zero addresses.\"}"
+      },
+      "getSegment()": {
+        "details": "`getSegment` Returns segment name",
+        "return": "{\" \": \"Segment name.\"}"
+      },
+      "initialize(address,string,address)": {
+        "details": "Initializer for upgradeable contracts.",
+        "params": {
+          "__lifToken": "The Lif Token contract address",
+          "__owner": "The address of the contract owner",
+          "__segment": "The segment name"
+        }
+      },
+      "organizations(uint256)": {
+        "details": "`organizations` get Organization address on an index",
+        "return": "{\" \": \"Organization address.\"}"
+      },
+      "organizationsIndex(address)": {
+        "details": "`organizationsIndex` get index of Organization",
+        "return": "{\" \": \"Organization index.\"}"
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "remove(address)": {
+        "details": "`remove` proxies and externalizes removeOrganization",
+        "params": {
+          "organization": "Organization\"s address"
+        }
+      },
+      "reportUpdate()": {
+        "details": "This function is dedicated to receiving signals  about updates from registered organizations"
+      },
+      "resolveLifTokenFromENS(address)": {
+        "details": "Updating the _lifToken link from the ENS registry",
+        "params": {
+          "_ENS": "The address of the ENS registry"
+        }
+      },
+      "setInterfaces()": {
+        "details": "A synchronization method that should be kept up to date with  the list of interfaces set during initialization. It should also be called everytime the implementation gets updated. If the interface list gets out of sync with the implementation at anytime, it is possible that some integrations will stop working. Since this method is not destructive, no access restriction is in place. It\"s supposed to be called by the proxy admin anyway."
+      },
+      "setSegment(string)": {
+        "details": "`setSegment` allows the owner of the contract to change the segment name.",
+        "params": {
+          "__segment": "The new segment name"
+        }
+      },
+      "supportsInterface(bytes4)": {
+        "details": "See {IERC165-supportsInterface}.     * Time complexity O(1), guaranteed to always use less than 30 000 gas."
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      }
+    },
+    "title": "SegmentDirectory"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

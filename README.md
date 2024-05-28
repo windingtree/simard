@@ -28,7 +28,7 @@ Let's consider a following setup:
 - Derbysoft Proxy - middleware for hotel integrations (uses Derbysoft)
 - Simard Pay - a novel B2B payment processing tool; its main feature is called the "payment guarantee" which ensures that suppliers get paid on time
 
-# Note on Decentralization
+## Note on Decentralization
 
 While Simard Pay is built in a way that could be entirely replaced by a smart contract, NDC and Derbysoft Proxies are not "decentralizeable." OTAs will have to run their own versions of Simard software (or custom built analogs).
 

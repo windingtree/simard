@@ -1,0 +1,368 @@
+{
+  "contractName": "WindingTreeEntrypoint",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "segments",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "directories",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "_lifToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "segmentsIndex",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "segment",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "oldAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "SegmentSet",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "__owner",
+          "type": "address"
+        },
+        {
+          "name": "__lifToken",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_ENS",
+          "type": "address"
+        }
+      ],
+      "name": "resolveLifTokenFromENS",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "segment",
+          "type": "string"
+        },
+        {
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "setSegment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "segment",
+          "type": "string"
+        }
+      ],
+      "name": "removeSegment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "segment",
+          "type": "string"
+        }
+      ],
+      "name": "getSegment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSegmentsLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "segment",
+          "type": "string"
+        }
+      ],
+      "name": "getSegmentsIndex",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSegmentName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getLifToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2020-02-11T15:05:25.444Z",
+  "devdoc": {
+    "details": "This smart contract is meant as an entrypoint to Winding Tree ecosystem and holds addresses of all relevant Segment Directories. Segment directories are indexed by their hashed name.",
+    "methods": {
+      "getLifToken()": {
+        "details": "`getLifToken` Returns address of set Lif token",
+        "return": "{\" \": \"LifToken address.\"}"
+      },
+      "getSegment(string)": {
+        "details": "`getSegment` Returns address of a segment or a 0x0 address if segment is unknown.",
+        "params": {
+          "segment": "Segment name"
+        },
+        "return": "{\" \": \"Address of a segment\"}"
+      },
+      "getSegmentName(uint256)": {
+        "details": "`getSegmentName` get name of segment on given index",
+        "params": {
+          "index": "Segment index"
+        },
+        "return": "{\" \": \"Segment name.\"}"
+      },
+      "getSegmentsIndex(string)": {
+        "details": "`getSegmentsIndex` get index of the segment by such name. On that index, segment's name is stored.",
+        "params": {
+          "segment": "Segment name"
+        },
+        "return": "{\" \": \"Index of the segment in segments array.\"}"
+      },
+      "getSegmentsLength()": {
+        "details": "`getSegmentsLength` get the length of the `segments` array",
+        "return": "{\" \": \"Length of the segments array. Might contain removed segments.\"}"
+      },
+      "initialize(address,address)": {
+        "details": "Initializer for upgradeable contracts.",
+        "params": {
+          "__lifToken": "The LifToken contract address",
+          "__owner": "The address of the contract owner"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "removeSegment(string)": {
+        "details": "Sets an address for a segment to 0x0 address. Can be called only by the contract owner",
+        "params": {
+          "segment": "Segment name"
+        }
+      },
+      "resolveLifTokenFromENS(address)": {
+        "details": "Updating the _lifToken link from the ENS registry",
+        "params": {
+          "_ENS": "The address of the ENS registry"
+        }
+      },
+      "setSegment(string,address)": {
+        "details": "Sets an address for a segment. Overwrites existing value. Can be called only by the contract owner.",
+        "params": {
+          "addr": "New segment directory address",
+          "segment": "Segment name"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      }
+    },
+    "title": "WindingTreeEntrypoint"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

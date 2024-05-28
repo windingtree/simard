@@ -16,9 +16,9 @@ STAGING is available for testing, PREPRODUCTION for live data tests and PRODUCTI
 
 The base URLS for all environments are:
 
-- **STAGING**: <https://staging.hotels.simard.io/v1>
-- **PREPRODUCTION**: <https://preproduction.hotels.simard.io/v1>
-- **PRODUCTION**: <https://production.hotels.simard.io/v1>
+- **STAGING**: <https://staging.hotels.simard-pay-url/v1>
+- **PREPRODUCTION**: <https://preproduction.hotels.simard-pay-url/v1>
+- **PRODUCTION**: <https://production.hotels.simard-pay-url/v1>
 
 All API endpoints should be run with reference to any of the URLs listed above.
 
@@ -37,7 +37,7 @@ you will require a signed JWT for MARRIOTT (i.e the audience of the JWT will be 
 
 You can generate JWTs by logging into the ORGiD validator with your authentication credentials and  
 creating a JWT that has your ORGiD (buyer) as issuer and supplier ORGiD as audience.  
-For the documentation available in STAGING visit - <https://staging.orgid-validator-v2.simard.io/docs>
+For the documentation available in STAGING visit - <https://staging.orgid-validator-v2.simard-pay-url/docs>
 
 ## Swagger Docs
 
@@ -73,7 +73,7 @@ To cancel a booking, send a request to cancel the booking - [`DELETE /orders/{or
 
 1.  The steps in the booking flow in `STAGING` environment is outlined below:  
     Authenticate/Login using your `STAGING` credentials to get AccessToken (OrgIDValidator **AccessToken**):  
-    <https://staging.orgid-validator-v2.simard.io/auth/login>
+    <https://staging.orgid-validator-v2.simard-pay-url/auth/login>
 
     ```
       {
@@ -87,14 +87,14 @@ To cancel a booking, send a request to cancel the booking - [`DELETE /orders/{or
 
 1.  Create **DerbysoftProxy JWT** with `MARRIOTT STAGING ORGiD` as target audience.  
     All subsequent calls to DerbysoftProxy will use this JWT  
-    <https://staging.orgid-validator-v2.simard.io/auth/create-jwt>
+    <https://staging.orgid-validator-v2.simard-pay-url/auth/create-jwt>
 
     ```
       Body: { audienceOrgId":"did:orgid:5:0x1adc06d3047a88ba5e8757a892925b5b48ae4a92036ab83d8f19e44bcb51232b" }
     ```
 
     Search for offers and price offers through DerbysoftProxy in `STAGING` using **DerbysoftProxy JWT**  
-    **DerbysoftProxy URL**: <https://staging.hotels.simard.io/api/v1>
+    **DerbysoftProxy URL**: <https://staging.hotels.simard-pay-url/api/v1>
 
     **Note**: If you want a fully refundable booking, please select an offer with **refundability** of `refundable_with_deadline`
 
@@ -103,13 +103,13 @@ To cancel a booking, send a request to cancel the booking - [`DELETE /orders/{or
 
     - Get a `transactionId` from PCI Proxy `SANDBOX`
     - Create a **SimardPay JWT** with SimardPay `STAGING` ORGiD as target audience  
-      <https://staging.orgid-validator-v2.simard.io/auth/create-jwt>
+      <https://staging.orgid-validator-v2.simard-pay-url/auth/create-jwt>
       ```
           Body: { audienceOrgId":"did:orgid:0x56e34fe286de62c4d15d536cef2d171f0cd380e38d77d33fd4a4f0c1257b5f9f" }
       ```
     - Create guarantee token/id on SimardPay using DerbysoftProxy ORGiD as `receiverOrgId`,  
       `transactionId` from (i) above and authenticate with **SimardPay JWT**:  
-      <https://staging.payment.simard.io/api/v1/tokens>
+      <https://staging.payment.simard-pay-url/api/v1/tokens>
       ```
           receiverOrgId: did:orgid:5:0x8924d2cd6877826842a6685a17dc2c7e81016680caa788ab1acf7aa7868da8b8
       ```
@@ -118,4 +118,4 @@ To cancel a booking, send a request to cancel the booking - [`DELETE /orders/{or
     as part of a success response
 
 1.  You can optionally cancel the order that you just created above by making a `DELETE` call with the `orderId` from (5) above to DerbysoftProxy:  
-    <https://staging.hotels.simard.io/api/v1/orders/{{orderId}}>
+    <https://staging.hotels.simard-pay-url/api/v1/orders/{{orderId}}>

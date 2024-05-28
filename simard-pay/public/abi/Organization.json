@@ -1,0 +1,754 @@
+{
+  "contractName": "Organization",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "parentEntity",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "orgJsonHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "created",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "orgJsonUri",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "proxyAdmin",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "subsidiariesIndex",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "directoriesIndex",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "app",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "entityDirector",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "previousOrgJsonUri",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "newOrgJsonUri",
+          "type": "string"
+        }
+      ],
+      "name": "OrgJsonUriChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOrgJsonHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "newOrgJsonHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "OrgJsonHashChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "director",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "subsidiary",
+          "type": "address"
+        }
+      ],
+      "name": "SubsidiaryCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "subsidiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "previousState",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "name": "newState",
+          "type": "bool"
+        }
+      ],
+      "name": "SubsidiaryToggled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "subsidiary",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "director",
+          "type": "address"
+        }
+      ],
+      "name": "SubsidiaryDirectorOwnershipConfirmed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "subsidiary",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "previousDirector",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newDirector",
+          "type": "address"
+        }
+      ],
+      "name": "SubsidiaryDirectorOwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousDirector",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newDirector",
+          "type": "address"
+        }
+      ],
+      "name": "EntityDirectorOwnershipChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "directory",
+          "type": "address"
+        }
+      ],
+      "name": "DirectoryLinked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "directory",
+          "type": "address"
+        }
+      ],
+      "name": "DirectoryUnlinked",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "__owner",
+          "type": "address"
+        },
+        {
+          "name": "_orgJsonUri",
+          "type": "string"
+        },
+        {
+          "name": "_orgJsonHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "_app",
+          "type": "address"
+        },
+        {
+          "name": "_proxyAdmin",
+          "type": "address"
+        },
+        {
+          "name": "_parentEntity",
+          "type": "address"
+        },
+        {
+          "name": "_entityDirector",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_orgJsonUri",
+          "type": "string"
+        },
+        {
+          "name": "_orgJsonHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "changeOrgJsonUriAndHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_orgJsonUri",
+          "type": "string"
+        },
+        {
+          "name": "_orgJsonHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "subsidiaryDirector",
+          "type": "address"
+        },
+        {
+          "name": "packageName",
+          "type": "string"
+        },
+        {
+          "name": "contractName",
+          "type": "string"
+        }
+      ],
+      "name": "createSubsidiary",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "subsidiaryAddress",
+          "type": "address"
+        }
+      ],
+      "name": "toggleSubsidiary",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newEntityDirectorAddress",
+          "type": "address"
+        }
+      ],
+      "name": "changeEntityDirector",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "subsidiaryAddress",
+          "type": "address"
+        },
+        {
+          "name": "newSubsidiaryDirector",
+          "type": "address"
+        }
+      ],
+      "name": "transferDirectorOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "linkDirectory",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "unlinkDirectory",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "subsidiaryAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getSubsidiary",
+      "outputs": [
+        {
+          "name": "id",
+          "type": "address"
+        },
+        {
+          "name": "state",
+          "type": "bool"
+        },
+        {
+          "name": "confirmed",
+          "type": "bool"
+        },
+        {
+          "name": "director",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSubsidiaries",
+      "outputs": [
+        {
+          "name": "subsidiariesList",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getOrgJsonUri",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getOrgJsonHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "subsidiaryAddress",
+          "type": "address"
+        }
+      ],
+      "name": "confirmSubsidiaryDirectorOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_orgJsonUri",
+          "type": "string"
+        }
+      ],
+      "name": "changeOrgJsonUri",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_orgJsonHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "changeOrgJsonHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "setInterfaces",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2020-02-11T15:05:25.387Z",
+  "devdoc": {
+    "details": "A contract that represents an Organization in the Winding Tree platform, commonly referred to as 0xORG. This is a reference implementation that is created by the OrganizationFactory. You cn implement your own logic if it adheres to the `OrganizationInterface`.",
+    "methods": {
+      "changeEntityDirector(address)": {
+        "details": "Change entity director",
+        "params": {
+          "newEntityDirectorAddress": "New entity director address"
+        }
+      },
+      "changeOrgJsonHash(bytes32)": {
+        "details": "`changeOrgJsonHash` Allows owner to change Organization's orgJsonHash.",
+        "params": {
+          "_orgJsonHash": "keccak256 hash of the new ORG.JSON contents."
+        }
+      },
+      "changeOrgJsonUri(string)": {
+        "details": "`changeOrgJsonUri` Allows owner to change Organization\"s orgJsonUri.",
+        "params": {
+          "_orgJsonUri": "New orgJsonUri pointer of this Organization"
+        }
+      },
+      "changeOrgJsonUriAndHash(string,bytes32)": {
+        "details": "Shorthand method to change ORG.JSON uri and hash at the same time",
+        "params": {
+          "_orgJsonHash": "keccak256 hash of the new ORG.JSON contents.",
+          "_orgJsonUri": "New orgJsonUri pointer of this Organization"
+        }
+      },
+      "confirmSubsidiaryDirectorOwnership(address)": {
+        "details": "Confirm subsidiary director ownership",
+        "params": {
+          "subsidiaryAddress": "Subsidiary organization address"
+        }
+      },
+      "createSubsidiary(string,bytes32,address,string,string)": {
+        "details": "Create subsidiary",
+        "params": {
+          "_orgJsonHash": "keccak256 hash of the new ORG.JSON contents",
+          "_orgJsonUri": "orgJsonUri pointer",
+          "contractName": "Name of the organization contract.  Will be \"Organization\" if empty string provided",
+          "packageName": "Name of the package where the contract is contained.  Will be \"wt-contracts\" if empty string provided",
+          "subsidiaryDirector": "Subsidiary director address"
+        }
+      },
+      "getOrgJsonHash()": {
+        "details": "Returns keccak256 hash of raw ORG.JSON contents. This should be used to verify that the contents of ORG.JSON has not been tampered with. It is a responsibility of the Organization owner to keep this hash up to date.",
+        "return": "{\" \": \"Current ORG.JSON hash.\"}"
+      },
+      "getOrgJsonUri()": {
+        "details": "Returns current orgJsonUri",
+        "return": "{\" \": \"Current orgJsonUri.\"}"
+      },
+      "getSubsidiaries()": {
+        "details": "Return an array of subsidiaries addresses",
+        "return": "{ \"subsidiariesList\": \"Array of active subsidiaries\" }"
+      },
+      "getSubsidiary(address)": {
+        "details": "Return subsidiary organization parmeters",
+        "params": {
+          "subsidiaryAddress": "Subsidiary organization address"
+        },
+        "return": "{ \"id\": \"Subsidiary address\", \"state\": \"Subsidiary state\", \"confirmed\": \"Subsidiary director ownership confirmation state\", \"director\": \"Entity director address\" }     "
+      },
+      "initialize(address,string,bytes32,address,address,address,address)": {
+        "details": "Initializer for upgradeable contracts",
+        "params": {
+          "__owner": "The address of the contract owner",
+          "_app": "OpenZeppelin App address",
+          "_entityDirector": "Entity director address",
+          "_orgJsonHash": "keccak256 hash of the new ORG.JSON contents",
+          "_orgJsonUri": "pointer to Organization data",
+          "_parentEntity": "Parent organization address",
+          "_proxyAdmin": "OpenZeppelin proxyAdmin address"
+        }
+      },
+      "linkDirectory()": {
+        "details": "Liking with SegmentDirectory.  This function have to be called by SegmentDirectory contract only"
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "setInterfaces()": {
+        "details": "A synchronization method that should be kept up to date with  the list of interfaces set during initialization. It should also be called everytime the implementation gets updated. If the interface list gets out of sync with the implementation at anytime, it is possible that some integrations will stop working. Since this method is not destructive, no access restriction is in place. It\"s supposed to be called by the proxy admin anyway."
+      },
+      "supportsInterface(bytes4)": {
+        "details": "See {IERC165-supportsInterface}.     * Time complexity O(1), guaranteed to always use less than 30 000 gas."
+      },
+      "toggleSubsidiary(address)": {
+        "details": "Toggle subsidiary state",
+        "params": {
+          "subsidiaryAddress": "Subsidiary organization address"
+        }
+      },
+      "transferDirectorOwnership(address,address)": {
+        "details": "Transfer subsidiary director ownership",
+        "params": {
+          "newSubsidiaryDirector": "New subsidiary director address",
+          "subsidiaryAddress": "Subsidiary organization address"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      },
+      "unlinkDirectory()": {
+        "details": "Removes a link with SegmentDirectory.  This function have to be called by SegmentDirectory contract only"
+      }
+    },
+    "title": "Organization"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

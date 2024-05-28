@@ -1,0 +1,15 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('simardpay');
+
+
+// Run a find command to view items sold on April 4th, 2014.
+db.tokens.findOne({ isAmexTravelAccountToken: true });
+
+//db.tokens.findOne({ uuid: "469f8403-4663-4d07-a055-000000000000"})
+//db.tokens.deleteOne({ uuid: 'ab6a1ba0-cbe3-41fe-b8d8-000000000000'})
+//db.tokens.deleteMany({})

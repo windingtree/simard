@@ -1,0 +1,20 @@
+{
+    "EUR": {
+        "iban": "GB70REVO00996921587411",
+        "bic": "REVOGB21",
+        "bankName": "Revolut Limited,",
+        "accountHolderName": "Simard OÜ",
+        "beneficiaryAddress": {
+            "addressFirstLine": "Tartu mnt 67/1-13b",
+            "postCode": "10115",
+            "city": "Tallinn",
+            "country": "Estonia"
+        },
+        "bankAddress": {
+            "addressFirstLine": "9th Floor 107 Cheapside",
+            "postCode": "EC2V 6DN",
+            "city": "London",
+            "country": "United Kingdom"
+        }
+    }
+}

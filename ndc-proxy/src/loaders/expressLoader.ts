@@ -10,7 +10,7 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
 
         const routingControllersOptions: RoutingControllersOptions = {
             cors: {
-                origin: 'https://simard.io',
+                origin: 'https://url',
                 methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
                 preflightContinue: false,
                 credentials: true,

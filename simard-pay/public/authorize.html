@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+      <title>Winding Tree: OAuth Authentication Tool</title>
+    </head>
+   <body>
+      <!-- UI Components -->
+      <div>
+         <!-- Explainer -->
+         <div class="jumbotron" id="explainer">
+            <h1 class="display">OAuth/Web3 Authenticator</h1>
+            <p class="lead">This tooling page allows creating an authentication token for ORG.ID</p>
+         </div>
+
+         <!-- Tool -->
+         <div class="container" id="tool">
+            <form>
+               <!-- Network -->
+               <div class="row px-md-5">
+                  <div class="col-md-2 border">
+                     <span class="badge badge-light">1</span> Network
+                  </div>
+                  <div class="col-md-10 border">
+                     <!-- Ethereum Chain -->
+                     <div class="form-row">
+                        <div class="col-md-3 col-form-label">
+                           <label for="staticChain" class="row-form-label">Ethereum Chain</label>
+                        </div>
+                        <div class="col-md">
+                           <input type="text" readonly class="form-control" id="staticChain" value="Ropsten"/>
+                           <div class="invalid-feedback">
+                              Not connected to Ropsten
+                           </div>
+                        </div>
+                     </div>
+                     <!-- WT Entry Point -->
+                     <div class="row">
+                        <div class="col-md-3 col-form-label">
+                           <label for="staticEntryPoint" class="row-form-label">Entry Point</label>
+                        </div>
+                        <div class="col-md">
+                           <input type="text" readonly class="form-control-plaintext" id="staticEntryPoint" value="0x0000000000000000000000000000000000099111"/>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Parameters -->
+               <div class="row px-md-5">
+                  <div class="col-md-2 border">
+                     <span class="badge badge-light">2</span> Parameters
+                  </div>
+                  <div class="col-md-10 border">
+                     <div class="row">
+                        <div class="col-md-3 col-form-label">
+                           <label for="enableNewDid">Enable DID-ORG.ID</label>
+                        </div>
+                        <div class="col-md">
+                           <input id='enableNewDid' type="checkbox" checked/>
+                           <div id="alert-did" class="alert alert-warning" hidden>
+                              Disabling the DID features means Private key Authentication is not possible. DID support will be mandatory in the near future.
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Algorithm -->
+               <div class="row px-md-5">
+                  <div class="col-md-2 border">
+                     <span class="badge badge-light">3</span> Authentication
+                  </div>
+                  <div class="col-md-10 border">
+                     <div class="form-row col-form-label">
+                        <div class="col-md-3">
+                           <input type="radio" id="ethereum" name="keyType" value="ETH" checked>
+                           <label for="ethereum">Ethereum Account</label>
+                        </div>
+                        <div class="col-md">
+                           <div class="row">
+                              <div class="col-md">
+                                 <select class="form-control" id="account"></select>
+                                 <div class="invalid-feedback">
+                                    Wallet account access has not been made available
+                                 </div>
+                              </div>
+                              <div class="col-md-3">
+                                 <button type="button" class="btn btn-primary" id="auth" disabled>Enable Wallet</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-row">
+                        <div class="col-md-3">
+                           <input type="radio" id="secp256k1" name="keyType" value="ES256K">
+                           <label for="secp256k1">Private Key: </label>
+                        </div>
+                        <div class="col-md">
+                           <textarea class="form-control" rows="4" cols="70" id='privateKey' placeholder="-----BEGIN PRIVATE KEY-----&#10;(PCKS #8 unencrypted EC secp256k1 private key goes here)&#10;-----END PRIVATE KEY-----" disabled></textarea>
+                           <div class="invalid-feedback">
+                              The key is not a valid secp256k1 PKCS #8 unencrypted key
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Claims -->
+               <div class="row px-md-5">
+                  <div class="col-md-2 border">
+                     <span class="badge badge-light">4</span> Claims
+                  </div>
+                  <div class="col-md-10 border">
+                     <!-- Issuer -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="orgid" class="row-form-label">Issuer</label>
+                        </div>
+                        <div class="col-md">
+                            <!-- Attached ORG.IDs -->
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <input type="radio" id="orgidSelectionAttached" name="orgidSelection" value="attached" disabled>
+                                 <label for="orgidSelectionAttached">Use attached ORG.ID</label>
+                              </div>
+                              <div class="col-md">
+                                 <select id="defaultOrgid" class="form-control" disabled>
+                                 </select>
+                              </div>
+                           </div>
+                           <!-- Manually provided ORG.ID -->
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <input type="radio" id="orgidSelectionManual" name="orgidSelection" value="manual"></input>
+                                 <label for="orgidSelectionManual">Use specific ORG.ID</label>
+                              </div>
+                              <div class="col-md">
+                                 <input type="text" id="manualOrgid" class="form-control" placeholder="0x.."></input>
+                              </div>
+                           </div>
+                           <!-- Key Index -->
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <label for="didPublicKeyIndex">Public Key Index</label>
+                              </div>
+                              <div class="col-md">
+                                 <input type="text" id="didPublicKeyIndex" class="form-control"></input>
+                              </div>
+                           </div>
+                           <!-- Resulting DID -->
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <label for="issuerDidValue">Issuer DID</label>
+                              </div>
+                              <div class="col-md">
+                                 <input type="text" id="issuerDidValue" readonly class="form-control"></input>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Recipient -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="recipientOrgid" class="row-form-label">Audience</label>
+                        </div>
+                        <div class="col-md">
+                            <!-- Pre-Configured ORG.IDs -->
+                            <div class="row">
+                              <div class="col-md-5">
+                                 <input type="radio" id="audienceSelectionPreConfigured" name="audienceSelection" value="config">
+                                 <label for="audienceConfigurationSelection">Use configured ORG.ID</label>
+                              </div>
+                              <div class="col-md">
+                                 <select id="audienceConfigurationSelection" class="form-control">
+                                    <option value='0x0000000000000000000000000000000000000000000000000000000000001121'>Simard [0x0000000000000000000000000000000000000000000000000000000000001121]</option>
+                                    <option value='0x0000000000000000000000000000000000000000000000000000000000005121'>Glider [0x0000000000000000000000000000000000000000000000000000000000005121]</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <!-- Manually provided ORG.ID -->
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <input type="radio" id="audienceSelectionManual" name="audienceSelection" value="manual"></input>
+                                 <label for="manualAudience">Use specific ORG.ID</label>
+                              </div>
+                              <div class="col-md">
+                                 <input type="text" id="manualAudience" class="form-control"></input>
+                              </div>
+                           </div>
+                           <!-- Resulting DID -->
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <label for="audienceDidValue">Audience DID</label>
+                              </div>
+                              <div class="col-md">
+                                 <input type="text" id="audienceDidValue" readonly class="form-control"></input>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Scope -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="scope" class="row-form-label">Scope</label>
+                        </div>
+                        <div class="col-md">
+                           <input class="form-control is-valid" type='text' id='scope'></input>
+                        </div>
+                     </div>
+                     <!-- Expiry -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="expiration" class="row-form-label">Expiration</label>
+                        </div>
+                        <div class="col-md">
+                           <input class="form-control is-valid readonly" type='text' id='expiration' value="3600"></input>
+                           <div class="valid-feedback">
+                              Token will expire in <span id="expirationHuman">1h</span> from now
+                           </div>
+                           <div class="invalid-feedback">
+                              Expiration should be provided in number of seconds from now
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Signature -->
+               <div class="row px-md-5">
+                  <div class="col-md-2 border">
+                     <span class="badge badge-light">5</span> Signature
+                  </div>
+                  <div class="col-md-10 border">
+                     <!-- Content to sign -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="signatureData" class="row-form-label">Sign Data</label>
+                        </div>
+                        <div class="col-md">
+                           <input type="text" readonly class="form-control-plaintext" id="signatureData"></input>
+                        </div>
+                     </div>
+                     <!-- Generate Signature Button -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="sign" class="row-form-label">Generate Signature</label>
+                        </div>
+                        <div class="col-md">
+                           <button type="button" class="btn btn-primary" id="sign">Sign</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Results -->
+               <div class="row px-md-5">
+                  <div class="col-md-2 border">
+                     <span class="badge badge-light">6</span> Results
+                  </div>
+                  <div class="col-md-10 border">
+                     <!-- Token -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="token" class="row-form-label">Resulting Token</label>
+                        </div>
+                        <div class="col-md">
+                           <textarea readonly class="form-control-plaintext" rows="5" id='token'></textarea>
+                        </div>
+                     </div>
+                     <!-- Redirect -->
+                     <div class="row">
+                        <div class="col-md-3">
+                           <label for="redirect" class="row-form-label">Redirect</label>
+                        </div>
+                        <div class="col-md">
+                           <button class="btn btn-primary" id='redirect' disabled>Redirect</button>
+                           <input hidden id='redirect_url'></input>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               </div>
+            </form>
+
+         </div>
+      </div>
+
+
+      <!-- Javascript-->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js" integrity="sha384-ohHihtNCeV+nANVRC/pjmE/UTXjBH4DhrTT0hBMYOaI1AXxaKUg7apjcpJQTKIf6" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.7.0/polyfill.min.js" integrity="sha384-Fbe31ZqFxktD++WKw92rzNU9ROzGC0taO0LK7GrLloHkGRmL60n7Rp4gauiM2cfr" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/asmCrypto/2.3.2/asmcrypto.all.es5.min.js" integrity="sha384-A0SpTIuZTaA8IrqfmYqEmvX1pJDIaSsot3UQG7nGgt+AMT8Wo2WQdwrNCay14Wbq" crossorigin="anonymous"></script>
+      <script src="https://cdn.rawgit.com/indutny/elliptic/master/dist/elliptic.min.js" integrity="sha384-dKzTcfBx/HlmYiKTy+Z0wF5hnJ+rq0oM+n1ps0r9CuM5pLLhTg5QLBwfG32oNcVG" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/webcrypto-liner@1.1.4/build/webcrypto-liner.shim.js" integrity="sha384-Rv2P+Lpup35Bo3diNehdRf0wmKF+qRtEgU7f6bGvNVvlPxb0ty4EaBe68y73DukV" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+
+         // Convert a string into an ArrayBuffer
+         function str2ab(str) {
+            const buf = new ArrayBuffer(str.length);
+            const bufView = new Uint8Array(buf);
+            for (let i = 0, strLen = str.length; i < strLen; i++) {
+               bufView[i] = str.charCodeAt(i);
+            }
+            return buf;
+         }
+
+         // Convert an ArrayBuffer in base64 string
+         function ab2b64(buf) {
+            return btoa(
+               new Uint8Array(buf)
+                  .reduce((data, byte) => data + String.fromCharCode(byte), '')
+            );
+         }
+
+         // Import an EC private key
+         function importECPrivateKey(pem) {
+            var pemLines = pem.split('\n');
+            var privKey = "";
+
+            // Get a PKCS8 key
+            if(pemLines[0] == '-----BEGIN PRIVATE KEY-----') {
+               for(let i=1; i < pemLines.length; i++) {
+                  if(pemLines[i] == '-----END PRIVATE KEY-----') break
+                  privKey += pemLines[i];
+               }
+            }
+
+            // Conver the Key to DER as needed by crypto subtle
+            const binaryDerString = window.atob(privKey);
+            const binaryDer = str2ab(binaryDerString);
+
+            // Return the promise of key importation
+            return crypto.subtle.importKey(
+               "pkcs8",
+               binaryDer,
+               {
+                  'name': 'ECDSA',
+                  'namedCurve': 'K-256'
+               },
+               false,
+               ['sign']
+            );
+         }
+
+         // A function to load the ORG.IDs
+         function loadAvailableOrgIds(web3, account) {
+            // Get the JSON from Jsdeliver
+            let wtEntryPointURL = "https://cdn.jsdelivr.net/npm/@windingtree/wt-contracts@0.8.2/build/contracts/WindingTreeEntrypoint.json";
+            $.getJSON(wtEntryPointURL, function(wtEntryPoint) {
+
+               // Once received, build the contract
+               let wtEntryPointContract = new web3.eth.Contract(wtEntryPoint.abi, '0x0000000000000000000000000000000000077777');
+               wtEntryPointContract.methods.getOrganizationFactory().call()
+               .then(function(orgFactoryAddress){
+
+                  // Get the associated JSON
+                  wtOrgFactoryUrl = "https://cdn.jsdelivr.net/npm/@windingtree/wt-contracts@0.8.2/build/contracts/OrganizationFactory.json";
+                  $.getJSON(wtOrgFactoryUrl, function(wtOrgFactory) {
+
+                     // Once received, get the contract
+                     let wtOrgFactoryContract = new web3.eth.Contract(wtOrgFactory.abi, orgFactoryAddress);
+                     wtOrgFactoryContract.methods.getCreatedOrganizations().call()
+                     .then(function(orgAddresses){
+
+                        // Get the Organization contract
+                        wtOrgUrl = "https://cdn.jsdelivr.net/npm/@windingtree/wt-contracts@0.8.2/build/contracts/Organization.json";
+                        $.getJSON(wtOrgUrl, function(wtOrg) {
+
+                           // Check each address to see if the account is part of the associatedKeys
+                           orgAddresses.forEach(function(orgAddress) {
+                              // Skip the null address
+                              if(orgAddress !== "0x0000000000000000000000000000000000000000") {
+
+                                 // Get the org contract
+                                 let wtOrgContract = new web3.eth.Contract(wtOrg.abi, orgAddress);
+
+                                 // Get the associated keys
+                                 wtOrgContract.methods.getAssociatedKeys().call()
+                                 .then(associatedkeys => {
+
+                                    // Check for each key if the account is associated
+                                    isAssociated = false;
+                                    isOwner = false;
+                                    associatedkeys.forEach(associatedkey => {
+                                       if(associatedkey.toLowerCase() === account.toLowerCase()) {
+
+                                          // Add the organization in dropdown
+                                          var option = $('<option>', {
+                                             value: orgAddress,
+                                             text: orgAddress
+                                          });
+                                          isAssociated = true;
+                                          $('#defaultOrgid').append(option);
+                                       }
+                                    });
+
+                                    // Enable if a key is associated
+                                    if(isAssociated) {
+                                       // Enable the html elements
+                                       $('#defaultOrgid').prop("disabled", false);
+                                       $('#sign').prop( "disabled", false);
+                                    } else {
+
+                                       // Check if account is owner
+                                       wtOrgContract.methods.owner().call()
+                                       .then(function(contractOwner) {
+                                          if(contractOwner.toLowerCase() === account.toLowerCase()) {
+                                             // Add the organization in dropdown
+                                             var option = $('<option>', {
+                                                value: orgAddress,
+                                                text: orgAddress + " (owner)"
+                                             });
+                                             $('#defaultOrgid').append(option);
+
+                                             // ENable the HTML elements
+                                             $('#defaultOrgid').prop("disabled", false);
+                                             $('#sign').prop( "disabled", false);
+                                          }
+                                       });
+                                    }
+                                 });
+                              }
+                           });
+
+                        });
+
+                     });
+                  });
+               });
+            });
+         }
+
+         // New function to load the ORG.IDs from the segments
+         function loadDidOrgIdsFromSegments(web3, account) {
+            $.getJSON('/abi/WindingTreeEntrypoint.json', function(jsonEntryPoint) {
+               // Get segment names
+               var wtEntryPoint = new web3.eth.Contract(jsonEntryPoint.abi, '0x0000000000000000000000000000000000099999')
+               wtEntryPoint.methods.getSegmentsLength().call()
+               .then(nbSegment => {
+
+                  // For each segment, get his name
+                  var segments = [];
+                  for(let i=0; i<nbSegment; i++) {
+                     wtEntryPoint.methods.getSegmentName(i).call()
+                     .then(segmentName => {
+
+                        // Get the segment address
+                        wtEntryPoint.methods.getSegment(segmentName).call()
+                        .then(segmentAddress => {
+                           // Check if the segment is valid and add it
+                           if((segmentName.length >0) &&
+                              (segmentAddress != '0x0000000000000000000000000000000000000000')) {
+                                 segments.push(segmentAddress);
+                              }
+
+                           // If it is the last one, get the segment JSON
+                           if(i == nbSegment-1) {
+                              $.getJSON('/abi/SegmentDirectory.json', function(jsonDirectory) {
+                                 segments.forEach(segment => {
+                                    console.log(segment);
+
+                                    // Get organizations addresses
+                                    var wtSegment = new web3.eth.Contract(jsonDirectory.abi, segment);
+                                    wtSegment.methods.getOrganizations().call()
+                                    .then(orgs => {
+                                       console.log(orgs);
+
+                                       // Get the organization details
+                                       orgs.forEach(orgAddress => {
+                                          if(orgAddress != '0x0000000000000000000000000000000000000000') {
+                                             var option = $('<option>', {
+                                                value: orgAddress,
+                                                text: orgAddress
+                                             });
+                                             $('#defaultOrgid').append(option);
+                                          }
+                                       });
+
+                                       // Enable the HTML elements
+                                       $('#defaultOrgid').prop("disabled", false);
+                                       $('#sign').prop( "disabled", false);
+                                    });
+                                 });
+                              });
+
+                           }
+
+                        });
+
+                     });
+                  }
+               });
+
+            });
+         }
+
+         function updateTokenValue(token) {
+            $("#token").val(token);
+
+            // Redirect to the URL in parameters
+            var url = new URL(window.location);
+            var redirectUrl = url.searchParams.get("redirect_uri");
+            redirectUrl += "#access_token=" + token;
+            redirectUrl += "&state=" + url.searchParams.get("state");
+            redirectUrl += "&scope=" + encodeURI($('#scope').val());
+            redirectUrl += "&token_type=Bearer&expires_in="+ $('#expiration').val()
+
+            console.log(redirectUrl);
+            $("#redirect_url").val(redirectUrl);
+            $('#redirect').prop("disabled", false);
+            //window.location = redirectUrl;
+         }
+
+         // Function to update the Network validation check
+         function handleEthereumNetworkChange(web3) {
+            web3.eth.net.getNetworkType()
+            .then(network => {
+               // Validate Network
+               if(network == 'ropsten') {
+                  $("#staticChain").addClass("is-valid");
+                  $("#staticChain").removeClass("is-invalid");
+               } else {
+                  $("#staticChain").addClass("is-invalid");
+                  $("#staticChain").removeClass("is-valid");
+               }
+
+               // Load the default address if there is none yet
+               if($('#account').val() == null || $('#account').val().length == 0) {
+                  if(window.ethereum.selectedAddress != null && window.ethereum.selectedAddress.length == 42) {
+                     handleEthereumAccountChange([window.ethereum.selectedAddress]);
+                  }
+               }
+
+            });
+         }
+
+         // FUnction to handle the account change
+         function handleEthereumAccountChange(accounts) {
+            $('#account').empty();
+            // If there is only one, change appearance to plain text
+            if(accounts.length == 1) {
+               $('#account').replaceWith("<input type=\"text\" id=\"account\" readonly class=\"form-control\" value=\"" + accounts[0] + "\">")
+            }
+
+            // If there are multiple, allow selection
+            else if(accounts.length > 1) {
+               $("#account").replaceWith("<select class=\"form-control\" id=\"account\"></select>");
+               // Add accounts in dropdown
+               $.each(accounts, function (i, account) {
+                  $('#account').append($('<option>', {
+                     value: account,
+                     text: account
+                  }));
+               });
+            }
+
+            // Update hint on account validity
+            if(accounts.length > 0) {
+               $("#account").addClass("is-valid");
+               $("#account").removeClass("is-invalid");
+            } else {
+               $("#account").removeClass("is-valid");
+               $("#account").addClass("is-invalid");
+            }
+
+         }
+
+         // Handle a change of authentication method
+         function onAuthenticationParametersChanged() {
+            // When Ethereum is checked, disable private key
+            if($("#ethereum").is(':checked')) {
+               $("#account").prop("disabled", false);
+               $("#auth").prop("disabled", false);
+               $("#privateKey").prop("disabled", true);
+               $("#privateKey").removeClass("is-valid");
+               $("#privateKey").removeClass("is-invalid");
+
+               if($('#account').val() != null && $('#account').val().length == 42) {
+                  $("#account").addClass("is-valid");
+               } else {
+                  $("#account").addClass("is-invalid");
+               }
+            }
+
+            if($("#secp256k1").is(':checked')) {
+               $("#auth").prop("disabled", true);
+               $("#account").prop("disabled", true);
+               $("#privateKey").prop("disabled", false);
+
+               // If key is empty, it is invalid
+               if($("#privateKey").val() == "") {
+                  $("#privateKey").removeClass("is-valid");
+                  $("#privateKey").addClass("is-invalid");
+               }
+
+               // If key is present, try to load it
+               else {
+                  $("#privateKey").removeClass("is-valid");
+                  $("#privateKey").removeClass("is-invalid");
+                  importECPrivateKey($("#privateKey").val())
+                  .then(key => {
+                     $("#privateKey").addClass("is-valid");
+                  })
+                  .catch(err => {
+                     $("#privateKey").addClass("is-invalid");
+                     console.log(err);
+                  });
+               }
+
+               // Remove validation hints on account
+               $("#account").removeClass("is-valid");
+               $("#account").removeClass("is-invalid");
+
+            }
+
+            // Recompute validation on issuer
+            onIssuerValueChanged()
+         }
+
+         // Handle the change of option with DID
+         function onDidParameterChanged() {
+            // If DID is enabled, allow public key
+            if($("#enableNewDid").is(':checked')) {
+               $("#secp256k1").prop("disabled", false);
+               $("#alert-did").prop("hidden", true);
+
+            }
+
+            // otherwise deactivate it and force key type to Ethereum
+            else {
+               if($("#secp256k1").is(':checked')) {
+                  $("#ethereum").prop("checked", true);
+                  onAuthenticationMethodChanged();
+               }
+               $("#secp256k1").prop("disabled", true);
+               $("#alert-did").prop("hidden", false);
+            }
+         }
+
+
+
+         // Handle changes in the issuer
+         function onIssuerValueChanged() {
+            var isIssuerOrgIdValid = false;
+            var isPublicKeyIndexValid = false;
+            var issuerOrgId = null;
+
+            // Check the type of ORG.ID selection
+            if($("#orgidSelectionManual").is(':checked')) {
+               // Check if the manualOrgid value is valid
+               if(($("#manualOrgid").val() != null) && $("#manualOrgid").val().length == 66) {
+                  // Update state of manual ORG.ID to valid
+                  $("#manualOrgid").removeClass("is-invalid");
+                  $("#manualOrgid").addClass("is-valid");
+                  isIssuerOrgIdValid = true;
+                  issuerOrgId = $("#manualOrgid").val();
+
+               } else {
+                  // Update state of manual ORG.ID  invalid
+                  $("#manualOrgid").addClass("is-invalid");
+                  $("#manualOrgid").removeClass("is-valid");
+               }
+            }
+
+            // Check if a public key index is required
+            if($("#secp256k1").is(':checked')) {
+               if(($("#didPublicKeyIndex").val() != null)
+                  && $("#didPublicKeyIndex").val().length > 0) {
+
+                     // Update the Public key index to valid
+                     $("#didPublicKeyIndex").addClass("is-valid");
+                     $("#didPublicKeyIndex").removeClass("is-invalid");
+                     isPublicKeyIndexValid = true;
+
+               } else {
+                     // Update the Public key index to invalid
+                     $("#didPublicKeyIndex").addClass("is-invalid");
+                     $("#didPublicKeyIndex").removeClass("is-valid");
+
+               }
+            } else {
+               isPublicKeyIndexValid = true;
+               $("#didPublicKeyIndex").removeClass("is-valid");
+               $("#didPublicKeyIndex").removeClass("is-invalid");
+            }
+
+            // COmpute DID and mark as valid
+            if(isIssuerOrgIdValid && isPublicKeyIndexValid) {
+               // Update the DID value
+               if($("#secp256k1").is(':checked')) {
+                  $("#issuerDidValue").val("did:orgid:" + issuerOrgId + "#" + $("#didPublicKeyIndex").val());
+               } else {
+                  $("#issuerDidValue").val("did:orgid:" + issuerOrgId);
+               }
+
+               $("#issuerDidValue").addClass("is-valid");
+            } else {
+               $("#issuerDidValue").val("");
+               $("#issuerDidValue").removeClass("is-valid");
+            }
+
+         }
+
+         // Handle changes in the audience
+         function onAudienceValueChanged() {
+            var isAudienceOrgIdValid = false;
+            var audienceOrgId = null;
+
+            // If the audience is pre-selected, ensure a value is taken
+            if($("#audienceSelectionPreConfigured").is(':checked')) {
+               if(($("#audienceConfigurationSelection").val() != null)
+                  && ($("#audienceConfigurationSelection").val().length == 66)) {
+
+                  isAudienceOrgIdValid = true;
+                  audienceOrgId = $("#audienceConfigurationSelection").val();
+                  $("#audienceConfigurationSelection").addClass("is-valid");
+                  $("#audienceConfigurationSelection").removeClass("is-invalid");
+               }
+
+               else {
+                  $("#audienceConfigurationSelection").addClass("is-invalid");
+                  $("#audienceConfigurationSelection").removeClass("is-valid");
+               }
+
+               $("#manualAudience").removeClass("is-invalid");
+               $("#manualAudience").removeClass("is-valid");
+            }
+
+            // If it is manual, make sure it is filled
+            if($("#audienceSelectionManual").is(':checked')) {
+               if(($("#manualAudience").val() != null)
+                  && ($("#manualAudience").val().length == 66)) {
+
+                  isAudienceOrgIdValid = true;
+                  audienceOrgId = $("#manualAudience").val();
+                  $("#manualAudience").addClass("is-valid");
+                  $("#manualAudience").removeClass("is-invalid");
+               }
+
+               else {
+                  $("#manualAudience").addClass("is-invalid");
+                  $("#manualAudience").removeClass("is-valid");
+               }
+
+               $("#audienceConfigurationSelection").removeClass("is-invalid");
+               $("#audienceConfigurationSelection").removeClass("is-valid");
+            }
+
+            // Update the value od the audience DID
+            if(isAudienceOrgIdValid) {
+               $("#audienceDidValue").val("did:orgid:" + audienceOrgId);
+               $("#audienceDidValue").addClass("is-valid");
+            }
+            else {
+               $("#audienceDidValue").val("");
+               $("#audienceDidValue").removeClass("is-valid");
+            }
+         }
+
+         function onExpirationValueChanged() {
+            var expirationHuman = "";
+            var delta = Math.round($("#expiration").val());
+            if(delta < 60) {
+               expirationHuman = delta + 's';
+            }
+            else if(delta < 60*60) {
+               expirationHuman = Math.floor(delta/60) + "m";
+            }
+            else if(delta < 60*60*24) {
+               expirationHuman = Math.floor(delta/(60*60)) + "h";
+            }
+            else if(delta < 60*60*24*30) {
+               expirationHuman = Math.floor(delta/(60*60*24)) + "d";
+            }
+            else {
+               expirationHuman = "about " + Math.floor(delta/(60*60*24*30)) + " months";
+            }
+            $("#expirationHuman").html(expirationHuman);
+         }
+
+         $(document).ready(function() {
+
+            // Initialize the scope value to the GET parameter
+            var url = new URL(window.location);
+            $('#scope').val(url.searchParams.get("scope"));
+
+            // Load ORG.IDs
+            var web3 = new Web3(Web3.givenProvider || "ws://localhost:8546");
+
+            // Register for DID parameters change
+            $('#enableNewDid').change(onDidParameterChanged);
+
+            // Register for authentication parameters change
+            $('input[type=radio][name=keyType]').change(onAuthenticationParametersChanged);
+            $('#privateKey').change(onAuthenticationParametersChanged);
+            $('#account').change(onAuthenticationParametersChanged);
+
+            // Register for issuer element changes
+            $('#orgidSelectionAttached').change(onIssuerValueChanged);
+            $('#orgidSelectionManual').change(onIssuerValueChanged);
+            $('#defaultOrgid').change(onIssuerValueChanged);
+            $('#manualOrgid').change(onIssuerValueChanged);
+            $('#didPublicKeyIndex').change(onIssuerValueChanged);
+
+            // Register for audience elements changed
+            $("#audienceSelectionPreConfigured").change(onAudienceValueChanged);
+            $("#audienceSelectionManual").change(onAudienceValueChanged);
+            $("#audienceConfigurationSelection").change(onAudienceValueChanged);
+            $("#manualAudience").change(onAudienceValueChanged);
+
+            // Register for expiry date change
+            $("#expiration").change(onExpirationValueChanged);
+
+
+
+
+            // Check for an Ethereum client
+            if (typeof window.ethereum !== 'undefined') {
+
+               // Check Network and handle network change
+               handleEthereumNetworkChange(web3);
+               window.ethereum.autoRefreshOnNetworkChange = false;
+               window.ethereum.on('networkChanged', networkId => {
+                  handleEthereumNetworkChange(web3);
+               });
+
+               // Check If Ethereum address is here and use it
+               if(window.ethereum.selectedAddress != null && window.ethereum.selectedAddress.length == 42) {
+                  handleEthereumAccountChange([window.ethereum.selectedAddress]);
+               }
+               window.ethereum.on('accountsChanged', handleEthereumAccountChange);
+
+               $('#auth').prop( "disabled", false);
+
+               // Create bindings
+               $('#auth').click(function() {
+                  // Authentication clicked
+                  const provider = window['ethereum'];
+
+                  // Enable Ethereum
+                  ethereum.enable()
+                  .then(function (accounts) {
+                     // Add address in dropdown
+                     handleEthereumAccountChange(accounts);
+
+                     // Load the Org.IDs immediatly if we have only one account
+                     if(accounts.length == 1) {
+                        // Get the segments from DID
+                        if($("#enableNewDid").is(':checked')) {
+                           loadDidOrgIdsFromSegments(web3, accounts[0]);
+                        }
+
+                        // FOr backward compatibility
+                        else {
+                           loadAvailableOrgIds(web3, accounts[0]);
+                        }
+
+                     }
+                     //TODO: handle cases where there are multiple accounts
+                  })
+                  .catch(function (error) {
+                     // Handle error. Likely the user rejected the login
+                     //console.error(error);
+                  });
+               });
+
+               $('#sign').click(function() {
+
+                  // Determine the algorithm
+                  var algorithm = ""
+                  if($("#ethereum").is(':checked')) {
+                     algorithm = 'ETH';
+                  }
+                  else if($("#secp256k1").is(':checked')) {
+                     algorithm = 'ES256K';
+                  }
+
+                  // Build the header
+                  var header = {
+                     "alg": algorithm,
+                     "typ": "JWT"
+                  };
+
+                  // Using browser's time is dangerous, but used here as a PoC
+                  var now = Math.floor(new Date().getTime()/1000);
+                  var expiry = parseInt($("#expiration").val(), 10) + now;
+
+                  // Create the payload
+                  if($("#enableNewDid").is(':checked')) {
+                     var payload = {
+                        "iss": $("#issuerDidValue").val(),
+                        "aud": $("#audienceDidValue").val(),
+                        "exp": expiry,
+                        "scope": $('#scope').val()
+                     };
+                  }
+
+                  // For backward compatibility
+                  else {
+                     var issuingOrgid = $("#manualOrgid").val();
+                     if(issuingOrgid == "") {
+                        issuingOrgid = $("#defaultOrgid").val();
+                     }
+                     var audienceOrgid = $("#manualAudience").val();
+                     if(audienceOrgid == "") {
+                        audienceOrgid = $("#audienceConfigurationSelection").val();
+                     }
+                     var payload = {
+                        "iss": issuingOrgid,
+                        "aud": audienceOrgid,
+                        "exp": expiry,
+                        "scope": $('#scope').val()
+                     };
+                  }
+
+                  // Prepare content to sign
+                  sHeader = JSON.stringify(header);
+                  sPayload = JSON.stringify(payload);
+
+                  var toSign = "";
+                  toSign = btoa(sHeader) + "." + btoa(sPayload);
+                  toSign = toSign.replace(/\=/g,'');
+                  toSign = toSign.replace(/\+/g,"-");
+                  toSign = toSign.replace(/\//g,"_");
+
+                  // Handle the Ethereum signature process
+                  if(algorithm == 'ETH') {
+
+                     // Prepare raw transaction data
+                     var from = $("#account").val();
+                     var params = [toSign, from];
+                     var method = 'personal_sign';
+
+                     // Request request to web3 provider
+                     web3.currentProvider.sendAsync({
+                        method,
+                        params,
+                        from,
+                     }, function (err, result) {
+                        if (err) return console.error(err);
+                        if (result.error) return console.error(result.error);
+                        signature = result.result;
+                        // Convert hex to base64
+                        // Leading '0x' is skipped, and each byte is unpacked using two hex chars
+                        var raw = "";
+                        for(let i = 2; i < signature.length; i+=2) {
+                           raw += String.fromCharCode(parseInt(signature.substring(i, i+2), 16))
+                        }
+                        var b64Token = btoa(raw).replace(/\+/g,"-").replace(/\//g,"_").split('=')[0]
+                        //console.log(b64Token);
+
+                        // console.log('base64:' + base64)
+                        var token = toSign + "." + b64Token;
+                        updateTokenValue(token);
+                     });
+                  }
+
+                  // Handle the ES256K signature process
+                  else if(algorithm == 'ES256K') {
+                     importECPrivateKey($("#privateKey").val())
+                     .then (prvKey => {
+                        // Sign the payload
+                        crypto.subtle.sign(
+                           {
+                              'name': 'ECDSA',
+                              'hash': 'SHA-256'
+                           },
+                           prvKey,
+                           str2ab(toSign)
+                        )
+
+                        // When the message is signed, append it
+                        // Note that this function differs from OpenSSL as it returns 64 bytes (r+s)
+                        // While openssl creates an ASN.1 signature (70 bytes)
+                        .then(rawSig => {
+                           // Encode to base 64
+                           var sigValueB64 = ab2b64(rawSig).replace(/\+/g,"-").replace(/\//g,"_").split('=')[0];
+                           var token = toSign + "." + sigValueB64;
+                           updateTokenValue(token);
+                        });
+                     });
+                  }
+
+               });
+
+               $('#redirect').click(function(event) {
+                  event.preventDefault();
+                  window.location = $("#redirect_url").val();
+               })
+
+               $('#create').click(function() {
+                  //TODO: Don't hardcode Jirka's demo org
+                  var jsonUrl = "https://gist.githubusercontent.com/JirkaChadima/9c86f9ed1cfd157f71a172ee9379f35f/raw/0287be953438ba04a9fb98b625589b2b28c64b8b/legal-entity.json";
+                  var jsonHash = "0x00000000000000000000000000000000000000000000000000000000000017121";
+
+                  // Get the JSON from Jsdeliver
+                  wtEntryPointURL = "https://cdn.jsdelivr.net/npm/@windingtree/wt-contracts@0.8.2/build/contracts/WindingTreeEntrypoint.json";
+                  $.getJSON(wtEntryPointURL, function(wtEntryPoint) {
+
+                     // Once received, build the contract
+                     wtEntryPointContract = new web3.eth.Contract(wtEntryPoint.abi, '0x0000000000000000000000000000000000077777');
+                     wtEntryPointContract.methods.getOrganizationFactory().call()
+                     .then(function(orgFactoryAddress){
+
+                        // Get the associated JSON
+                        wtOrgFactoryUrl = "https://cdn.jsdelivr.net/npm/@windingtree/wt-contracts@0.8.2/build/contracts/OrganizationFactory.json";
+                        $.getJSON(wtOrgFactoryUrl, function(wtOrgFactory) {
+
+                           // Once received, get the contract
+                           wtOrgFactoryContract = new web3.eth.Contract(wtOrgFactory.abi, orgFactoryAddress);
+
+                           // Send the transaction
+                           console.log("Account value: " + $('#account').val());
+                           wtOrgFactoryContract.methods.create(jsonUrl,jsonHash).send({from: $('#account').val()})
+                           .on('receipt', receipt => {
+                              console.log(receipt);
+                           });
+                        });
+                     });
+                  });
+               });
+
+            }
+
+            // Provide explanation how to use Eth web3
+            else {
+               window.alert("Please install a Web3 client such as metamask");
+               console.log("No ethereum client");
+            }
+         });
+      </script>
+   </body>
+</html>

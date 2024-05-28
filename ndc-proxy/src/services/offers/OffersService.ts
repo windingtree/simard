@@ -79,7 +79,7 @@ export class OffersService {
 
         if (!Array.isArray(providers) || providers.length === 0) {
             this.log.warn(`No providers were found for request, session context: ${JSON.stringify(sessionContext)}`);
-            throw new BaseGliderException(HttpStatusCode.CLIENT_BAD_REQUEST, 'No flight providers configured, please contact sales@simard.io', ErrorCodes.NO_RESULTS_FOR_SEARCH_CRITERIA);
+            throw new BaseGliderException(HttpStatusCode.CLIENT_BAD_REQUEST, 'No flight providers configured, please contact username@host', ErrorCodes.NO_RESULTS_FOR_SEARCH_CRITERIA);
         }
 
         // init object to store merged search results (from multiple providers)
